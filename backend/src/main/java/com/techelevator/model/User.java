@@ -14,13 +14,15 @@ public class User {
    private String password;
    @JsonIgnore
    private boolean activated;
+   private String email;
    private Set<Authority> authorities = new HashSet<>();
 
    public User() { }
 
-   public User(Long id, String username, String password, String authorities) {
+   public User(Long id, String username, String email, String password,  String authorities) {
       this.id = id;
       this.username = username;
+      this.email = email;
       this.password = password;
       this.activated = true;
    }
@@ -47,6 +49,14 @@ public class User {
 
    public void setPassword(String password) {
       this.password = password;
+   }
+
+   public String getEmail() {
+      return email;
+   }
+
+   public void setEmail(String email) {
+      this.email = email;
    }
 
    public boolean isActivated() {
@@ -81,6 +91,7 @@ public class User {
       return id == user.id &&
               activated == user.activated &&
               Objects.equals(username, user.username) &&
+              Objects.equals(email, user.email) &&
               Objects.equals(password, user.password) &&
               Objects.equals(authorities, user.authorities);
    }
@@ -95,6 +106,7 @@ public class User {
       return "User{" +
               "id=" + id +
               ", username='" + username + '\'' +
+              ", email='" + email + "\'" +
               ", activated=" + activated +
               ", authorities=" + authorities +
               '}';
