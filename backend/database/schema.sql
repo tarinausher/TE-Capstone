@@ -22,9 +22,6 @@ CREATE TABLE users (
 INSERT INTO users (username,password_hash, email, role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'user@user.com', 'ROLE_USER');
 INSERT INTO users (username,password_hash, email, role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'admin@admin.com', 'ROLE_ADMIN');
 
-COMMIT TRANSACTION;
-
-BEGIN TRANSACTION;
 CREATE TABLE profile (
 profile_id SERIAL,
 user_id INT,
@@ -48,7 +45,6 @@ programming_language VARCHAR(255),
 PRIMARY KEY (cohort_id)
 );
 --Creates cohort table
-
 
 CREATE TABLE cohort_student (
 cohort_id INT,
