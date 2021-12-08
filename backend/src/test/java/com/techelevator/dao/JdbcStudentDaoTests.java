@@ -30,12 +30,13 @@ public class JdbcStudentDaoTests extends FinalCapstoneDaoTests {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         sut = new JdbcStudentDao(jdbcTemplate);
     }
-    //TODO: FIGURE OUT THIS GOSH DARN PERMISSIONS ERROR
 
-//    @Test
-//    public void updatePublishStatus() {
-//        Assert.assertEquals(true, student1.s);
-//    }
+
+    @Test
+    public void updatePublishStatus() {
+        sut.updateIsPublished(true, 1);
+        Assert.assertTrue(student1.isPublished());
+    }
 
     @Test
     public void getStudentsByCohortId() {
@@ -45,43 +46,61 @@ public class JdbcStudentDaoTests extends FinalCapstoneDaoTests {
 
         List<Student> testList = sut.getStudentsByCohortId(10);
 
-        Assert.assertEquals(studentByCohort, testList);
+        Assert.assertEquals(studentByCohort.size(), testList.size());
+        assertStudentMatch(student1, testList.get(0));
     }
 
+
     @Test
-    public void getAllStudentsWhoArePublished() {
+    public void getAllStudentsWhoArePublished () {
         List<Student> publishedStudents = new ArrayList<>();
         publishedStudents.add(student2);
         publishedStudents.add(student4);
 
         List<Student> testList = sut.getAllStudents();
 
+        Assert.assertEquals(publishedStudents.size(), testList.size());
+        assertStudentMatch(student2, testList.get(0));
         Assert.assertEquals(publishedStudents, testList);
     }
 
     @Test
-    public void getAllUnpublishedProfiles() {
-        List<Student> unpublishedStudents = new ArrayList<>();
-        unpublishedStudents.add(student1);
-        unpublishedStudents.add(student3);
+    public void getAllUnpublishedProfiles () {
+       List<Student> unpublishedStudents = new ArrayList<>();
+       unpublishedStudents.add(student1);
+       unpublishedStudents.add(student3);
 
-        List<Student> testList = sut.getUnpublishedProfiles();
+       List<Student> testList = sut.getUnpublishedProfiles();
 
-        Assert.assertEquals(unpublishedStudents, testList);
+       Assert.assertEquals(unpublishedStudents.size(), testList.size());
+//        assertStudentMatch(unpublishedStudent);
+       Assert.assertEquals(unpublishedStudents, testList);
     }
 
     @Test
-    public void getStudentByProfileId() {
+    public void getStudentByProfileId () {
         Student testStudent = sut.getStudentByProfileId(1);
 
         Assert.assertEquals(student1, testStudent);
     }
 
     @Test
-    public void getStudentByUserId() {
+    public void getStudentByUserId () {
         Student testStudent = sut.getStudentByUserId(2);
 
-        Assert.assertEquals(student2, testStudent);
+        Assert.assertEquals(student2.getFirstName(), testStudent.getFirstName());
     }
 
+    private void assertStudentMatch (Student expected, Student actual){
+        Assert.assertEquals(expected.getUserId(), actual.getUserId());
+        Assert.assertEquals(expected.getProfileId(), actual.getProfileId());
+        Assert.assertEquals(expected.getCohortId(), actual.getCohortId());
+        Assert.assertEquals(expected.getFirstName(), actual.getFirstName());
+        Assert.assertEquals(expected.getLastName(), actual.getLastName());
+        Assert.assertEquals(expected.getSummary(), actual.getSummary());
+        Assert.assertEquals(expected.getContactPreferences(), actual.getContactPreferences());
+        Assert.assertEquals(expected.getTechInterests(), actual.getTechInterests());
+        Assert.assertEquals(expected.isPublished(), actual.isPublished());
+    }
 }
+

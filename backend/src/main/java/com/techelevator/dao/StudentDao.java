@@ -22,11 +22,8 @@ public interface StudentDao {
     TODO: updateInterests
     */
 
-    /*
-    Student can publish their profile when ready
-    TODO: updateIsPublished
-     */
-
+    //Student can publish their profile when ready
+    void updateIsPublished(boolean isPublished, int userId);
 
     //Users should be able to browse students by cohort number
     List<Student> getStudentsByCohortId(int cohortId);

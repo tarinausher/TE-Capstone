@@ -11,6 +11,7 @@ public class Student {
     private String summary;
     private String softSkills;
     private String contactPreferences;
+    private String techInterests;
     private String technology;
     private String lastUpdated;
     private boolean isPublished;
@@ -22,12 +23,12 @@ public class Student {
     /*
     Student class represents the student user and their data; student users have profiles in which
     they can add and edit data on profile as needed. Profile information is pulled from Student data.
-    */
+     */
 
     public Student() {
     }
 
-    public Student(int userId, int profileId, int cohortId, String firstName, String lastName, String summary, String softSkills, String contactPreferences, String technology, boolean isPublished) {
+    public Student(int userId, int profileId, int cohortId, String firstName, String lastName, String summary, String softSkills, String contactPreferences, String techInterests, boolean isPublished) {
         this.userId = userId;
         this.profileId = profileId;
         this.cohortId = cohortId;
@@ -36,9 +37,10 @@ public class Student {
         this.summary = summary;
         this.softSkills = softSkills;
         this.contactPreferences = contactPreferences;
-        this.technology = technology;
+        this.techInterests = techInterests;
         this.isPublished = isPublished;
     }
+
 
     public int getUserId() {
         return userId;
@@ -104,6 +106,14 @@ public class Student {
         this.contactPreferences = contactPreferences;
     }
 
+    public String getTechInterests() {
+        return techInterests;
+    }
+
+    public void setTechInterests(String techInterests) {
+        this.techInterests = techInterests;
+    }
+
     public String getTechnology() {
         return technology;
     }
@@ -119,6 +129,7 @@ public class Student {
     public void setPublished(boolean published) {
         isPublished = published;
     }
+
 
     public Experience getExperience() {
         return experience;
@@ -168,3 +179,4 @@ public class Student {
         return "none";
     }
 }
+

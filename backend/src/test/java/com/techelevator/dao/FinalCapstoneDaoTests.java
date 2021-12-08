@@ -7,7 +7,9 @@ import javax.sql.DataSource;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.SingleConnectionDataSource;
+
 
 public abstract class FinalCapstoneDaoTests {
 
@@ -21,7 +23,7 @@ public abstract class FinalCapstoneDaoTests {
     public static void setupDataSource() {
         dataSource = new SingleConnectionDataSource();
         dataSource.setUrl("jdbc:postgresql://localhost:5432/final_capstone");
-        dataSource.setUsername("final_capstone_appuser");
+        dataSource.setUsername("final_capstone_owner");
         dataSource.setPassword("finalcapstone");
         /* The following line disables autocommit for connections
          * returned by this DataSource. This allows us to rollback

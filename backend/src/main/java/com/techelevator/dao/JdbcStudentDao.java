@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbcStudentDao implements StudentDao{
+public class JdbcStudentDao implements StudentDao {
     private JdbcTemplate jdbcTemplate;
 
     public JdbcStudentDao(JdbcTemplate jdbcTemplate) {
@@ -36,10 +36,16 @@ public class JdbcStudentDao implements StudentDao{
 
 
     /*
-    Student can publish their profile when ready
-    TODO: updateIsPublished
-     */
 
+    Student can publish their profile when ready. The idea is the student will have a button to select
+    if the profile is ready to be published. If that is selected, this method will be called to update in the is_published
+    status appropriately (false if private, true if public) for the profile connected to a specific user_id
+     */
+    @Override
+    public void updateIsPublished(boolean isPublished, int userId) {
+        String sql = "UPDATE profile SET is_published = ? WHERE user_id = ?;";
+        jdbcTemplate.update(sql, isPublished, userId);
+    }
 
     //Users should be able to browse students by cohort number
     @Override
@@ -47,23 +53,24 @@ public class JdbcStudentDao implements StudentDao{
         List<Student> studentsByCohortId = new ArrayList<>();
         String sql = "SELECT * FROM profile WHERE cohort_id = ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, cohortId);
-        while(results.next()) {
+        while (results.next()) {
             Student student = mapRowToStudent(results);
             studentsByCohortId.add(student);
         }
         return studentsByCohortId;
     }
 
-
     //Users should be able to view all students with published profiles
     @Override
     public List<Student> getAllStudents() {
         List<Student> getAllPublishedStudents = new ArrayList<>();
+
         String sql = "SELECT * FROM profile WHERE is_published = true;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
-        while(results.next()) {
+        while (results.next()) {
             Student student = mapRowToStudent(results);
+
             getAllPublishedStudents.add(student);
         }
         return getAllPublishedStudents;
@@ -77,7 +84,7 @@ public class JdbcStudentDao implements StudentDao{
     public Student getStudentByProfileId(int profileId) {
         String sql = "SELECT * FROM profile WHERE profile_id = ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, profileId);
-        if(results.next()) {
+        if (results.next()) {
             return mapRowToStudent(results);
         } else {
             throw new RuntimeException("Profile was not found.");
@@ -88,7 +95,7 @@ public class JdbcStudentDao implements StudentDao{
     public Student getStudentByUserId(int userId) {
         String sql = "SELECT * FROM profile WHERE user_id = ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
-        if(results.next()) {
+        if (results.next()) {
             return mapRowToStudent(results);
         } else {
             throw new RuntimeException("Profile was not found.");
@@ -103,7 +110,7 @@ public class JdbcStudentDao implements StudentDao{
         String sql = "SELECT * FROM profile WHERE is_published = false;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
-        while(results.next()) {
+        while (results.next()) {
             Student student = mapRowToStudent(results);
             allPublishedStudents.add(student);
         }
