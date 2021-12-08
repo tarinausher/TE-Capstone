@@ -138,4 +138,13 @@ ALTER TABLE portfolio_links
 ADD project_title VARCHAR(255),
 ADD solo_project BOOLEAN;
 
+CREATE TABLE link_tech(
+link_id INT,
+tech_id INT,
+PRIMARY KEY (link_id),
+PRIMARY KEY (tech_id),
+FOREIGN KEY (link_id) REFERENCES portfolio_links(portfolio_link_id),
+FOREIGN KEY (tech_id) REFERENCES technology(tech_id)
+);
+
 COMMIT TRANSACTION;
