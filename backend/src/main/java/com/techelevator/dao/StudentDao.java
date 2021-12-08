@@ -7,26 +7,18 @@ import java.util.List;
 public interface StudentDao {
 
     //Student profile is created upon new account creation
-    boolean createProfile(int userId);
-    //IMPORTANT: TODO: NEED TO EDIT THIS BASED ON HOW DATABASE IS ADJUSTED
+    void createProfile(Student newStudent);
 
-    /*
-    Student should have the ability to update information in their profiles
-    TODO: updateStudentFirstName,
-    TODO: updateStudentLastName,
-    TODO: updateProfileSummary,
-    TODO: updateAcademicExperience,
-    TODO: updateCareerExperience,
-    TODO: updateSoftSkills,
-    TODO: updateContactPreferences,
-    TODO: updateInterests
-    */
+    //Student should have the ability to update information in their profiles
+    void updateFirstName(Student updatedStudent);
+    void updateLastName(Student updatedStudent);
+    void updateProfileSummary(Student updatedStudent);
+    void updateSoftSkills(Student updatedStudent);
+    void updateContactPreferences(Student updatedStudent);
+    void updateInterests(Student updatedStudent);
 
-    /*
-    Student can publish their profile when ready
-    TODO: updateIsPublished
-     */
-
+    //Student can publish their profile when ready
+    public void updateIsPublished(Student updatedStudent);
 
     //Users should be able to browse students by cohort number
     List<Student> getStudentsByCohortId(int cohortId);
@@ -42,11 +34,8 @@ public interface StudentDao {
     List<Student> getUnpublishedProfiles();
 
     /*
+    TODO: Determine if these methods are needed based on API
     Student profile should be searchable by cohortId, highest degree obtained, prior industry experience, and technologies used:
-    TODO: searchStudentsByCohortID,
-    TODO: searchStudentsByDegree,
-    TODO: searchStudentsByIndustry,
-    TODO: searchStudentsByTechUsed
     */
 
 }

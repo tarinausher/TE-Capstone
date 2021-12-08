@@ -64,4 +64,15 @@ public class Degree {
     public void setDateCompleted(String dateCompleted) {
         this.dateCompleted = dateCompleted;
     }
+
+    // @Override
+    // public String toString() {
+    //     return "AcademicExperience{" +
+    //             "degreeId=" + degreeId +
+    //             ", institution='" + institution + '\'' +
+    //             ", level='" + level + '\'' +
+    //             ", degreeType=" + degreeType + '\'' +
+    //             ", subjectArea='" + subjectArea + '\'' +
+    //             '}';
+    // }
 }

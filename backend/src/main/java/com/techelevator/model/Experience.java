@@ -84,4 +84,17 @@ public class Experience {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    // @Override
+    // public String toString() {
+    //     return "CareerExperience{" +
+    //             "entryId=" + entryId +
+    //             ", industry='" + industry + '\'' +
+    //             ", jobTitle='" + title + '\'' +
+    //             ", organization=" + organization + '\'' +
+    //             ", dateStarted='" + dateStarted + '\'' +
+    //             ", dateEnded='" + dateEnded + '\'' +
+    //             ", description='" + description + '\'' +
+    //             '}';
+    // }
 }

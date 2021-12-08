@@ -179,4 +179,20 @@ public class Student {
     public void setPublished(boolean published) {
         isPublished = published;
     }
+
+    // @Override
+    // public String toString() {
+    //     return "Student{" +
+    //             "userId=" + userId +
+    //             ", firstName='" + firstName + '\'' +
+    //             ", lastName='" + lastName + '\'' +
+    //             ", summary=" + summary + '\'' +
+    //             ", softSkills='" + softSkills + '\'' +
+    //             ", contactPreferences='" + contactPreferences + '\'' +
+    //             ", techInterests='" + techInterests + '\'' +
+    //             ", technology='" + technology + '\'' +
+    //             ", lastUpdated='" + lastUpdated + '\'' +
+    //             ", isPublished=" + isPublished +
+    //             '}';
+    }
 }
