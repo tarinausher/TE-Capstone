@@ -1,20 +1,33 @@
 package com.techelevator.model;
 
 public class Degree {
-    String type;
-    String institution;
-    String fieldOfStudy;
+    private int degreeId;
+    private String institution;
+    private String level;
+    private String degreeType;
+    private String subjectArea;
 
     /*
     Degree is referring to previous academic experience a student may have
      */
 
-    public String getType() {
-        return type;
+    public Degree() {
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public Degree(int degreeId, String institution, String level, String degreeType, String subjectArea) {
+        this.degreeId = degreeId;
+        this.institution = institution;
+        this.level = level;
+        this.degreeType = degreeType;
+        this.subjectArea = subjectArea;
+    }
+
+    public int getDegreeId() {
+        return degreeId;
+    }
+
+    public void setDegreeId(int degreeId) {
+        this.degreeId = degreeId;
     }
 
     public String getInstitution() {
@@ -25,11 +38,38 @@ public class Degree {
         this.institution = institution;
     }
 
-    public String getFieldOfStudy() {
-        return fieldOfStudy;
+    public String getLevel() {
+        return level;
     }
 
-    public void setFieldOfStudy(String fieldOfStudy) {
-        this.fieldOfStudy = fieldOfStudy;
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public String getType() {
+        return degreeType;
+    }
+
+    public void setType(String degreeType) {
+        this.degreeType = degreeType;
+    }
+
+    public String getSubjectArea() {
+        return subjectArea;
+    }
+
+    public void setSubjectArea(String subjectArea) {
+        this.subjectArea = subjectArea;
+    }
+
+    @Override
+    public String toString() {
+        return "AcademicExperience{" +
+                "degreeId=" + degreeId +
+                ", institution='" + institution + '\'' +
+                ", level='" + level + '\'' +
+                ", degreeType=" + degreeType + '\'' +
+                ", subjectArea='" + subjectArea + '\'' +
+                '}';
     }
 }

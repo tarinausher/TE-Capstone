@@ -14,3 +14,6 @@ SELECT * FROM profile;
 
 INSERT INTO career_experience (experience_title, organization_name, date_started, date_ended, description)
 VALUES ('Barista', 'Cafe Carnegie', '6/1/2021', '9/15/2021', 'Served coffee to customers at the museum. Tried not to cry.');
+
+ALTER TABLE career_experience
+ADD COLUMN industry VARCHAR(255);

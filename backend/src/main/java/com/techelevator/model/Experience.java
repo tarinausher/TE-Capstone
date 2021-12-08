@@ -1,7 +1,8 @@
 package com.techelevator.model;
 
 public class Experience {
-    private String industry;
+    private int entryId;
+    private String industry; //TODO THIS NEEDS TO BE ADDED TO THE DATABASE
     private String title;
     private String organization;
     private String dateStarted;
@@ -12,13 +13,22 @@ public class Experience {
     Experience is referring to previous career experience a student may have
      */
 
-    public Experience(String industry, String title, String organization, String dateStarted, String dateEnded, String description) {
+    public Experience(int entryId, String industry, String title, String organization, String dateStarted, String dateEnded, String description) {
+        this.entryId = entryId;
         this.industry = industry;
         this.title = title;
         this.organization = organization;
         this.dateStarted = dateStarted;
         this.dateEnded = dateEnded;
         this.description = description;
+    }
+
+    public int getEntryId() {
+        return entryId;
+    }
+
+    public void setEntryId(int entryId) {
+        this.entryId = entryId;
     }
 
     public String getIndustry() {
@@ -67,5 +77,18 @@ public class Experience {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "CareerExperience{" +
+                "entryId=" + entryId +
+                ", industry='" + industry + '\'' +
+                ", jobTitle='" + title + '\'' +
+                ", organization=" + organization + '\'' +
+                ", dateStarted='" + dateStarted + '\'' +
+                ", dateEnded='" + dateEnded + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
