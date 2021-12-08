@@ -5,6 +5,10 @@ public class Degree {
     String institution;
     String fieldOfStudy;
 
+    /*
+    Degree is referring to previous academic experience a student may have
+     */
+
     public String getType() {
         return type;
     }
