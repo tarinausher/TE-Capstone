@@ -12,6 +12,8 @@ public class Student {
     private String softSkills;
     private String contactPreferences;
     private String techInterests;
+    private String technology;
+    private String lastUpdated;
     private boolean isPublished;
 
     private Experience experience;
@@ -110,6 +112,12 @@ public class Student {
 
     public void setTechInterests(String techInterests) {
         this.techInterests = techInterests;
+    public String getTechnology() {
+        return technology;
+    }
+
+    public void setTechnology(String technology) {
+        this.technology = technology;
     }
 
     public boolean isPublished() {
@@ -118,5 +126,54 @@ public class Student {
 
     public void setPublished(boolean published) {
         isPublished = published;
+    }
+}
+
+    public Experience getExperience() {
+        return experience;
+    }
+
+    public String getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public String highestDegreeType() {
+        for(Degree degree : degrees) {
+            if(degree.getType() == "phd") {
+                return "phd";
+            }
+        }
+
+        for(Degree degree : degrees) {
+            if(degree.getType() == "masters") {
+                return "masters";
+            }
+        }
+
+        for(Degree degree : degrees) {
+            if(degree.getType() == "bachelors") {
+                return "bachelors";
+            }
+        }
+
+        for(Degree degree : degrees) {
+            if(degree.getType() == "associates") {
+                return "associates";
+            }
+        }
+
+        for(Degree degree : degrees) {
+            if(degree.getType() == "high-school") {
+                return "high-school";
+            }
+        }
+
+        for(Degree degree : degrees) {
+            if(degree.getType() == "certificate") {
+                return "certificate";
+            }
+        }
+
+        return "none";
     }
 }

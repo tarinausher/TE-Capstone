@@ -48,6 +48,20 @@ public class JdbcStudentDaoTests extends FinalCapstoneDaoTests {
 
        Assert.assertEquals(studentByCohort.size(), testList.size());
        assertStudentMatch(student1, testList.get(0));
+//    @Test
+//    public void updatePublishStatus() {
+//        Assert.assertEquals(true, student1.s);
+//    }
+
+    @Test
+    public void getStudentsByCohortId() {
+        List<Student> studentByCohort = new ArrayList<>();
+        studentByCohort.add(student1);
+        studentByCohort.add(student2);
+
+        List<Student> testList = sut.getStudentsByCohortId(10);
+
+        Assert.assertEquals(studentByCohort, testList);
     }
 
     @Test
@@ -60,6 +74,7 @@ public class JdbcStudentDaoTests extends FinalCapstoneDaoTests {
 
         Assert.assertEquals(publishedStudents.size(), testList.size());
         assertStudentMatch(student2, testList.get(0));
+        Assert.assertEquals(publishedStudents, testList);
     }
 
     @Test
@@ -72,6 +87,7 @@ public class JdbcStudentDaoTests extends FinalCapstoneDaoTests {
 
         Assert.assertEquals(unpublishedStudents.size(), testList.size());
 //        assertStudentMatch(unpublishedStudent);
+        Assert.assertEquals(unpublishedStudents, testList);
     }
 
     @Test

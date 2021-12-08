@@ -113,4 +113,13 @@ FOREIGN KEY (profile_id) REFERENCES profile(profile_id)
 );
 --Creates table joining career experiences to their respective tables
 
+CREATE TABLE link_tech(
+link_id INT,
+tech_id INT,
+PRIMARY KEY (link_id),
+PRIMARY KEY (tech_id),
+FOREIGN KEY (link_id) REFERENCES portfolio_links(portfolio_link_id),
+FOREIGN KEY (tech_id) REFERENCES technology(tech_id)
+);
+
 COMMIT TRANSACTION;

@@ -3,6 +3,7 @@ package com.techelevator.dao;
 import com.techelevator.model.Student;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,7 @@ public class JdbcStudentDao implements StudentDao{
 
 
     /*
+<<<<<<< HEAD
     Student can publish their profile when ready. The idea is the student will have a button to select
     if the profile is ready to be published. If that is selected, this method will be called to update in the is_published
     status appropriately (false if private, true if public) for the profile connected to a specific user_id
@@ -44,6 +46,12 @@ public class JdbcStudentDao implements StudentDao{
         String sql = "UPDATE profile SET is_published = ? WHERE user_id = ?;";
         jdbcTemplate.update(sql, isPublished, userId);
     }
+=======
+    Student can publish their profile when ready
+    TODO: updateIsPublished
+     */
+
+>>>>>>> 3943c4e27f69068480bcb2b72d2de901b284fe75
 
     //Users should be able to browse students by cohort number
     @Override
@@ -58,18 +66,32 @@ public class JdbcStudentDao implements StudentDao{
         return studentsByCohortId;
     }
 
+<<<<<<< HEAD
     //Users should be able to view all students with published profiles
     @Override
     public List<Student> getAllStudents() {
         List<Student> allPublishedStudents = new ArrayList<>();
+=======
+
+    //Users should be able to view all students with published profiles
+    @Override
+    public List<Student> getAllStudents() {
+        List<Student> getAllPublishedStudents = new ArrayList<>();
+>>>>>>> 3943c4e27f69068480bcb2b72d2de901b284fe75
         String sql = "SELECT * FROM profile WHERE is_published = true;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             Student student = mapRowToStudent(results);
+<<<<<<< HEAD
             allPublishedStudents.add(student);
         }
         return allPublishedStudents;
+=======
+            getAllPublishedStudents.add(student);
+        }
+        return getAllPublishedStudents;
+>>>>>>> 3943c4e27f69068480bcb2b72d2de901b284fe75
     }
 
     /*
@@ -139,4 +161,8 @@ public class JdbcStudentDao implements StudentDao{
     }
 
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3943c4e27f69068480bcb2b72d2de901b284fe75
