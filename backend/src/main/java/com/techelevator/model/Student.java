@@ -184,16 +184,16 @@ public class Student {
         return "Student{" +
                 "userId=" + userId +
                 ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + "\'" +
-                ", summary=" + summary + "\'" +
-                ", softSkills='" + softSkills + "\'" +
-                ", contactPreferences='" + contactPreferences + "\'" +
-                ", techInterests='" + techInterests + "\'" +
-                ", technology='" + technology + "\'" +
-                ", lastUpdated='" + lastUpdated + "\'" +
-                ", isPublished=" + isPublished + "\'" +
+                ", lastName='" + lastName + '\'' +
+                ", summary=" + summary + '\'' +
+                ", softSkills='" + softSkills + '\'' +
+                ", contactPreferences='" + contactPreferences + '\'' +
+                ", techInterests='" + techInterests + '\'' +
+                ", technology='" + technology + '\'' +
+                ", lastUpdated='" + lastUpdated + '\'' +
+                ", isPublished=" + isPublished +
                 '}';
     }
-    
+
 }
 
