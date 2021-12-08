@@ -1,16 +1,44 @@
 package com.techelevator.model;
 
 public class Degree {
-    String type;
-    String institution;
-    String fieldOfStudy;
+    private int degreeId;
+    private int userId;
+    private String level;
+    private String institution;
+    private String subjectArea;
+    private String dateCompleted;
 
-    public String getType() {
-        return type;
+    public Degree(int userId, int degreeId, String level, String institution, String subjectArea, String dateCompleted) {
+        this.userId = userId;
+        this.degreeId = degreeId;
+        this.level = level;
+        this.institution = institution;
+        this.subjectArea = subjectArea;
+        this.dateCompleted = dateCompleted;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getDegreeId() {
+        return degreeId;
+    }
+
+    public void setDegreeId(int degreeId) {
+        this.degreeId = degreeId;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 
     public String getInstitution() {
@@ -21,11 +49,19 @@ public class Degree {
         this.institution = institution;
     }
 
-    public String getFieldOfStudy() {
-        return fieldOfStudy;
+    public String getSubjectArea() {
+        return subjectArea;
     }
 
-    public void setFieldOfStudy(String fieldOfStudy) {
-        this.fieldOfStudy = fieldOfStudy;
+    public void setSubjectArea(String subjectArea) {
+        this.subjectArea = subjectArea;
+    }
+
+    public String getDateCompleted() {
+        return dateCompleted;
+    }
+
+    public void setDateCompleted(String dateCompleted) {
+        this.dateCompleted = dateCompleted;
     }
 }
