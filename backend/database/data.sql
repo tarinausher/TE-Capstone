@@ -11,3 +11,9 @@ VALUES (3, 'Tarina', 'Usher', 'Hi, plz hire me, I will do a good job.', true, 10
 
 SELECT * FROM users;
 SELECT * FROM profile;
+
+INSERT INTO career_experience (experience_title, organization_name, date_started, date_ended, description)
+VALUES ('Barista', 'Cafe Carnegie', '6/1/2021', '9/15/2021', 'Served coffee to customers at the museum. Tried not to cry.');
+
+ALTER TABLE career_experience
+ADD COLUMN industry VARCHAR(255);

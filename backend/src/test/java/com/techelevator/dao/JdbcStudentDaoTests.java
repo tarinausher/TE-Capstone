@@ -30,11 +30,11 @@ public class JdbcStudentDaoTests extends FinalCapstoneDaoTests {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         sut = new JdbcStudentDao(jdbcTemplate);
     }
-
+    //TODO come back to the tests because this is going to waste time
 
     @Test
     public void updatePublishStatus() {
-        sut.updateIsPublished(true, 1);
+        sut.updateIsPublished(student1);
         Assert.assertTrue(student1.isPublished());
     }
 

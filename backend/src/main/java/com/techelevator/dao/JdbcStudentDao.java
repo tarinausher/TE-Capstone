@@ -15,36 +15,69 @@ public class JdbcStudentDao implements StudentDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    /*
-    Student profile is created upon new account creation
-    TODO: createProfile (finish it with parameters)
-     */
+
+    //Student profile is created upon new account creation
     @Override
-    public boolean createProfile(int userId) {
-        return true;
+    public void createProfile(Student newStudent) {
+        String sql = "INSERT INTO profile (user_id, first_name, last_name, summary, is_published, cohort_id, " +
+                "soft_skills, contact_preferences, interests)" +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sql, newStudent.getUserId(), newStudent.getFirstName(), newStudent.getLastName(),
+                newStudent.getSummary(), newStudent.isPublished(), newStudent.getCohortId(),
+                newStudent.getSoftSkills(), newStudent.getContactPreferences(), newStudent.getTechInterests());
     }
 
     /*
     Student should have the ability to update information in their profiles
-    TODO: updateProfileSummary,
-    TODO: updateAcademicExperience,
-    TODO: updateCareerExperience,
-    TODO: updateSoftSkills,
-    TODO: updateContactPreferences,
-    TODO: updateInterests
+    TODO: updateAcademicExperience --> to be done in Degree DAO
+    TODO: updateCareerExperience --> to be done in Experience DAO
     */
+    @Override
+    public void updateFirstName(Student updatedStudent) {
+        String sql = "UPDATE profile SET first_name = ? WHERE user_id = ?;";
+        jdbcTemplate.update(sql, updatedStudent.getFirstName(), updatedStudent.getUserId());
+    }
+
+    @Override
+    public void updateLastName(Student updatedStudent) {
+        String sql = "UPDATE profile SET last_name = ? WHERE user_id = ?;";
+        jdbcTemplate.update(sql, updatedStudent.getLastName(), updatedStudent.getUserId());
+    }
+
+    @Override
+    public void updateProfileSummary(Student updatedStudent) {
+        String sql = "UPDATE profile SET summary = ? WHERE user_id = ?;";
+        jdbcTemplate.update(sql, updatedStudent.getSummary(), updatedStudent.getUserId());
+    }
+
+    @Override
+    public void updateSoftSkills(Student updatedStudent) {
+        String sql = "UPDATE profile SET soft_skills = ? WHERE user_id = ?;";
+        jdbcTemplate.update(sql, updatedStudent.getSoftSkills(), updatedStudent.getUserId());
+    }
+
+    @Override
+    public void updateContactPreferences(Student updatedStudent) {
+        String sql = "UPDATE profile SET contact_preferences = ? WHERE user_id = ?;";
+        jdbcTemplate.update(sql, updatedStudent.getContactPreferences(), updatedStudent.getUserId());
+    }
+
+    @Override
+    public void updateInterests(Student updatedStudent) {
+        String sql = "UPDATE profile SET interests = ? WHERE user_id = ?;";
+        jdbcTemplate.update(sql, updatedStudent.getTechInterests(), updatedStudent.getUserId());
+    }
 
 
     /*
-
     Student can publish their profile when ready. The idea is the student will have a button to select
     if the profile is ready to be published. If that is selected, this method will be called to update in the is_published
     status appropriately (false if private, true if public) for the profile connected to a specific user_id
      */
     @Override
-    public void updateIsPublished(boolean isPublished, int userId) {
+    public void updateIsPublished(Student updatedStudent) {
         String sql = "UPDATE profile SET is_published = ? WHERE user_id = ?;";
-        jdbcTemplate.update(sql, isPublished, userId);
+        jdbcTemplate.update(sql, !updatedStudent.isPublished(), updatedStudent.getUserId());
     }
 
     //Users should be able to browse students by cohort number
@@ -102,7 +135,6 @@ public class JdbcStudentDao implements StudentDao {
         }
     }
 
-
     //Staff may be able to see student profiles if not published
     @Override
     public List<Student> getUnpublishedProfiles() {
@@ -118,15 +150,14 @@ public class JdbcStudentDao implements StudentDao {
     }
 
     /*
+    TODO: Determine if these methods are needed based on API
     Student profile should be searchable by cohortId (see above getStudentsByCohortId),
     highest degree obtained, prior industry experience, and technologies used:
-    TODO: getStudentsByDegree,
-    TODO: getStudentsByIndustry,
-    TODO: searchStudentsByTechUsed
+    getStudentsByDegree,
+    getStudentsByIndustry,
+    searchStudentsByTechUsed
     */
 
-
-    //IMPORTANT: TODO: DOUBLE CHECK ACCURACY IN NAMES & DATA TYPES WHEN DANIEL FINISHES DB
     private Student mapRowToStudent(SqlRowSet rs) {
         Student student = new Student();
         student.setUserId(rs.getInt("user_id"));
@@ -137,7 +168,7 @@ public class JdbcStudentDao implements StudentDao {
         student.setSummary(rs.getString("summary"));
         student.setSoftSkills(rs.getString("soft_skills"));
         student.setContactPreferences(rs.getString("contact_preferences"));
-        student.setTechInterests(rs.getString("tech_interests"));
+        student.setTechInterests(rs.getString("interests"));
         student.setPublished(rs.getBoolean("is_published"));
         return student;
     }
