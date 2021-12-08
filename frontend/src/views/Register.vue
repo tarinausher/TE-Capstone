@@ -32,6 +32,15 @@
         v-model="user.confirmPassword"
         required
       />
+      <label for="email" class="sr-only">Email</label> <!-- added start-->
+      <input
+        type="email"
+        id="email"
+        class="form-control"
+        placeholder="Email"
+        v-model="user.email"
+        required
+      /> <!-- added end -->
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
@@ -49,6 +58,7 @@ export default {
     return {
       user: {
         username: '',
+        email: '', //added
         password: '',
         confirmPassword: '',
         role: 'user',
@@ -90,4 +100,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style>  </style>

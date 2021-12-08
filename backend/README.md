@@ -7,7 +7,7 @@ Inside the `<project-root>/database/` directory, you'll find an executable Bash 
 From a terminal session, execute the following commands:
 
 ```
-cd <project-root>/database/
+cd <project-root>/database/cd
 ./create.sh
 ```
 
@@ -31,7 +31,7 @@ The database superuser—meaning `postgres`—must only be used for database adm
 | `final_capstone_owner` | This user is the schema owner. It has full access—meaning granted all privileges—to all database objects within the `capstone` schema and also has privileges to create new schema objects. This user can be used to connect to the database from PGAdmin for administrative purposes. |
 | `final_capstone_appuser` | The application uses this user to make connections to the database. This user is granted `SELECT`, `INSERT`, `UPDATE`, and `DELETE` privileges for all database tables and can `SELECT` from all sequences. The application datasource has been configured to connect using this user. |
 
-
++
 ## Spring Boot
 
 ### Datasource
