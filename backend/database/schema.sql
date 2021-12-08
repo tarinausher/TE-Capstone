@@ -13,137 +13,87 @@ CREATE SEQUENCE seq_user_id
 CREATE TABLE users (
 	user_id int DEFAULT nextval('seq_user_id'::regclass) NOT NULL,
 	username varchar(50) NOT NULL,
+	email varchar(254) NOT NULL,
 	password_hash varchar(200) NOT NULL,
 	role varchar(50) NOT NULL,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 
-INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (username,password_hash, email, role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'user@user.com', 'ROLE_USER');
+INSERT INTO users (username,password_hash, email, role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'admin@admin.com', 'ROLE_ADMIN');
 
-COMMIT TRANSACTION;
 
-BEGIN TRANSACTION;
+DROP TABLE IF EXISTS experiences;
+DROP TABLE IF EXISTS degrees;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS students;
+DROP TABLE IF EXISTS cohorts;
 
-//Run this document to create the database on your end (I can't upload the full database, so just run this and you should be good).
-//If you get any errors related to syntax, then try deleting all comments and then rerunning the statements.
-
-ALTER TABLE users ADD email VARCHAR(255);
-//Adds email column to the users table
-
-DROP TABLE person;
-//Adds last name to person table
-
-UPDATE person
-SET last_name = 'Impellicieri'
-WHERE name = 'Walt';
-//To whoever built this table, Walt has a last name.
-
-CREATE TABLE cohort (
-cohort_id SERIAL,
-programming_language VARCHAR(255),
-PRIMARY KEY (cohort_id)
+--THE COMMANDS BELOW ARE THE ONES ADDED FOLLOWING THE BASE CODE WE RECEIVED
+--You can highlight all and run them all, or run then one by one
+--Creates cohort table
+CREATE TABLE cohorts (
+cohort_id SERIAL PRIMARY KEY,
+description VARCHAR(255),
+end_date DATE
 );
-//Creates cohort table
 
-CREATE TABLE cohort-student (
+--Creates student profiles table:
+CREATE TABLE students (
+user_id INT PRIMARY KEY,
 cohort_id INT,
-profile_id INT,
-PRIMARY KEY (profile_id),
-FOREIGN KEY (profile_id) REFERENCES profile(profile_id),
-FOREIGN KEY (cohort_id) REFERENCES cohort(cohort_id)
-);
-//Creates cohort to student table
-
-CREATE TABLE profile (
-profile_id SERIAL,
-user_id INT,
-portfolio_id SERIAL,
 first_name VARCHAR(255),
 last_name VARCHAR(255),
 summary VARCHAR(255),
+technologies VARCHAR(255),
+soft_skills VARCHAR(255),
+contact_preferences VARCHAR(255),
 is_published BOOLEAN,
-PRIMARY KEY (profile_id),
-FOREIGN KEY (user_id) REFERENCES users(user_id)
-);
-//Creates profile table
+last_updated DATE,
 
-CREATE TABLE portfolio_links(
-portfolio_link_id SERIAL,
-description VARCHAR(255),
-file_name VARCHAR(255),
-source_code VARCHAR(255),
-PRIMARY KEY (portfolio_link_id)
-);
-//Creates table of all portfolio links.
+UNIQUE(user_id),
+FOREIGN KEY (user_id) REFERENCES users(user_id),
 
-CREATE TABLE portfolio_portfolio_links(
-portfolio_id INT,
-portfolio_link_id INT,
-FOREIGN KEY (portfolio_id) REFERENCES profile(profile_id),
-FOREIGN KEY (portfolio_link_id) REFERENCES portfolio_links(portfolio_link_id)
+CONSTRAINT fk_cohort_id FOREIGN KEY (cohort_id) REFERENCES cohorts(cohort_id)
 );
-//Creates table joining portfolios to their respective portfolio links
 
-CREATE TABLE degree(
-degree_id SERIAL,
-institution_name VARCHAR(255),
+--Creates table with the collection of degrees 
+CREATE TABLE degrees (
+degree_id SERIAL PRIMARY KEY,
 level VARCHAR(255),
-degree_type VARCHAR(255),
+institution VARCHAR(255),
 subject_area VARCHAR(255),
-PRIMARY KEY (degree_id)
-);
-//Creates table of degrees students have earned
+user_id INT,
+date_completed DATE,
 
-CREATE TABLE profile_degree(
-profile_id INT,
-degree_id INT,
-PRIMARY KEY (degree_id),
-FOREIGN KEY (profile_id) REFERENCES profile(profile_id),
-FOREIGN KEY (degree_id) REFERENCES degree(degree_id)
+FOREIGN KEY (user_id) REFERENCES students(user_id)
 );
-//Creates table joining degrees to their respective profiles
 
-CREATE TABLE career_experience(
-entry_id SERIAL,
-experience_title VARCHAR(255),
-organization_name VARCHAR(255),
+--Creates table for various job experiences
+CREATE TABLE experiences (
+experience_id SERIAL PRIMARY KEY,
+industry VARCHAR(255),
+title VARCHAR(255),
+organization VARCHAR(255),
 date_started DATE,
 date_ended DATE,
 description VARCHAR(255),
-PRIMARY KEY (entry_id)
+user_id INT,
+
+FOREIGN KEY (user_id) REFERENCES students(user_id)
 );
-//Creates table of all career experiences entered
 
-CREATE TABLE profile_career_experience(
-profile_id INT,
-career_experience_id INT,
-PRIMARY KEY (career_experience_id),
-FOREIGN KEY (career_experience_id) REFERENCES career_experience(entry_id),
-FOREIGN KEY (profile_id) REFERENCES profile(profile_id)
-);
-//Creates table joining career experiences to their respective tables
+--Creates table for student projects 
+CREATE TABLE projects (
+project_id SERIAL PRIMARY KEY,
+user_id INT,
+title VARCHAR(255),
+description VARCHAR(255),
+is_solo BOOLEAN,
+technologies VARCHAR(255),
+link VARCHAR(255), 
 
-ALTER TABLE profile
-ADD contact_preferences VARCHAR(255);
-
-ALTER TABLE profile
-ADD interests VARCHAR(255);
-
-ALTER TABLE profile
-ADD soft_skills VARCHAR(255);
-
-ALTER TABLE portfolio_links
-ADD project_title VARCHAR(255),
-ADD solo_project BOOLEAN;
-
-CREATE TABLE link_tech(
-link_id INT,
-tech_id INT,
-PRIMARY KEY (link_id),
-PRIMARY KEY (tech_id),
-FOREIGN KEY (link_id) REFERENCES portfolio_links(portfolio_link_id),
-FOREIGN KEY (tech_id) REFERENCES technology(tech_id)
+FOREIGN KEY (user_id) REFERENCES students(user_id)
 );
 
 CREATE TABLE tech(
