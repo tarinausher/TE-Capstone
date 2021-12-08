@@ -22,29 +22,21 @@ public interface StudentDao {
     TODO: updateInterests
     */
 
-    /*
-    Student can publish their profile when ready
-    TODO: updateIsPublished
-     */
-
+    //Student can publish their profile when ready
+    void updateIsPublished(boolean isPublished, int userId);
 
     //Users should be able to browse students by cohort number
     List<Student> getStudentsByCohortId(int cohortId);
 
-    /*
-    Users should be able to view all students with published profiles
-    TODO: viewAllStudents
-     */
+    //Users should be able to view all students with published profiles
+    List<Student> getAllStudents();
 
-    /*
-    Individual student profiles should be retrieved when selected
-    TODO: viewStudentByProfileId OR viewStudentByUserId
-     */
+    //Individual student profiles should be retrieved when selected
+    Student getStudentByProfileId(int profileId);
+    Student getStudentByUserId(int userId);
 
-    /*
-    Staff may be able to see student profiles if not published
-    TODO: viewUnpublishedProfiles
-     */
+    //Staff may be able to see student profiles if not published
+    List<Student> getUnpublishedProfiles();
 
     /*
     Student profile should be searchable by cohortId, highest degree obtained, prior industry experience, and technologies used:

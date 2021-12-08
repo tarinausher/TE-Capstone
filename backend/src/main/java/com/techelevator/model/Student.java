@@ -23,6 +23,23 @@ public class Student {
     they can add and edit data on profile as needed. Profile information is pulled from Student data.
      */
 
+    public Student() {
+    }
+
+    public Student(int userId, int profileId, int cohortId, String firstName, String lastName, String summary, String softSkills, String contactPreferences, String techInterests, boolean isPublished) {
+        this.userId = userId;
+        this.profileId = profileId;
+        this.cohortId = cohortId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.summary = summary;
+        this.softSkills = softSkills;
+        this.contactPreferences = contactPreferences;
+        this.techInterests = techInterests;
+        this.isPublished = isPublished;
+    }
+
+
     public int getUserId() {
         return userId;
     }
