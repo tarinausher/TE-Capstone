@@ -112,6 +112,8 @@ public class Student {
 
     public void setTechInterests(String techInterests) {
         this.techInterests = techInterests;
+    }
+
     public String getTechnology() {
         return technology;
     }
@@ -127,7 +129,7 @@ public class Student {
     public void setPublished(boolean published) {
         isPublished = published;
     }
-}
+
 
     public Experience getExperience() {
         return experience;
@@ -177,3 +179,4 @@ public class Student {
         return "none";
     }
 }
+

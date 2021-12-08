@@ -18,12 +18,17 @@ public class MemoryStudentDao implements StudentDao {
     }
 
     private void setStudents() {
-        Student
+
     }
 
     @Override
     public boolean createProfile(int userId) {
         return false;
+    }
+
+    @Override
+    public void updateIsPublished(boolean isPublished, int userId) {
+
     }
 
     @Override
