@@ -146,4 +146,10 @@ FOREIGN KEY (link_id) REFERENCES portfolio_links(portfolio_link_id),
 FOREIGN KEY (tech_id) REFERENCES technology(tech_id)
 );
 
+CREATE TABLE tech(
+tech_id SERIAL,
+tech_name VARCHAR (255),
+PRIMARY KEY (tech_id)
+);
+
 COMMIT TRANSACTION;
