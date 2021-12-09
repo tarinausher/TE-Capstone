@@ -1,22 +1,22 @@
 package com.techelevator.model;
 
 public class Cohort {
-    private int cohort_id;
+    private int cohortId;
     private String description;
     private String end_date;
 
     public Cohort(int cohort_id, String description, String end_date) {
-        this.cohort_id = cohort_id;
+        this.cohortId = cohort_id;
         this.description = description;
         this.end_date = end_date;
     }
 
-    public int getCohort_id() {
-        return cohort_id;
+    public int getCohortId() {
+        return cohortId;
     }
 
-    public void setCohort_id(int cohort_id) {
-        this.cohort_id = cohort_id;
+    public void setCohortId(int cohort_id) {
+        this.cohortId = cohort_id;
     }
 
     public String getDescription() {

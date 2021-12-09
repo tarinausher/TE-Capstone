@@ -20,6 +20,7 @@ public class Student {
     public Student() {
 
     }
+
     public Student(int userId, Cohort cohort, String firstName, String lastName, String summary, List<Project> projects, List<Degree> degrees, List<Experience> experiences, String technologies, String softSkills, String contactPreferences, String lastUpdated, boolean isPublished) {
         this.userId = userId;
         this.cohort = cohort;
@@ -194,5 +195,5 @@ public class Student {
     //             ", lastUpdated='" + lastUpdated + '\'' +
     //             ", isPublished=" + isPublished +
     //             '}';
-    }
+    // }
 }
