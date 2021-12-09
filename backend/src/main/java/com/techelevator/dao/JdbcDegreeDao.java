@@ -64,7 +64,7 @@ public class JdbcDegreeDao implements DegreeDao {
     //Students can delete certain degrees as needed
     @Override
     public void deleteDegree(int degreeId, int userId) {
-        String sql = "DELETE FROM degrees WHERE degree_id = ? AND user_id";
+        String sql = "DELETE FROM degrees WHERE degree_id = ? AND user_id = ?;";
         jdbcTemplate.update(sql, degreeId, userId);
     }
 
