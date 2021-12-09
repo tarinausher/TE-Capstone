@@ -32,7 +32,7 @@ VALUES (4, 7, 'Test', 'User', 'I am a test user, here is my data.', 'Java, SQL, 
 (9, 10, 'Johny', 'Test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Java, SprintBoot, JUnit, SQL', 'problem solving, smiling', 'email', true, '12/8/2021'),
 (10, 8, 'Suzy', 'Test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Java, SprintBoot, JUnit, SQL', 'empathy, responsibility', 'email', true, '12/16/2019'),
 (11, 10, 'Sally', 'Test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Java, SprintBoot, JUnit, SQL', 'decisiveness, negotiation', 'linkedin', true, '12/7/2021'),
-(12, 10, 'Jimmy', 'Test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Java, SprintBoot, JUnit, SQL', 'flexibility, problem solving', 'email', true, '12/6/2021');
+(7, 10, 'Jimmy', 'Test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Java, SprintBoot, JUnit, SQL', 'flexibility, problem solving', 'email', true, '12/6/2021');
 
 SELECT * FROM students;
 
@@ -46,13 +46,26 @@ VALUES (5, 'bachelors', 'University of Mysteries', 'Statistics', '04/30/2014'),
 (10, 'bachelors', 'University of Toledo', 'Chemistry', '04/30/2018'),
 (11, 'bachelors', 'University of Toronto', 'History', '04/30/2008'),
 (11, 'masters', 'University of Pittsburgh', 'History', '04/30/2012'),
-(12, 'associates', 'Community College of Allegheny County', 'Criminology', '04/30/2000'),
-(12, 'bachelors', 'University of Pittsburgh', 'Administration of Justice', '04/30/2002'),
-(12, 'masters', 'University of Pittsburgh', 'Social Psychology', '04/30/2006'),
-(12, 'doctorate', 'University of Pittsburgh', 'Forensic Psychology', '04/30/2010');
+(9, 'associates', 'Community College of Allegheny County', 'Criminology', '04/30/2000'),
+(6, 'bachelors', 'University of Pittsburgh', 'Administration of Justice', '04/30/2002'),
+(7, 'masters', 'University of Pittsburgh', 'Social Psychology', '04/30/2006'),
+(9, 'doctorate', 'University of Pittsburgh', 'Forensic Psychology', '04/30/2010');
 
 SELECT * FROM degrees;
 
 --INSERT INTO experience (user_id, industry, title, organization, date_started, date_ended, description)
 --(4, 'Government', 'Statistician', 'Bureau of Labor Statistics', '06/06/2014', '03/03/2019', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
 --(5, 'Education', 'Philosopher', 'Bureau of Labor Statistics', '06/06/2014', '03/03/2019', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
+
+SELECT FROM users
+WHERE role = 'ROLE_STUDENT';
+
+INSERT INTO projects (user_id, title, description, is_solo, technologies)
+VALUES (4, 'Dropping the SQL', 'Developed a backend program that audits a SQL Database to determine which tables are no longer needed', true, 'Java, SQL'),
+(5, 'If I think, therefore I am', 'Created a program to determine what thinking means', true, 'Javascript, Java, Restful APIs, SQL'),
+(3, 'JUnit Extraordinaire', 'Developed a library of JUnit tests that can be easily readjusted to suit the users needs', false, 'Java, JUnit'),
+(4, 'Digital Craftsmen', 'Used Object-Oriented Programming to construct blueprints for various types of tables', true, 'Java');
+
+INSERT INTO experiences (industry, title, organization, date_started, date_ended, description, user_id)
+VALUES('Service', 'Bartender', 'Condado', '02-01-2020', '12-01-2020', 'Managed the bar area customer orders, enforced mask policies', 4),
+('Retail', 'Overnight Fulfillment Director', '04-01-2020', '08-01-2020', 'Gathered items for customer orders and packed them', 11);
