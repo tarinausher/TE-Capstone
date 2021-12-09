@@ -4,10 +4,12 @@ import com.techelevator.model.Degree;
 import com.techelevator.model.Student;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcDegreeDao implements DegreeDao {
     private JdbcTemplate jdbcTemplate;
 
@@ -19,12 +21,13 @@ public class JdbcDegreeDao implements DegreeDao {
     public List<Degree> getDegreesByUserId(int userId) {
         List<Degree> allDegreesByStudent = new ArrayList<>();
         String sql = "SELECT * FROM degrees WHERE user_id = ?;";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
 
         while(results.next()) {
             Degree degree = mapRowToDegree(results);
             allDegreesByStudent.add(degree);
         }
+
         return allDegreesByStudent;
     }
 
