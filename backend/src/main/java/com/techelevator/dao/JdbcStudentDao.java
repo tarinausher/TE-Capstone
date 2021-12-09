@@ -29,7 +29,6 @@ public class JdbcStudentDao implements StudentDao {
 
     /*
     Student should have the ability to update information in their profiles
-    TODO: updateAcademicExperience --> to be done in Degree DAO
     TODO: updateCareerExperience --> to be done in Experience DAO
     */
     @Override
