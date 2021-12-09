@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
 public class MemoryStudentDao implements StudentDao {
     public static List<Student> students = new ArrayList<>();
 

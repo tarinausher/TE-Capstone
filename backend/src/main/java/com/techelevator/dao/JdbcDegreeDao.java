@@ -4,10 +4,12 @@ import com.techelevator.model.Degree;
 import com.techelevator.model.Student;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcDegreeDao implements DegreeDao {
     private JdbcTemplate jdbcTemplate;
 
@@ -33,6 +35,7 @@ public class JdbcDegreeDao implements DegreeDao {
             Degree degree = mapRowToDegree(results);
             allDegreesByStudent.add(degree);
         }
+
         return allDegreesByStudent;
     }
 
