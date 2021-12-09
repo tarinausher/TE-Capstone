@@ -28,10 +28,7 @@ public class JdbcStudentDao implements StudentDao {
                 newStudent.getContactPreferences(), newStudent.isPublished());
     }
 
-    /*
-    Student should have the ability to update information in their profiles
-    TODO: updateCareerExperience --> to be done in Experience DAO
-    */
+    //Student should have the ability to update information in their profiles
     @Override
     public void updateFirstName(Student updatedStudent) {
         String sql = "UPDATE students SET first_name = ? WHERE user_id = ?;";
