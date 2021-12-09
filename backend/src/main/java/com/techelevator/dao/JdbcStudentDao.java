@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcStudentDao implements StudentDao {
     private JdbcTemplate jdbcTemplate;
 
@@ -101,7 +102,6 @@ public class JdbcStudentDao implements StudentDao {
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
             Student student = mapRowToStudent(results);
-                //T
             getAllPublishedStudents.add(student);
         }
         return getAllPublishedStudents;
