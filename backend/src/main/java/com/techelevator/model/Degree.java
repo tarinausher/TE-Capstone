@@ -2,24 +2,30 @@ package com.techelevator.model;
 
 public class Degree {
     private int degreeId;
-    private String institution;
+    private int userId;
     private String level;
-    private String degreeType;
+    private String institution;
     private String subjectArea;
+    private String dateCompleted;
 
-    /*
-    Degree is referring to previous academic experience a student may have
-     */
+    public Degree(int userId, int degreeId, String level, String institution, String subjectArea, String dateCompleted) {
+        this.userId = userId;
+        this.degreeId = degreeId;
+        this.level = level;
+        this.institution = institution;
+        this.subjectArea = subjectArea;
+        this.dateCompleted = dateCompleted;
+    }
 
     public Degree() {
     }
 
-    public Degree(int degreeId, String institution, String level, String degreeType, String subjectArea) {
-        this.degreeId = degreeId;
-        this.institution = institution;
-        this.level = level;
-        this.degreeType = degreeType;
-        this.subjectArea = subjectArea;
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public int getDegreeId() {
@@ -30,14 +36,6 @@ public class Degree {
         this.degreeId = degreeId;
     }
 
-    public String getInstitution() {
-        return institution;
-    }
-
-    public void setInstitution(String institution) {
-        this.institution = institution;
-    }
-
     public String getLevel() {
         return level;
     }
@@ -46,12 +44,12 @@ public class Degree {
         this.level = level;
     }
 
-    public String getType() {
-        return degreeType;
+    public String getInstitution() {
+        return institution;
     }
 
-    public void setType(String degreeType) {
-        this.degreeType = degreeType;
+    public void setInstitution(String institution) {
+        this.institution = institution;
     }
 
     public String getSubjectArea() {
@@ -62,14 +60,22 @@ public class Degree {
         this.subjectArea = subjectArea;
     }
 
-    @Override
-    public String toString() {
-        return "AcademicExperience{" +
-                "degreeId=" + degreeId +
-                ", institution='" + institution + '\'' +
-                ", level='" + level + '\'' +
-                ", degreeType=" + degreeType + '\'' +
-                ", subjectArea='" + subjectArea + '\'' +
-                '}';
+    public String getDateCompleted() {
+        return dateCompleted;
     }
+
+    public void setDateCompleted(String dateCompleted) {
+        this.dateCompleted = dateCompleted;
+    }
+
+    // @Override
+    // public String toString() {
+    //     return "AcademicExperience{" +
+    //             "degreeId=" + degreeId +
+    //             ", institution='" + institution + '\'' +
+    //             ", level='" + level + '\'' +
+    //             ", degreeType=" + degreeType + '\'' +
+    //             ", subjectArea='" + subjectArea + '\'' +
+    //             '}';
+    // }
 }

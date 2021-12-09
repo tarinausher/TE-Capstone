@@ -1,20 +1,18 @@
 package com.techelevator.model;
 
 public class Experience {
-    private int entryId;
-    private String industry; //TODO THIS NEEDS TO BE ADDED TO THE DATABASE
+    private int experienceId;
+    private int userId;
+    private String industry;
     private String title;
     private String organization;
     private String dateStarted;
     private String dateEnded;
     private String description;
 
-    /*
-    Experience is referring to previous career experience a student may have
-     */
-
-    public Experience(int entryId, String industry, String title, String organization, String dateStarted, String dateEnded, String description) {
-        this.entryId = entryId;
+    public Experience(int experienceId, int userId, String industry, String title, String organization, String dateStarted, String dateEnded, String description) {
+        this.experienceId = experienceId;
+        this.userId = userId;
         this.industry = industry;
         this.title = title;
         this.organization = organization;
@@ -23,12 +21,23 @@ public class Experience {
         this.description = description;
     }
 
-    public int getEntryId() {
-        return entryId;
+    public Experience() {
     }
 
-    public void setEntryId(int entryId) {
-        this.entryId = entryId;
+    public int getExperienceId() {
+        return experienceId;
+    }
+
+    public void setExperienceId(int experienceId) {
+        this.experienceId = experienceId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getIndustry() {
@@ -79,16 +88,16 @@ public class Experience {
         this.description = description;
     }
 
-    @Override
-    public String toString() {
-        return "CareerExperience{" +
-                "entryId=" + entryId +
-                ", industry='" + industry + '\'' +
-                ", jobTitle='" + title + '\'' +
-                ", organization=" + organization + '\'' +
-                ", dateStarted='" + dateStarted + '\'' +
-                ", dateEnded='" + dateEnded + '\'' +
-                ", description='" + description + '\'' +
-                '}';
-    }
+    // @Override
+    // public String toString() {
+    //     return "CareerExperience{" +
+    //             "entryId=" + entryId +
+    //             ", industry='" + industry + '\'' +
+    //             ", jobTitle='" + title + '\'' +
+    //             ", organization=" + organization + '\'' +
+    //             ", dateStarted='" + dateStarted + '\'' +
+    //             ", dateEnded='" + dateEnded + '\'' +
+    //             ", description='" + description + '\'' +
+    //             '}';
+    // }
 }
