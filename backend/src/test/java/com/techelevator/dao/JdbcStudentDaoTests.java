@@ -13,6 +13,7 @@ import java.util.List;
 
 public class JdbcStudentDaoTests extends FinalCapstoneDaoTests {
 
+    /*
     private static final Student student1 = new Student(1, 1, 10, "Test1", "Test1", "Test summary 1",
             "listening, teamwork", "email", "java, sql, html", false);
     private static final Student student2 = new Student(2, 2, 10, "Test2", "Test2", "Test summary 2",
@@ -102,5 +103,6 @@ public class JdbcStudentDaoTests extends FinalCapstoneDaoTests {
         Assert.assertEquals(expected.getTechInterests(), actual.getTechInterests());
         Assert.assertEquals(expected.isPublished(), actual.isPublished());
     }
+     */
 }
 

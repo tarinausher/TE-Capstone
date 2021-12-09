@@ -22,9 +22,9 @@ public class JdbcStudentDao implements StudentDao {
         String sql = "INSERT INTO profile (user_id, first_name, last_name, summary, is_published, cohort_id, " +
                 "soft_skills, contact_preferences, interests)" +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(sql, newStudent.getUserId(), newStudent.getFirstName(), newStudent.getLastName(),
-                newStudent.getSummary(), newStudent.isPublished(), newStudent.getCohortId(),
-                newStudent.getSoftSkills(), newStudent.getContactPreferences(), newStudent.getTechInterests());
+        // jdbcTemplate.update(sql, newStudent.getUserId(), newStudent.getFirstName(), newStudent.getLastName(),
+        //        newStudent.getSummary(), newStudent.isPublished(), newStudent.getCohortId(),
+        //        newStudent.getSoftSkills(), newStudent.getContactPreferences(), newStudent.getTechInterests());
     }
 
     /*
@@ -65,7 +65,7 @@ public class JdbcStudentDao implements StudentDao {
     @Override
     public void updateInterests(Student updatedStudent) {
         String sql = "UPDATE profile SET interests = ? WHERE user_id = ?;";
-        jdbcTemplate.update(sql, updatedStudent.getTechInterests(), updatedStudent.getUserId());
+        // jdbcTemplate.update(sql, updatedStudent.getTechInterests(), updatedStudent.getUserId());
     }
 
 
@@ -161,14 +161,14 @@ public class JdbcStudentDao implements StudentDao {
     private Student mapRowToStudent(SqlRowSet rs) {
         Student student = new Student();
         student.setUserId(rs.getInt("user_id"));
-        student.setProfileId(rs.getInt("profile_id"));
-        student.setCohortId(rs.getInt("cohort_id"));
+        // student.setProfileId(rs.getInt("profile_id"));
+        // student.setCohortId(rs.getInt("cohort_id"));
         student.setFirstName(rs.getString("first_name"));
         student.setLastName(rs.getString("last_name"));
         student.setSummary(rs.getString("summary"));
         student.setSoftSkills(rs.getString("soft_skills"));
         student.setContactPreferences(rs.getString("contact_preferences"));
-        student.setTechInterests(rs.getString("interests"));
+        // student.setTechInterests(rs.getString("interests"));
         student.setPublished(rs.getBoolean("is_published"));
         return student;
     }
