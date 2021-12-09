@@ -1,8 +1,10 @@
 package com.techelevator.controller;
 
+import com.techelevator.dao.DegreeDao;
 import com.techelevator.dao.JdbcStudentDao;
 import com.techelevator.dao.StudentDao;
 import com.techelevator.model.Degree;
+import com.techelevator.model.Experience;
 import com.techelevator.model.Student;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,9 +17,11 @@ import java.util.List;
 public class StudentController {
 
     private StudentDao studentDao;
+    private DegreeDao degreeDao;
 
-    public StudentController(StudentDao studentDao) {
-        this.studentDao = this.studentDao = studentDao;
+    public StudentController(StudentDao studentDao, DegreeDao degreeDao) {
+        this.studentDao = studentDao;
+        this.degreeDao = degreeDao;
     }
 
     // Example 1: /student returns all Students
@@ -25,7 +29,7 @@ public class StudentController {
     // returns all Students satisfying highestDegreeObtained == "bachelors" sorted by which profile was last updated
 
     // Search types: cohort, highest-degree-obtained, experience, technologies
-    // cohort must be exact cohort_id
+    // cohort must be exact cohortId
     // highest-degree-obtained must be an exact match
     // experience must be an exact match
     // with technologies the method checks for whether searchQuery is contained in the technology field
@@ -40,37 +44,43 @@ public class StudentController {
             return students;
         }
 
+        for(Student student : students) {
+            student.setDegrees(degreeDao.getDegreesByUserId(student.getUserId()));
+        }
+
         List<Student> filteredStudents = new ArrayList<>();
 
         switch(searchType) {
             case "cohort":
                 for(Student student : students) {
-                    if(student.getCohortId() == Integer.parseInt(searchQuery)) {
+                    if(student.getCohort().getCohortId() == Integer.parseInt(searchQuery)) {
                         filteredStudents.add(student);
                     }
                 }
                 break;
             case "highest-degree-obtained":
                 for(Student student : students) {
-                    if(student.highestDegreeType().equals(searchQuery)) {
+                    if(student.highestDegreeLevel().equals(searchQuery)) {
                         filteredStudents.add(student);
                     }
                 }
                 break;
             case "experience":
                 for(Student student : students) {
-                    if(student.getExperience().getIndustry().equals(searchQuery)) {
-                        filteredStudents.add(student);
+                    List<Experience> experiences = student.getExperiences();
+                    for(Experience experience : experiences) {
+                        if(experience.getIndustry().equals(searchQuery)) {
+                            filteredStudents.add(student);
+                        }
                     }
                 }
                 break;
             case "technologies":
                 for(Student student : students) {
-                    if(student.getTechnology().contains(searchQuery)) {
+                    if(student.getTechnologies().contains(searchQuery)) {
                         filteredStudents.add(student);
                     }
                 }
-                break;
         }
 
         if(nameOrLastUpdated != null) {
@@ -89,7 +99,7 @@ public class StudentController {
                 Collections.sort(students, new Comparator<Student>() {
                     @Override
                     public int compare(Student student1, Student student2) {
-                        return student2.getLastUpdated().compareTo(student1.getLastUpdated());
+                        return student1.getLastUpdated().compareTo(student2.getLastUpdated());
                     }
                 });
             }

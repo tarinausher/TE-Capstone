@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
 public class MemoryStudentDao implements StudentDao {
     public static List<Student> students = new ArrayList<>();
 
@@ -22,12 +21,41 @@ public class MemoryStudentDao implements StudentDao {
     }
 
     @Override
-    public boolean createProfile(int userId) {
-        return false;
+    public void createProfile(Student newStudent) {
     }
 
     @Override
-    public void updateIsPublished(boolean isPublished, int userId) {
+    public void updateFirstName(Student updatedStudent) {
+
+    }
+
+    @Override
+    public void updateLastName(Student updatedStudent) {
+
+    }
+
+    @Override
+    public void updateProfileSummary(Student updatedStudent) {
+
+    }
+
+    @Override
+    public void updateTechnologies(Student updatedStudent) {
+
+    }
+
+    @Override
+    public void updateSoftSkills(Student updatedStudent) {
+
+    }
+
+    @Override
+    public void updateContactPreferences(Student updatedStudent) {
+
+    }
+
+    @Override
+    public void updateIsPublished(Student updatedStudent) {
 
     }
 
@@ -38,11 +66,6 @@ public class MemoryStudentDao implements StudentDao {
 
     @Override
     public List<Student> getAllStudents() {
-        return null;
-    }
-
-    @Override
-    public Student getStudentByProfileId(int profileId) {
         return null;
     }
 

@@ -4,58 +4,82 @@ import java.util.List;
 
 public class Student {
     private int userId;
-    private int profileId;
     private int cohortId;
+    private Cohort cohort;
     private String firstName;
     private String lastName;
     private String summary;
+    private List<Project> projects;
+    private List<Degree> degrees;
+    private List<Experience> experiences;
+    private String technologies;
     private String softSkills;
     private String contactPreferences;
-    private String techInterests;
-    private String technology;
     private String lastUpdated;
     private boolean isPublished;
 
-    private Experience experience;
-    private Portfolio portfolio;
-    private List<Degree> degrees;
-
-    /*
-    Student class represents the student user and their data; student users have profiles in which
-    they can add and edit data on profile as needed. Profile information is pulled from Student data.
-     */
-
     public Student() {
+
     }
 
-    public Student(int userId, int profileId, int cohortId, String firstName, String lastName, String summary, String softSkills, String contactPreferences, String techInterests, boolean isPublished) {
+    public Student(int userId, Cohort cohort, String firstName, String lastName, String summary, List<Project> projects, List<Degree> degrees, List<Experience> experiences, String technologies, String softSkills, String contactPreferences, String lastUpdated, boolean isPublished) {
         this.userId = userId;
-        this.profileId = profileId;
-        this.cohortId = cohortId;
+        this.cohort = cohort;
         this.firstName = firstName;
         this.lastName = lastName;
         this.summary = summary;
+        this.projects = projects;
+        this.degrees = degrees;
+        this.experiences = experiences;
+        this.technologies = technologies;
         this.softSkills = softSkills;
         this.contactPreferences = contactPreferences;
-        this.techInterests = techInterests;
+        this.lastUpdated = lastUpdated;
         this.isPublished = isPublished;
     }
 
+    public String highestDegreeLevel() {
+        for(Degree degree : degrees) {
+            if(degree.getLevel().equals("doctorate")) {
+                return "doctorate";
+            }
+        }
+
+        for(Degree degree : degrees) {
+            if(degree.getLevel().equals("masters")) {
+                return "masters";
+            }
+        }
+
+        for(Degree degree : degrees) {
+            if(degree.getLevel().equals("bachelors")) {
+                return "bachelors";
+            }
+        }
+
+        for(Degree degree : degrees) {
+            if(degree.getLevel().equals("associates")) {
+                return "associates";
+            }
+        }
+
+        for(Degree degree : degrees) {
+            if(degree.getLevel().equals("high-school")) {
+                return "high-school";
+            }
+        }
+
+        for(Degree degree : degrees) {
+            if(degree.getLevel().equals("trade")) {
+                return "trade";
+            }
+        }
+
+        return "none";
+    }
 
     public int getUserId() {
         return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public int getProfileId() {
-        return profileId;
-    }
-
-    public void setProfileId(int profileId) {
-        this.profileId = profileId;
     }
 
     public int getCohortId() {
@@ -64,6 +88,18 @@ public class Student {
 
     public void setCohortId(int cohortId) {
         this.cohortId = cohortId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public Cohort getCohort() {
+        return cohort;
+    }
+
+    public void setCohort(Cohort cohort) {
+        this.cohort = cohort;
     }
 
     public String getFirstName() {
@@ -90,6 +126,38 @@ public class Student {
         this.summary = summary;
     }
 
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
+
+    public List<Degree> getDegrees() {
+        return degrees;
+    }
+
+    public void setDegrees(List<Degree> degrees) {
+        this.degrees = degrees;
+    }
+
+    public List<Experience> getExperiences() {
+        return experiences;
+    }
+
+    public void setExperiences(List<Experience> experiences) {
+        this.experiences = experiences;
+    }
+
+    public String getTechnologies() {
+        return technologies;
+    }
+
+    public void setTechnologies(String technologies) {
+        this.technologies = technologies;
+    }
+
     public String getSoftSkills() {
         return softSkills;
     }
@@ -106,20 +174,12 @@ public class Student {
         this.contactPreferences = contactPreferences;
     }
 
-    public String getTechInterests() {
-        return techInterests;
+    public String getLastUpdated() {
+        return lastUpdated;
     }
 
-    public void setTechInterests(String techInterests) {
-        this.techInterests = techInterests;
-    }
-
-    public String getTechnology() {
-        return technology;
-    }
-
-    public void setTechnology(String technology) {
-        this.technology = technology;
+    public void setLastUpdated(String lastUpdated) {
+        this.lastUpdated = lastUpdated;
     }
 
     public boolean isPublished() {
@@ -130,53 +190,7 @@ public class Student {
         isPublished = published;
     }
 
-
-    public Experience getExperience() {
-        return experience;
-    }
-
-    public String getLastUpdated() {
-        return lastUpdated;
-    }
-
-    public String highestDegreeType() {
-        for(Degree degree : degrees) {
-            if(degree.getType() == "phd") {
-                return "phd";
-            }
-        }
-
-        for(Degree degree : degrees) {
-            if(degree.getType() == "masters") {
-                return "masters";
-            }
-        }
-
-        for(Degree degree : degrees) {
-            if(degree.getType() == "bachelors") {
-                return "bachelors";
-            }
-        }
-
-        for(Degree degree : degrees) {
-            if(degree.getType() == "associates") {
-                return "associates";
-            }
-        }
-
-        for(Degree degree : degrees) {
-            if(degree.getType() == "high-school") {
-                return "high-school";
-            }
-        }
-
-        for(Degree degree : degrees) {
-            if(degree.getType() == "certificate") {
-                return "certificate";
-            }
-        }
-
-        return "none";
+    public String toString() {
+        return "yolo";
     }
 }
-
