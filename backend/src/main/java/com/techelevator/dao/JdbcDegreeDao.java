@@ -39,25 +39,25 @@ public class JdbcDegreeDao implements DegreeDao {
     //Students can update their degree levels, institution, subject area, and date completed
     @Override
     public void updateDegreeLevel(Degree updatedDegree) {
-        String sql = "UPDATE degrees SET level = ? WHERE = user_id = ?;";
+        String sql = "UPDATE degrees SET level = ? WHERE user_id = ?;";
         jdbcTemplate.update(sql, updatedDegree.getLevel(), updatedDegree.getUserId());
     }
 
     @Override
     public void updateDegreeInstitution(Degree updatedDegree) {
-        String sql = "UPDATE degrees SET institution = ? WHERE = user_id = ?;";
+        String sql = "UPDATE degrees SET institution = ? WHERE user_id = ?;";
         jdbcTemplate.update(sql, updatedDegree.getInstitution(), updatedDegree.getUserId());
     }
 
     @Override
     public void updateDegreeSubjectArea(Degree updatedDegree) {
-        String sql = "UPDATE degrees SET subject_area = ? WHERE = user_id = ?;";
+        String sql = "UPDATE degrees SET subject_area = ? WHERE user_id = ?;";
         jdbcTemplate.update(sql, updatedDegree.getSubjectArea(), updatedDegree.getUserId());
     }
 
     @Override
     public void updateDegreeDateCompleted(Degree updatedDegree) {
-        String sql = "UPDATE degrees SET date_completed = ? WHERE = user_id = ?;";
+        String sql = "UPDATE degrees SET date_completed = ? WHERE user_id = ?;";
         jdbcTemplate.update(sql, updatedDegree.getDateCompleted(), updatedDegree.getUserId());
     }
 
