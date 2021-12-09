@@ -17,6 +17,9 @@ public class Degree {
         this.dateCompleted = dateCompleted;
     }
 
+    public Degree() {
+    }
+
     public int getUserId() {
         return userId;
     }

@@ -9,7 +9,7 @@ VALUES ('testuser', 'test@testemail.com', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oa
 ('teststudent3', 'student3@email.com', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_STUDENT'),
 ('teststudent4', 'student4@email.com', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_STUDENT');
 
---SELECT * FROM users;
+SELECT * FROM users;
 
 INSERT INTO cohorts (description, end_date)
 VALUES ('Java', '12/15/2015'),
@@ -52,3 +52,7 @@ VALUES (5, 'bachelors', 'University of Mysteries', 'Statistics', '04/30/2014'),
 (12, 'doctorate', 'University of Pittsburgh', 'Forensic Psychology', '04/30/2010');
 
 SELECT * FROM degrees;
+
+--INSERT INTO experience (user_id, industry, title, organization, date_started, date_ended, description)
+--(4, 'Government', 'Statistician', 'Bureau of Labor Statistics', '06/06/2014', '03/03/2019', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
+--(5, 'Education', 'Philosopher', 'Bureau of Labor Statistics', '06/06/2014', '03/03/2019', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),

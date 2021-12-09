@@ -102,7 +102,7 @@ public class JdbcStudentDao implements StudentDao {
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
             Student student = mapRowToStudent(results);
-
+                //T
             getAllPublishedStudents.add(student);
         }
         return getAllPublishedStudents;
