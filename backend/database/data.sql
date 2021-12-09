@@ -48,7 +48,7 @@ VALUES (5, 'bachelors', 'University of Mysteries', 'Statistics', '04/30/2014'),
 (11, 'masters', 'University of Pittsburgh', 'History', '04/30/2012'),
 (12, 'associates', 'Community College of Allegheny County', 'Criminology', '04/30/2000'),
 (12, 'bachelors', 'University of Pittsburgh', 'Administration of Justice', '04/30/2002'),
-(12, 'masters', 'University of Pittsburgh', 'Social Psychology', '04/30/2000'),
-(12, 'doctorate', 'University of Pittsburgh', 'Forensic Psychology', '04/30/2000');
+(12, 'masters', 'University of Pittsburgh', 'Social Psychology', '04/30/2006'),
+(12, 'doctorate', 'University of Pittsburgh', 'Forensic Psychology', '04/30/2010');
 
 SELECT * FROM degrees;
