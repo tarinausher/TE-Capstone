@@ -21,6 +21,9 @@ public class Experience {
         this.description = description;
     }
 
+    public Experience() {
+    }
+
     public int getExperienceId() {
         return experienceId;
     }

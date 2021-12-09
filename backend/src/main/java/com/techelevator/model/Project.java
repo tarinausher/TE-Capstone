@@ -19,6 +19,9 @@ public class Project {
         this.link = link;
     }
 
+    public Project() {
+    }
+
     public int getProjectId() {
         return projectId;
     }
