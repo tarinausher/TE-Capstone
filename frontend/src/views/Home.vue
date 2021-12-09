@@ -11,7 +11,7 @@
     </div>
 
      <div>
-     <section id="left">
+     <section id="left-panel">
        <nav>
          <menu>
            <img src="https://via.placeholder.com/120" alt="placeholder">
