@@ -19,7 +19,7 @@ public class JdbcStudentDao implements StudentDao {
     //Student profile is created upon new account creation
     @Override
     public void createProfile(Student newStudent) {
-        String sql = "INSERT INTO profile (user_id, first_name, last_name, summary, technologies, soft_skills, " +
+        String sql = "INSERT INTO students (user_id, first_name, last_name, summary, technologies, soft_skills, " +
                 "contact_preferences, is_pubished)" +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(sql, newStudent.getUserId(), newStudent.getFirstName(), newStudent.getLastName(),
@@ -34,37 +34,37 @@ public class JdbcStudentDao implements StudentDao {
     */
     @Override
     public void updateFirstName(Student updatedStudent) {
-        String sql = "UPDATE profile SET first_name = ? WHERE user_id = ?;";
+        String sql = "UPDATE students SET first_name = ? WHERE user_id = ?;";
         jdbcTemplate.update(sql, updatedStudent.getFirstName(), updatedStudent.getUserId());
     }
 
     @Override
     public void updateLastName(Student updatedStudent) {
-        String sql = "UPDATE profile SET last_name = ? WHERE user_id = ?;";
+        String sql = "UPDATE students SET last_name = ? WHERE user_id = ?;";
         jdbcTemplate.update(sql, updatedStudent.getLastName(), updatedStudent.getUserId());
     }
 
     @Override
     public void updateProfileSummary(Student updatedStudent) {
-        String sql = "UPDATE profile SET summary = ? WHERE user_id = ?;";
+        String sql = "UPDATE students SET summary = ? WHERE user_id = ?;";
         jdbcTemplate.update(sql, updatedStudent.getSummary(), updatedStudent.getUserId());
     }
 
     @Override
     public void updateTechnologies(Student updatedStudent) {
-        String sql = "UPDATE profile SET technologies = ? WHERE user_id = ?;";
+        String sql = "UPDATE students SET technologies = ? WHERE user_id = ?;";
         jdbcTemplate.update(sql, updatedStudent.getTechnologies(), updatedStudent.getUserId());
     }
 
     @Override
     public void updateSoftSkills(Student updatedStudent) {
-        String sql = "UPDATE profile SET soft_skills = ? WHERE user_id = ?;";
+        String sql = "UPDATE students SET soft_skills = ? WHERE user_id = ?;";
         jdbcTemplate.update(sql, updatedStudent.getSoftSkills(), updatedStudent.getUserId());
     }
 
     @Override
     public void updateContactPreferences(Student updatedStudent) {
-        String sql = "UPDATE profile SET contact_preferences = ? WHERE user_id = ?;";
+        String sql = "UPDATE students SET contact_preferences = ? WHERE user_id = ?;";
         jdbcTemplate.update(sql, updatedStudent.getContactPreferences(), updatedStudent.getUserId());
     }
 
@@ -75,7 +75,7 @@ public class JdbcStudentDao implements StudentDao {
      */
     @Override
     public void updateIsPublished(Student updatedStudent) {
-        String sql = "UPDATE profile SET is_published = ? WHERE user_id = ?;";
+        String sql = "UPDATE students SET is_published = ? WHERE user_id = ?;";
         jdbcTemplate.update(sql, !updatedStudent.isPublished(), updatedStudent.getUserId());
     }
 
@@ -83,7 +83,7 @@ public class JdbcStudentDao implements StudentDao {
     @Override
     public List<Student> getStudentsByCohortId(int cohortId) {
         List<Student> studentsByCohortId = new ArrayList<>();
-        String sql = "SELECT * FROM profile WHERE cohort_id = ?;";
+        String sql = "SELECT * FROM students WHERE cohort_id = ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, cohortId);
         while (results.next()) {
             Student student = mapRowToStudent(results);
@@ -97,7 +97,7 @@ public class JdbcStudentDao implements StudentDao {
     public List<Student> getAllStudents() {
         List<Student> getAllPublishedStudents = new ArrayList<>();
 
-        String sql = "SELECT * FROM profile WHERE is_published = true;";
+        String sql = "SELECT * FROM students WHERE is_published = true;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
@@ -112,7 +112,7 @@ public class JdbcStudentDao implements StudentDao {
     //Individual student profiles should be retrieved when selected
     @Override
     public Student getStudentByUserId(int userId) {
-        String sql = "SELECT * FROM profile WHERE user_id = ?;";
+        String sql = "SELECT * FROM students WHERE user_id = ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         if (results.next()) {
             return mapRowToStudent(results);
@@ -125,7 +125,7 @@ public class JdbcStudentDao implements StudentDao {
     @Override
     public List<Student> getUnpublishedProfiles() {
         List<Student> allPublishedStudents = new ArrayList<>();
-        String sql = "SELECT * FROM profile WHERE is_published = false;";
+        String sql = "SELECT * FROM students WHERE is_published = false;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
