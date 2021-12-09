@@ -18,7 +18,7 @@ public class MemoryStudentDao implements StudentDao {
     }
 
     private void setStudents() {
-        Student
+
     }
 
     @Override
