@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Student {
     private int userId;
+    private int cohortId;
     private Cohort cohort;
     private String firstName;
     private String lastName;
@@ -79,6 +80,14 @@ public class Student {
 
     public int getUserId() {
         return userId;
+    }
+
+    public int getCohortId() {
+        return cohortId;
+    }
+
+    public void setCohortId(int cohortId) {
+        this.cohortId = cohortId;
     }
 
     public void setUserId(int userId) {

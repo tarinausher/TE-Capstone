@@ -1,19 +1,54 @@
---Faux data to populate database
 INSERT INTO users (username, email, password_hash, role)
-VALUES ('tarina', 'tarinausher@gmail.com', '$2a$10$L0fuFfcbbiRZB7ZC4E9HauUbLEu9vvpTxeyVp4PA4Qpd6N8gOBvaO', 'ROLE_USER'),
-('billytables', 'billytables@test.com', '$2a$10$eKlm.6fXkUpxlGtbtXhijeBdOzfyC4AetWy/E6jvxYT/ZGdxLzx5m', 'ROLE_USER'),
-('Descartes', 'decartes@email.com', '$2a$10$mij0eaPCQNtHw/14/DVYluma/sHp6inbppTDKZKuonHOOPXHV2iUq', 'ROLE_USER');
+VALUES ('testuser', 'test@testemail.com', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_STUDENT'),
+('billytables', 'billy@tables.com', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_STUDENT'),
+('renedecartes', 'decartes@email.com', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_STUDENT'),
+('anthonyhughes', 'anthony@te.com', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_STAFF'),
+('pncbank', 'pnc@bank.com', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_EMPLOYER'),
+('teststudent1', 'student1@email.com', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_STUDENT'),
+('teststudent2', 'student2@email.com', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_STUDENT'),
+('teststudent3', 'student3@email.com', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_STUDENT'),
+('teststudent4', 'student4@email.com', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_STUDENT');
 
-INSERT INTO profile (user_id, first_name, last_name, summary, is_published, cohort_id, soft_skills, contact_preferences, interests)
-VALUES (3, 'Tarina', 'Usher', 'Hi, plz hire me, I will do a good job.', true, 10, 'problem solving, empathy', 'email', 'Java, SQL, backend development'),
-(4, 'Billy', 'Tables', 'Look out for those darn sql injections, kiddos.', false, 10, 'networking, focus', 'phone', 'Hacking, data security, SQL'),
-(5, 'Rene', 'Descartes', 'I think, therefore I am.', false, 9, 'situational awareness, perspective', 'smoke signals', 'HTML, CSS, JavaScript, Vue.js');
+--SELECT * FROM users;
 
-SELECT * FROM users;
-SELECT * FROM profile;
+INSERT INTO cohorts (description, end_date)
+VALUES ('Java', '12/15/2015'),
+('Java', '12/15/2016'),
+('Java', '06/15/2017'),
+('Java', '12/15/2017'),
+('Java', '06/15/2018'),
+('Java', '12/15/2018'),
+('Java', '06/15/2019'),
+('Java', '12/15/2019'),
+('Java', '12/15/2020'),
+('Java', '12/15/2021');
 
-INSERT INTO career_experience (experience_title, organization_name, date_started, date_ended, description)
-VALUES ('Barista', 'Cafe Carnegie', '6/1/2021', '9/15/2021', 'Served coffee to customers at the museum. Tried not to cry.');
+--SELECT * FROM cohorts;
 
-ALTER TABLE career_experience
-ADD COLUMN industry VARCHAR(255);
+INSERT INTO students (user_id, cohort_id, first_name, last_name, summary, technologies, soft_skills, contact_preferences, is_published, last_updated)
+VALUES (4, 7, 'Test', 'User', 'I am a test user, here is my data.', 'Java, SQL, SpringBoot', 'teamwork, leadership', 'email', true, '06/15/2019'),
+(5, 8, 'Billy', 'Tables', 'Look out for SQL injections, kiddos.', 'SQL, Java, Python', 'conflict resolution, communication', 'email', true, '12/15/2019'),
+(6, 8, 'Rene', 'Decartes', 'I think, therefore I am', 'Java, HTML, CSS, JavaScript', 'perspective, communication', 'email', false, '12/15/2019'),
+(9, 10, 'Johny', 'Test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Java, SprintBoot, JUnit, SQL', 'problem solving, smiling', 'email', true, '12/8/2021'),
+(10, 8, 'Suzy', 'Test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Java, SprintBoot, JUnit, SQL', 'empathy, responsibility', 'email', true, '12/16/2019'),
+(11, 10, 'Sally', 'Test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Java, SprintBoot, JUnit, SQL', 'decisiveness, negotiation', 'linkedin', true, '12/7/2021'),
+(12, 10, 'Jimmy', 'Test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Java, SprintBoot, JUnit, SQL', 'flexibility, problem solving', 'email', true, '12/6/2021');
+
+SELECT * FROM students;
+
+INSERT INTO degrees (user_id, level, institution, subject_area, date_completed)
+VALUES (5, 'bachelors', 'University of Mysteries', 'Statistics', '04/30/2014'),
+(5, 'associates', 'University of Mysteries', 'Biology', '04/30/2010'),
+(4, 'high-school', 'Taylor Allderdice High School', 'High School Diploma', '04/30/2018'),
+(6, 'bachelors', 'University of Poitiers', 'Philosophy, Math', '04/30/2010'),
+(9, 'bachelors', 'University of Pittsburgh', 'Sociology', '04/30/2012'),
+(9, 'masters', 'University of Pittsburgh', 'Social Work', '04/30/2014'),
+(10, 'bachelors', 'University of Toledo', 'Chemistry', '04/30/2018'),
+(11, 'bachelors', 'University of Toronto', 'History', '04/30/2008'),
+(11, 'masters', 'University of Pittsburgh', 'History', '04/30/2012'),
+(12, 'associates', 'Community College of Allegheny County', 'Criminology', '04/30/2000'),
+(12, 'bachelors', 'University of Pittsburgh', 'Administration of Justice', '04/30/2002'),
+(12, 'masters', 'University of Pittsburgh', 'Social Psychology', '04/30/2006'),
+(12, 'doctorate', 'University of Pittsburgh', 'Forensic Psychology', '04/30/2010');
+
+SELECT * FROM degrees;

@@ -19,12 +19,12 @@ public class JdbcStudentDao implements StudentDao {
     //Student profile is created upon new account creation
     @Override
     public void createProfile(Student newStudent) {
-        String sql = "INSERT INTO profile (user_id, first_name, last_name, summary, is_published, cohort_id, " +
-                "soft_skills, contact_preferences, interests)" +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        // jdbcTemplate.update(sql, newStudent.getUserId(), newStudent.getFirstName(), newStudent.getLastName(),
-        //        newStudent.getSummary(), newStudent.isPublished(), newStudent.getCohortId(),
-        //        newStudent.getSoftSkills(), newStudent.getContactPreferences(), newStudent.getTechInterests());
+        String sql = "INSERT INTO profile (user_id, first_name, last_name, summary, technologies, soft_skills, " +
+                "contact_preferences, is_pubished)" +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sql, newStudent.getUserId(), newStudent.getFirstName(), newStudent.getLastName(),
+                newStudent.getSummary(), newStudent.getTechnologies(), newStudent.getSoftSkills(),
+                newStudent.getContactPreferences(), newStudent.isPublished());
     }
 
     /*
@@ -51,6 +51,12 @@ public class JdbcStudentDao implements StudentDao {
     }
 
     @Override
+    public void updateTechnologies(Student updatedStudent) {
+        String sql = "UPDATE profile SET technologies = ? WHERE user_id = ?;";
+        jdbcTemplate.update(sql, updatedStudent.getTechnologies(), updatedStudent.getUserId());
+    }
+
+    @Override
     public void updateSoftSkills(Student updatedStudent) {
         String sql = "UPDATE profile SET soft_skills = ? WHERE user_id = ?;";
         jdbcTemplate.update(sql, updatedStudent.getSoftSkills(), updatedStudent.getUserId());
@@ -61,13 +67,6 @@ public class JdbcStudentDao implements StudentDao {
         String sql = "UPDATE profile SET contact_preferences = ? WHERE user_id = ?;";
         jdbcTemplate.update(sql, updatedStudent.getContactPreferences(), updatedStudent.getUserId());
     }
-
-    @Override
-    public void updateInterests(Student updatedStudent) {
-        String sql = "UPDATE profile SET interests = ? WHERE user_id = ?;";
-        // jdbcTemplate.update(sql, updatedStudent.getTechInterests(), updatedStudent.getUserId());
-    }
-
 
     /*
     Student can publish their profile when ready. The idea is the student will have a button to select
@@ -109,21 +108,8 @@ public class JdbcStudentDao implements StudentDao {
         return getAllPublishedStudents;
     }
 
-    /*
-    Individual student profiles should be retrieved when selected
-    TODO: Distinguish if we want to use via ProfileId or UserId in API to view profile
-     */
-    @Override
-    public Student getStudentByProfileId(int profileId) {
-        String sql = "SELECT * FROM profile WHERE profile_id = ?;";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, profileId);
-        if (results.next()) {
-            return mapRowToStudent(results);
-        } else {
-            throw new RuntimeException("Profile was not found.");
-        }
-    }
 
+    //Individual student profiles should be retrieved when selected
     @Override
     public Student getStudentByUserId(int userId) {
         String sql = "SELECT * FROM profile WHERE user_id = ?;";
@@ -161,17 +147,14 @@ public class JdbcStudentDao implements StudentDao {
     private Student mapRowToStudent(SqlRowSet rs) {
         Student student = new Student();
         student.setUserId(rs.getInt("user_id"));
-        // student.setProfileId(rs.getInt("profile_id"));
-        // student.setCohortId(rs.getInt("cohort_id"));
+        student.setCohortId(rs.getInt("cohort_id"));
         student.setFirstName(rs.getString("first_name"));
         student.setLastName(rs.getString("last_name"));
         student.setSummary(rs.getString("summary"));
+        student.setTechnologies(rs.getString("technologies"));
         student.setSoftSkills(rs.getString("soft_skills"));
-        student.setContactPreferences(rs.getString("contact_preferences"));
-        // student.setTechInterests(rs.getString("interests"));
         student.setPublished(rs.getBoolean("is_published"));
+        student.setLastUpdated(rs.getString("last_updated"));
         return student;
     }
-
-
 }

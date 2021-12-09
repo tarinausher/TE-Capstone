@@ -13,9 +13,9 @@ public interface StudentDao {
     void updateFirstName(Student updatedStudent);
     void updateLastName(Student updatedStudent);
     void updateProfileSummary(Student updatedStudent);
+    void updateTechnologies(Student updatedStudent);
     void updateSoftSkills(Student updatedStudent);
     void updateContactPreferences(Student updatedStudent);
-    void updateInterests(Student updatedStudent);
 
     //Student can publish their profile when ready
     public void updateIsPublished(Student updatedStudent);
@@ -27,7 +27,6 @@ public interface StudentDao {
     List<Student> getAllStudents();
 
     //Individual student profiles should be retrieved when selected
-    Student getStudentByProfileId(int profileId);
     Student getStudentByUserId(int userId);
 
     //Staff may be able to see student profiles if not published
