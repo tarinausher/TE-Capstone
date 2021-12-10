@@ -53,6 +53,9 @@ VALUES (5, 'bachelors', 'University of Mysteries', 'Statistics', '04/30/2014'),
 
 SELECT * FROM degrees;
 
+SELECT * FROM degrees WHERE user_id = 12;
+
+
 --INSERT INTO experience (user_id, industry, title, organization, date_started, date_ended, description)
 --(4, 'Government', 'Statistician', 'Bureau of Labor Statistics', '06/06/2014', '03/03/2019', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
 --(5, 'Education', 'Philosopher', 'Bureau of Labor Statistics', '06/06/2014', '03/03/2019', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
