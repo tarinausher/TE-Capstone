@@ -129,6 +129,7 @@ export default {
 
 <style>
 #section-left {
+  
   grid-area: section-left;
 }
 
@@ -151,10 +152,16 @@ nav {
 }
 
 .header {
+  
+  border-radius: 15px ;
+  border: 5px solid #aaaaaa;
   grid-area: header;
 }
 
 .search {
+  padding: 0px 100 0px 0px;
+  border-radius: 15px ;
+  border: 5px solid #aaaaaa;
   grid-area: search;
 }
 

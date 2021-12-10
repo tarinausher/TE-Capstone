@@ -1,15 +1,15 @@
 <template>
     <div>
-      <profile-details />
+    <student-list />
   </div>
 </template>
 
 <script>
-import ProfileDetails from '../components/ProfileDetails.vue'
+import StudentList from '../components/StudentList.vue'
 
- 
+
 export default {
-  components: { ProfileDetails }
+  components: {StudentList  }
 
 }
 </script>
