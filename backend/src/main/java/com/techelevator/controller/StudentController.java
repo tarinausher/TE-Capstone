@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@CrossOrigin (origins = "http://localhost:8081")
 public class StudentController {
 
     private StudentDao studentDao;
