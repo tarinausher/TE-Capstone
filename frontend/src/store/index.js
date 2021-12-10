@@ -21,7 +21,7 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     students: [],
-    profile: {
+    student: {
       id: null,
       firstName: '',
       lastName: '',

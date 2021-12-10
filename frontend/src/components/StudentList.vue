@@ -5,12 +5,13 @@
         <th>&nbsp;</th>
         <th>Student Name</th>
         <th>Cohort ID</th>
+        <button v-on:click="viewProfile(student.id)">Why wont this work</button>
       </tr>
     </thead>
     <tbody>
       <tr v-for="student in students" :key="student.id" v-on:click="viewProfile(student.id)">
-        <td class="name">{{ student.firstName }} sdfjlkfj {{ student.lastName }}</td>
-        <button v-on:click="viewProfile(student.id)">sdfasfd</button>
+        <td class="name">{{ student.firstName }} ???? {{ student.lastName }}</td>
+        
       </tr>
     </tbody>
   </table>
@@ -21,11 +22,11 @@ import profileService from "../services/ProfileService";
 
 export default {
     name: "student-list",
-    // data() {
-    //     return {
-    //         students: []
-    //     };
-    // },
+    data() {
+        return {
+            students: []
+        };
+    },
     methods: { 
         viewProfile(id) {
             this.$router.push(`/student/${id}`);
