@@ -23,7 +23,7 @@ import com.techelevator.security.jwt.TokenProvider;
 
 
 @RestController
-@CrossOrigin 
+@CrossOrigin
 public class AuthenticationController {
 
     private final TokenProvider tokenProvider;
