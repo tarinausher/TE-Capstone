@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import com.techelevator.dao.DegreeDao;
 import com.techelevator.dao.JdbcStudentDao;
 import com.techelevator.dao.StudentDao;
 import com.techelevator.model.Degree;
@@ -16,9 +17,11 @@ import java.util.List;
 public class StudentController {
 
     private StudentDao studentDao;
+    private DegreeDao degreeDao;
 
-    public StudentController(StudentDao studentDao) {
-        this.studentDao = this.studentDao = studentDao;
+    public StudentController(StudentDao studentDao, DegreeDao degreeDao) {
+        this.studentDao = studentDao;
+        this.degreeDao = degreeDao;
     }
 
     // Example 1: /student returns all Students
@@ -39,6 +42,10 @@ public class StudentController {
 
         if(searchType == null) {
             return students;
+        }
+
+        for(Student student : students) {
+            student.setDegrees(degreeDao.getDegreesByUserId(student.getUserId()));
         }
 
         List<Student> filteredStudents = new ArrayList<>();
@@ -92,7 +99,7 @@ public class StudentController {
                 Collections.sort(students, new Comparator<Student>() {
                     @Override
                     public int compare(Student student1, Student student2) {
-                        return student2.getLastUpdated().compareTo(student1.getLastUpdated());
+                        return student1.getLastUpdated().compareTo(student2.getLastUpdated());
                     }
                 });
             }
