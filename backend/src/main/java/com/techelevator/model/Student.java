@@ -9,9 +9,9 @@ public class Student {
     private String firstName;
     private String lastName;
     private String summary;
-    private List<Project> projects;
     private List<Degree> degrees;
     private List<Experience> experiences;
+    private List<Project> projects;
     private String technologies;
     private String softSkills;
     private String contactPreferences;

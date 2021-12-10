@@ -32,6 +32,8 @@ public interface StudentDao {
     //Staff may be able to see student profiles if not published
     List<Student> getUnpublishedProfiles();
 
+
+
     /*
     TODO: Determine if these methods are needed based on API
     Student profile should be searchable by cohortId, highest degree obtained, prior industry experience, and technologies used:
