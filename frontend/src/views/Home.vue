@@ -3,6 +3,7 @@
     <div class="header">
         <h1>Student Profile Builder</h1>
       <p>You must be authenticated to see this</p>
+      
   <!-- what i added is under this comment -->
     </div> 
     <div class="search">
@@ -10,7 +11,7 @@
         <input type="search" value="search"/> <input type="submit" value="submit"> <input type="submit" value="Invite +" />
       </section>
     </div>
-    
+  
     
   <div class="left-panel">
      <section id="left-panel">
@@ -37,8 +38,13 @@
      </section>
    </div>
 
+  <div class="test">
+    <student-list />
+  </div>
+
   <div class="center-right">
     <section id="center-right">
+      
       <article id="student-profiles">
         <img src="https://via.placeholder.com/120" alt="placeholder">
            <li class="center-panel">
@@ -117,7 +123,9 @@
 </template>
 
 <script>
+import StudentList from '../components/StudentList.vue';
 export default {
+  components: { StudentList },
   name: "home"
 };
 </script>

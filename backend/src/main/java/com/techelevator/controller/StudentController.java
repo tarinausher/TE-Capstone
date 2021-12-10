@@ -14,6 +14,7 @@ import java.util.Comparator;
 import java.util.List;
 
 @RestController
+@CrossOrigin (origins = "http://localhost:8081")
 public class StudentController {
 
     private StudentDao studentDao;
