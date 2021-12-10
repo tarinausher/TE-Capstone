@@ -26,7 +26,7 @@ public class StudentController {
     }
 
     @GetMapping(path = "/student")
-    public List<Student> students(@PathVariable int userId) {
+    public List<Student> students() {
         List<Student> students = studentDao.getAllStudents();
         addDegreesExperiencesProjects(students);
 

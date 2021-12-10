@@ -1,8 +1,12 @@
 <template>
     <div>
-        <h1>Name: {{ profile.firstName }} {{ profile.lastName }}</h1>
-        <p>Cohort: {{ profile.cohortId }}</p>
-        <p>About: {{ profile.summary }}</p>
+        <h1 v-bind:key="student.firstName">Name: {{ student.firstName }} {{ student.lastName }}</h1>
+        <p>Cohort: {{ student.cohortId }}</p>
+        <p>About: {{ student.summary }}</p>
+        <p>Tech Skills: {{ student.technologies }}</p>
+        <p>Soft Skills: {{ student.softSkills }}</p>
+        <p>Portfolio</p>
+
     <!--Will require technologies, soft skills, contact pref. -->
     </div> 
 </template>
@@ -12,12 +16,10 @@ import profileService from "../services/ProfileService";
 
 export default {
     name: "profile-details",
-    props: {
-        'studentId': Number
-    },
+    props: ['students'],
     data() {
         return {
-            profile: {
+            student: {
                 id: null,
                 firstName: '',
                 lastName: '',

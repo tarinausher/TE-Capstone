@@ -5,11 +5,11 @@
         <th>&nbsp;</th>
         <th>Student Name</th>
         <th>Cohort ID</th>
-        <button v-on:click="viewProfile(student.id)">Why wont this work</button>
+        <button v-on:click="viewProfile(student.userId)">Why wont this work</button>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="student in students" :key="student.id" v-on:click="viewProfile(student.id)">
+      <tr v-for="student in students" :key="student.userId" v-on:click="viewProfile(student.userId)">
         <td class="name">{{ student.firstName }} ???? {{ student.lastName }}</td>
         
       </tr>
@@ -28,11 +28,11 @@ export default {
         };
     },
     methods: { 
-        viewProfile(id) {
+        getStudentProfile(id) {
             this.$router.push(`/student/${id}`);
         },
         getStudents() {
-            profileService.list().then(response => {
+            profileService.listAllStudents().then(response => {
                 this.$store.commit("SET_STUDENT_LIST", response.data);
             });
         }
