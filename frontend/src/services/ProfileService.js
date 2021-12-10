@@ -2,11 +2,11 @@ import axios from 'axios';
 
 export default {
 
-  get(id) {
+  getStudent(id) {
       return axios.get(`/student/${id}`)
   },
 
-  list() {
+  listStudents() {
       return axios.get('/student')
   }
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@CrossOrigin (origins = "http://localhost:8081")
+@CrossOrigin
 public class StudentController {
 
     private StudentDao studentDao;
@@ -26,7 +26,7 @@ public class StudentController {
     }
 
     @GetMapping(path = "/student")
-    public List<Student> students(@PathVariable int userId) {
+    public List<Student> students() {
         List<Student> students = studentDao.getAllStudents();
         addDegreesExperiencesProjects(students);
 
