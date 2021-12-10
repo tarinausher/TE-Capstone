@@ -110,6 +110,9 @@ public class StudentController {
 
     @RequestMapping(path = "/student/{studentId}", method = RequestMethod.GET)
     public Student list(@PathVariable int studentId) {
-        return new Student();
+        Student student = studentDao.getStudentByUserId(studentId);
+        student.setDegrees(degreeDao.getDegreesByUserId(student.getUserId()));
+
+        return student;
     }
 }
