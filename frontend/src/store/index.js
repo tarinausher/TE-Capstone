@@ -37,6 +37,9 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
-    }
+    },
+    SET_STUDENT_LIST(state, data) {
+      state.student = data;
+    },
   }
 })
