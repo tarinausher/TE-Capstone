@@ -4,10 +4,12 @@ import com.techelevator.model.Degree;
 import com.techelevator.model.Experience;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcExperienceDao implements ExperienceDao {
     private JdbcTemplate jdbcTemplate;
 
