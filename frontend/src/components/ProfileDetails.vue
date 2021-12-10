@@ -12,6 +12,9 @@ import profileService from "../services/ProfileService";
 
 export default {
     name: "profile-details",
+    props: {
+        'studentId': Number
+    },
     data() {
         return {
             profile: {

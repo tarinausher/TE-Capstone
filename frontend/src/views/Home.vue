@@ -38,9 +38,6 @@
      </section>
    </div>
 
-  <div class="test">
-    <student-list />
-  </div>
 
   <div class="center-right">
     <section id="center-right">
@@ -123,9 +120,8 @@
 </template>
 
 <script>
-import StudentList from '../components/StudentList.vue';
+
 export default {
-  components: { StudentList },
   name: "home"
 };
 </script>
