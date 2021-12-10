@@ -129,22 +129,35 @@ export default {
 
 <style>
 #section-left {
+  
   grid-area: section-left;
 }
 
 .center-left {
+  border-radius: 15px ;
+  border: 5px solid #aaaaaa;
+  background-color: #e6e4e4;
   grid-area: center-left;
 }
 
 .center-right {
+  border-radius: 15px ;
+  border: 5px solid #aaaaaa;
+  background-color: #e6e4e4;
   grid-area: center-right;
 }
 
 .header {
+  
+  border-radius: 15px ;
+  border: 5px solid #aaaaaa;
   grid-area: header;
 }
 
 .search {
+  padding: 0px 100 0px 0px;
+  border-radius: 15px ;
+  border: 5px solid #aaaaaa;
   grid-area: search;
 }
 
