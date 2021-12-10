@@ -133,11 +133,21 @@ export default {
 }
 
 .center-left {
+  border-radius: 15px ;
+  border: 5px solid #aaaaaa;
+  background-color: #e6e4e4;
   grid-area: center-left;
 }
 
 .center-right {
+  border-radius: 15px ;
+  border: 5px solid #aaaaaa;
+  background-color: #e6e4e4;
   grid-area: center-right;
+}
+
+nav {
+  list-style-type: none;
 }
 
 .header {
@@ -157,9 +167,68 @@ export default {
       ". . . . .";
   grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
   grid-template-rows: 1fr 2fr 2fr 1fr;
-
-  
 }
 
+input[type="text"],
+input[type="search"] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+button {
+  background-color: #deacff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  color: #000000;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  white-space: normal;
+  text-align: center;
+  padding: 10px;
+  border-radius: 20%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  font-size: 2em;
+  margin-top: 0.15em;
+  margin-bottom: 0.15em;
+  color: #0099ff;
+
+  background-image: linear-gradient(#a4e5ff, #ffffffa6);
+  display: inline;
+  padding: 6px;
+  border-radius: 5%;
+}
+
+div.header p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: left;
+  font-size: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.15em;
+  color: #0099ff;
+}
+
+label {
+  color: #08ffd1;
+  font-size: 17px;
+}
+
+a {
+  float: left;
+  background-color: #90ffeb;
+}
 
 </style>
