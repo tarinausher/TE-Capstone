@@ -19,19 +19,7 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {},
-    students: [],
-    student: {
-      id: null,
-      firstName: '',
-      lastName: '',
-      cohortId: '',
-      summary: '',
-      technologies: '',
-      softSkills: '',
-      contactPreferences: '',
-      isPublished: false
-    }
+    user: currentUser || {}
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -50,11 +38,8 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    SET_PROFILE(state, data) {
-      state.profile = data;
-    },
     SET_STUDENT_LIST(state, data) {
-      state.students = data;
-    }    
+      state.student = data;
+    },
   }
 })
