@@ -98,10 +98,8 @@ link VARCHAR(255),
 FOREIGN KEY (user_id) REFERENCES students(user_id)
 );
 
-CREATE TABLE tech(
-tech_id SERIAL,
-tech_name VARCHAR (255),
-PRIMARY KEY (tech_id)
-);
+ALTER TABLE users ADD COLUMN is_validated BOOLEAN;
+UPDATE users SET is_validated = true WHERE is_validated = null;
 
 COMMIT TRANSACTION;
+

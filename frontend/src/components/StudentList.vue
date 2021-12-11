@@ -1,14 +1,17 @@
 <template>
   <div id='main'>
-      <div class='student-profile' v-for="student in students" v-bind:key="student.id">    
+    <h1>Bootcamp Students</h1>
+      <div class='students' v-for="student in students" v-bind:key="student.id" >    
+          
           <p>Student Name: {{student.firstName}}&nbsp;{{student.lastName}}</p>
-          <p>Cohort ID: {{student.cohortId}}</p>
-          <p>About: {{student.summary}}</p>
+          <p>Cohort: {{student.cohortId}}</p>
           <p>Technical Skills: {{student.technologies}}</p>
           <p>Soft Skills: {{student.softSkills}}</p>
-          <p>Degrees: TODO <!-- will likely need a separate component for this--></p>
-          <p>Experiences: TODO <!-- will likely need a separate component for this--></p>
-          <p>Portfolio Projects: TODO <!-- will likely need a separate component for this--></p>
+          <p>Portfolio Projects: TODO: BY TITLE <!-- will likely need a separate component for this--></p>
+          
+          <router-link v-bind:to="{ name: 'student-profile', params: { id: student.userId }}">
+          <button>View Profile</button>
+          </router-link>
           <br />
       </div>
     </div>
