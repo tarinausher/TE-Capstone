@@ -1,5 +1,7 @@
 BEGIN TRANSACTION;
 
+DROP TABLE IF EXISTS tech;
+
 DROP TABLE IF EXISTS users;
 DROP SEQUENCE IF EXISTS seq_user_id;
 
@@ -94,6 +96,12 @@ technologies VARCHAR(255),
 link VARCHAR(255), 
 
 FOREIGN KEY (user_id) REFERENCES students(user_id)
+);
+
+CREATE TABLE tech(
+tech_id SERIAL,
+tech_name VARCHAR (255),
+PRIMARY KEY (tech_id)
 );
 
 COMMIT TRANSACTION;
