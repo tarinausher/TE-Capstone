@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="header">
-        <h1>Student Profile Builder</h1>
+        <h1>Build-a-Student-Workshop</h1>
       <p>You must be authenticated to see this</p>
       
   <!-- what i added is under this comment -->
@@ -19,21 +19,23 @@
        <nav>
          <menu>
            <img src="https://via.placeholder.com/120" alt="placeholder">
-           <li class="left-menu">
-             <a href='#'> Profile Views </a>
-           </li>
+            <ul>
+            <li class="left-menu">
+              <a href='#'> Profile Views </a>
+            </li>
 
-           <li>
-             <a href='#'> Upload Photo </a>
-           </li>
+            <li>
+              <a href='#'> Upload Photo </a>
+            </li>
 
-           <li>
-             <a href='#'> Upload Portfolio </a>
-           </li>
+            <li>
+              <a href='#'> Upload Portfolio </a>
+            </li>
 
-           <li>
-             <a href='#'> View Profile </a>
-           </li>
+            <li>
+              <a href='#'> View Profile </a>
+            </li>
+            </ul>
          </menu>
        </nav>
      </section>
@@ -42,15 +44,15 @@
 
   <div class="center-right">
     <section id="center-right">
-      
       <article id="student-profiles">
         <img src="https://via.placeholder.com/120" alt="placeholder">
+        <ul>
            <li class="center-panel">
              <a href='#'> Bio </a>
            </li>
 
            <li>
-             <a href='#'> Career experience </a>
+             <a href='#'> Career Experience </a>
            </li>
 
            <li>
@@ -72,8 +74,7 @@
            <li>
              <a href='#'> View Full Profile </a>
            </li>
-
-           
+           </ul>
       </article>
 
     </section>
@@ -83,12 +84,13 @@
     <section id="center-left">
       <article id="employer-profiles">
         <img src="https://via.placeholder.com/120" alt="placeholder">
+          <ul>
            <li class="center-panel">
              <a href='#'> Bio </a>
            </li>
 
            <li>
-             <a href='#'> Career experience </a>
+             <a href='#'> Career Experience </a>
            </li>
 
            <li>
@@ -110,6 +112,7 @@
            <li>
              <a href='#'> View Full Profile </a>
            </li>
+           </ul>
       </article>
     </section>
     
@@ -129,7 +132,6 @@ export default {
 
 <style>
 #section-left {
-  
   grid-area: section-left;
 }
 
@@ -138,6 +140,7 @@ export default {
   border: 5px solid #aaaaaa;
   background-color: #e6e4e4;
   grid-area: center-left;
+  list-style-type: disc;
 }
 
 .center-right {
@@ -147,12 +150,15 @@ export default {
   grid-area: center-right;
 }
 
-nav {
+menu ul,
+.center-left ul,
+.center-right ul {
+  display: grid;
+  grid-template-columns: 1fr;
   list-style-type: none;
 }
 
 .header {
-  
   border-radius: 15px ;
   border: 5px solid #aaaaaa;
   grid-area: header;
