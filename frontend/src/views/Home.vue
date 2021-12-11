@@ -2,7 +2,6 @@
   <div class="home">
     <div class="header">
         <h1>Build-a-Student-Workshop</h1>
-      <p>You must be authenticated to see this</p>
       
   <!-- what i added is under this comment -->
     </div> 
@@ -19,7 +18,7 @@
      <section id="left-panel">
        <nav>
          <menu>
-           <img src="https://via.placeholder.com/120" alt="placeholder">
+           <!-- <img src="https://via.placeholder.com/120" alt="placeholder"> -->
             <ul>
             <li class="left-menu">
               <a href='#'> Profile Views </a>
@@ -242,7 +241,7 @@ label {
 
 a {
   float: left;
-  background-color: #90ffeb;
+  /* background-color: #90ffeb; */
 }
 
 </style>

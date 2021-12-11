@@ -56,19 +56,35 @@ SELECT * FROM degrees;
 SELECT * FROM degrees WHERE user_id = 12;
 
 
---INSERT INTO experience (user_id, industry, title, organization, date_started, date_ended, description)
---(4, 'Government', 'Statistician', 'Bureau of Labor Statistics', '06/06/2014', '03/03/2019', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
---(5, 'Education', 'Philosopher', 'Bureau of Labor Statistics', '06/06/2014', '03/03/2019', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
+INSERT INTO experiences (user_id, industry, title, organization, date_started, date_ended, description)
+VALUES (4, 'Government', 'Statistician', 'Bureau of Labor Statistics', '06/06/2014', '03/03/2019', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
+(5, 'Education', 'Philosopher', 'Bureau of Labor Statistics', '06/06/2014', '03/03/2019', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
 
-SELECT FROM users
+SELECT * FROM users
 WHERE role = 'ROLE_STUDENT';
 
 INSERT INTO projects (user_id, title, description, is_solo, technologies)
 VALUES (4, 'Dropping the SQL', 'Developed a backend program that audits a SQL Database to determine which tables are no longer needed', true, 'Java, SQL'),
 (5, 'If I think, therefore I am', 'Created a program to determine what thinking means', true, 'Javascript, Java, Restful APIs, SQL'),
-(3, 'JUnit Extraordinaire', 'Developed a library of JUnit tests that can be easily readjusted to suit the users needs', false, 'Java, JUnit'),
+(4, 'JUnit Extraordinaire', 'Developed a library of JUnit tests that can be easily readjusted to suit the users needs', false, 'Java, JUnit'),
 (4, 'Digital Craftsmen', 'Used Object-Oriented Programming to construct blueprints for various types of tables', true, 'Java');
 
+SELECT * FROM projects;
+
 INSERT INTO experiences (industry, title, organization, date_started, date_ended, description, user_id)
-VALUES('Service', 'Bartender', 'Condado', '02-01-2020', '12-01-2020', 'Managed the bar area customer orders, enforced mask policies', 4),
-('Retail', 'Overnight Fulfillment Director', '04-01-2020', '08-01-2020', 'Gathered items for customer orders and packed them', 11);
+VALUES ('Service', 'Bartender', 'Condado', '02-01-2020', '12-01-2020', 'Managed the bar area customer orders, enforced mask policies', 4),
+('Retail', 'Overnight Fulfillment Director', 'Target', '04-01-2020', '08-01-2020', 'Gathered items for customer orders and packed them', 11),
+('Service', 'Barista', 'Starbucks', '01-01-2021', '12-01-2021', 'Crafted coffee beverages for customers', 4);
+
+UPDATE users SET is_validated = true WHERE user_id = 1;
+UPDATE users SET is_validated = true WHERE user_id = 2;
+UPDATE users SET is_validated = true WHERE user_id = 4;
+UPDATE users SET is_validated = true WHERE user_id = 5;
+UPDATE users SET is_validated = true WHERE user_id = 6;
+UPDATE users SET is_validated = true WHERE user_id = 7;
+UPDATE users SET is_validated = true WHERE user_id = 8;
+UPDATE users SET is_validated = true WHERE user_id = 9;
+UPDATE users SET is_validated = true WHERE user_id = 10;
+UPDATE users SET is_validated = false WHERE user_id = 11;
+UPDATE users SET is_validated = false WHERE user_id = 12;
+
