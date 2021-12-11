@@ -1,5 +1,7 @@
 BEGIN TRANSACTION;
 
+DROP TABLE IF EXISTS tech;
+
 DROP TABLE IF EXISTS users;
 DROP SEQUENCE IF EXISTS seq_user_id;
 
@@ -96,4 +98,8 @@ link VARCHAR(255),
 FOREIGN KEY (user_id) REFERENCES students(user_id)
 );
 
+ALTER TABLE users ADD COLUMN is_validated BOOLEAN;
+UPDATE users SET is_validated = true WHERE is_validated = null;
+
 COMMIT TRANSACTION;
+

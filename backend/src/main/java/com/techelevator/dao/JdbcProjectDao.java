@@ -4,10 +4,12 @@ import com.techelevator.model.Degree;
 import com.techelevator.model.Project;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcProjectDao implements ProjectDao {
     private JdbcTemplate jdbcTemplate;
 
