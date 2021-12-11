@@ -17,9 +17,10 @@
 import profileService from "../services/ProfileService";
 import DegreeList from './DegreeList.vue';
 import ExperienceList from './ExperienceList.vue';
+import PortfolioDetail from './PortfolioDetail.vue'
 
 export default {
-  components: { DegreeList, ExperienceList },
+  components: { DegreeList, ExperienceList, PortfolioDetail },
   name: "student-profile",
   data() {
       return {

@@ -99,7 +99,6 @@ FOREIGN KEY (user_id) REFERENCES students(user_id)
 );
 
 ALTER TABLE users ADD COLUMN is_validated BOOLEAN;
-UPDATE users SET is_validated = true WHERE is_validated = null;
 
 COMMIT TRANSACTION;
 
