@@ -112,10 +112,7 @@ public class JdbcStudentDao implements StudentDao {
         if (results.next()) {
             return mapRowToStudent(results);
         }
-<<<<<<< HEAD
 
-=======
->>>>>>> e3136589c5ca305fdd9a77ac4467dc0dbb0f2be7
         throw new RuntimeException("Profile was not found.");
     }
 

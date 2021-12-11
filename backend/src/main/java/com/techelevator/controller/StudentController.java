@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.*;
+import com.techelevator.model.Degree;
 import com.techelevator.model.Experience;
 import com.techelevator.model.Project;
 import com.techelevator.model.Student;
