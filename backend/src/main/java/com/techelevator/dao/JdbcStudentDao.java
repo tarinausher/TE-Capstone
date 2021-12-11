@@ -16,7 +16,6 @@ public class JdbcStudentDao implements StudentDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-
     //Student profile is created upon new account creation
     @Override
     public void createProfile(Student newStudent) {
@@ -116,9 +115,9 @@ public class JdbcStudentDao implements StudentDao {
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         if (results.next()) {
             return mapRowToStudent(results);
-        } else {
-            throw new RuntimeException("Profile was not found.");
         }
+
+        throw new RuntimeException("Profile was not found.");
     }
 
     //Staff may be able to see student profiles if not published

@@ -67,7 +67,7 @@ public class JdbcUserDao implements UserDao {
         boolean userCreated = false;
 
         // create user
-        String insertUser = "insert into users (username,email,password_hash,role) values(?,?,?,?)";
+        String insertUser = "insert into users (username,email,password_hash,role, is_validated) values(?,?,?,?,false)";
         String password_hash = new BCryptPasswordEncoder().encode(password);
         String ssRole = "ROLE_" + role.toUpperCase();
 
@@ -87,6 +87,11 @@ public class JdbcUserDao implements UserDao {
         return userCreated;
     }
 
+    public void makeValidated(Long userId) {
+        String sql = "UPDATE users SET is_validated = ? WHERE user_id = ?;";
+        jdbcTemplate.update(sql, true, userId);
+    }
+
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
         user.setId(rs.getLong("user_id"));
@@ -95,6 +100,7 @@ public class JdbcUserDao implements UserDao {
         user.setPassword(rs.getString("password_hash"));
         user.setAuthorities(rs.getString("role"));
         user.setActivated(true);
+        user.setValidated(rs.getBoolean("is_valid"));
         return user;
     }
 }

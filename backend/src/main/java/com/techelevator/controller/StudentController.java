@@ -1,7 +1,6 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.*;
-import com.techelevator.model.Degree;
 import com.techelevator.model.Experience;
 import com.techelevator.model.Student;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +10,6 @@ import java.util.List;
 
 @RestController
 public class StudentController {
-
     private StudentDao studentDao;
     private DegreeDao degreeDao;
     private ExperienceDao experienceDao;
@@ -25,7 +23,7 @@ public class StudentController {
     }
 
     @GetMapping(path = "/student")
-    public List<Student> students(@PathVariable int userId) {
+    public List<Student> students() {
         List<Student> students = studentDao.getAllStudents();
         addDegreesExperiencesProjects(students);
 
