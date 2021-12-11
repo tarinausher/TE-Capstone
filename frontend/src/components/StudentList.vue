@@ -20,7 +20,6 @@
 <script>
 import profileService from "../services/ProfileService";
 
-
 export default {
     name: "student-list",
     data() {
