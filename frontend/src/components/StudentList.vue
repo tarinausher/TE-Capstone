@@ -14,6 +14,7 @@
           </router-link>
           <br />
       </div>
+      <br />
     </div>
 </template>
 

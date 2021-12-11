@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.*;
 import com.techelevator.model.Degree;
 import com.techelevator.model.Experience;
+import com.techelevator.model.Project;
 import com.techelevator.model.Student;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,7 +44,22 @@ public class StudentController {
         return student;
     }
 
-    @GetMapping(path = "/student/cohort/{cohortId}") //cohort/{cohortId}/student
+    @GetMapping(path = "/student/{userId}/degrees")
+    public List<Degree> degreesByUserId(@PathVariable int userId) {
+        return degreeDao.getDegreesByUserId(userId);
+    }
+
+    @GetMapping(path = "/student/{userId}/experiences")
+    public List<Experience> experiencesByUserId(@PathVariable int userId) {
+        return experienceDao.getExperiencesByUserId(userId);
+    }
+
+    @GetMapping(path = "/student/{userId}/projects")
+    public List<Project> projectsByUserId(@PathVariable int userId) {
+        return projectDao.getProjectsByUserId(userId);
+    }
+
+    @GetMapping(path = "/student/cohort/{cohortId}") // /cohort/{cohortId}/student
     public List<Student> studentByCohortId(@PathVariable int cohortId) {
         List<Student> students = studentDao.getStudentsByCohortId(cohortId);
         addDegreesExperiencesProjects(students);
