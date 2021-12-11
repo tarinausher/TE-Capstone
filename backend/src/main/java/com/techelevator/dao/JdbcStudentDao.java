@@ -16,7 +16,6 @@ public class JdbcStudentDao implements StudentDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-
     //Student profile is created upon new account creation
     @Override
     public void createProfile(Student newStudent) {
@@ -113,6 +112,7 @@ public class JdbcStudentDao implements StudentDao {
         if (results.next()) {
             return mapRowToStudent(results);
         }
+
         throw new RuntimeException("Profile was not found.");
     }
 
