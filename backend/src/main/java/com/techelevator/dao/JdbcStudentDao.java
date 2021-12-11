@@ -27,10 +27,7 @@ public class JdbcStudentDao implements StudentDao {
                 newStudent.getContactPreferences(), newStudent.isPublished());
     }
 
-    /*
-    Student should have the ability to update information in their profiles
-    TODO: updateCareerExperience --> to be done in Experience DAO
-    */
+    //Student should have the ability to update information in their profiles
     @Override
     public void updateFirstName(Student updatedStudent) {
         String sql = "UPDATE students SET first_name = ? WHERE user_id = ?;";
@@ -101,7 +98,6 @@ public class JdbcStudentDao implements StudentDao {
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
             Student student = mapRowToStudent(results);
-                //T
             getAllPublishedStudents.add(student);
         }
         return getAllPublishedStudents;
@@ -116,7 +112,10 @@ public class JdbcStudentDao implements StudentDao {
         if (results.next()) {
             return mapRowToStudent(results);
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> e3136589c5ca305fdd9a77ac4467dc0dbb0f2be7
         throw new RuntimeException("Profile was not found.");
     }
 
