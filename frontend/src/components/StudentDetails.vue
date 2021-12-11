@@ -20,8 +20,8 @@ import ExperienceList from './ExperienceList.vue';
 import PortfolioDetail from './PortfolioDetail.vue'
 
 export default {
-  components: { DegreeList, ExperienceList, PortfolioDetail },
   name: "student-profile",
+  components: { DegreeList, ExperienceList, PortfolioDetail },
   data() {
       return {
           student: {}

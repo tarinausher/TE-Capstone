@@ -7,14 +7,16 @@
           <p>Cohort: {{student.cohortId}}</p>
           <p>Technical Skills: {{student.technologies}}</p>
           <p>Soft Skills: {{student.softSkills}}</p>
-          <p>Portfolio Projects: TODO: BY TITLE <!-- will likely need a separate component for this--></p>
-          
+
           <router-link v-bind:to="{ name: 'student-profile', params: { id: student.userId }}">
           <button>View Profile</button>
           </router-link>
-          <br />
+          <br>
+          <br>
+          <br> 
+
       </div>
-      <br />
+      
     </div>
 </template>
 
