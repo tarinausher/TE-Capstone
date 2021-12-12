@@ -1,16 +1,14 @@
 <template>
   <div id='main'>
-    <h1>Bootcamp Students</h1>
-    <div class="card">
-      <div class='profile.container' v-for="student in students" v-bind:key="student.id" >    
-    <br>
-    <br>
-      <div class='students' v-for="student in students" v-bind:key="student.id" >    
-          
-          <h2>{{student.firstName}}&nbsp;{{student.lastName}}</h2>
-          <p>Cohort: {{student.cohortId}}</p>
-          <p>Technical Skills: {{student.technologies}}</p>
-          <p>Soft Skills: {{student.softSkills}}</p>
+    <article class="card">
+      <div  v-for="student in students" v-bind:key="student.id" >    
+          <div class="student">
+           <img src="https://via.placeholder.com/120" alt="placeholder">
+            
+          <p>Student Name: {{student.firstName}}&nbsp;{{student.lastName}}<br>
+          Cohort: {{student.cohortId}}<br>
+          Technical Skills: {{student.technologies}}<br>
+          Soft Skills: {{student.softSkills}}</p>
 
           <router-link v-bind:to="{ name: 'student-profile', params: { id: student.userId }}">
           <button>View Profile</button>
@@ -18,12 +16,12 @@
           <br>
           <br>
           <br> 
-
+          </div>
       </div>
-      </div>
+    </article>
     </div>
 
-     </div>
+  
 </template>
 
 <script>
@@ -100,8 +98,31 @@ h2, p {
   font-family: Geneva, Tahoma, sans-serif;
 }
 
+.card {
+  grid-area: card;
+}
+
+.student {
+  border-radius: 15px ;
+  background-color: #e6e4e4;
+  justify-content: center;
+}
+
+article {
+  /* display: inline-flex; */
+  /* flex-direction: row; */
+  display: grid;
+  grid-template-areas: 
+    "card card card"
+    "card card card"
+    "card card card";
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-rows: 2fr 2fr 2fr ;
+  
+}
+
 a {
   float: left;
-  background-color: #90ffeb;
+  /* background-color: #90ffeb; */
 }
 </style>
