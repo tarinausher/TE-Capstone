@@ -17,6 +17,9 @@ public interface StudentDao {
     void updateTechnologies(Student updatedStudent);
     void updateSoftSkills(Student updatedStudent);
     void updateContactPreferences(Student updatedStudent);
+    void updateStudentDegrees(Student updatedStudent);
+    void updateStudentExperiences(Student updatedStudent);
+    void updateStudentProjects(Student updatedStudent);
 
     //Student can publish their profile when ready
     public void updateIsPublished(Student updatedStudent);
