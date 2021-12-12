@@ -20,7 +20,7 @@ public class JdbcStudentDao implements StudentDao {
     @Override
     public void createProfile(Student newStudent) {
         String sql = "INSERT INTO students (user_id, first_name, last_name, summary, technologies, soft_skills, " +
-                "contact_preferences, is_pubished)" +
+                "contact_preferences, is_published)" +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(sql, newStudent.getUserId(), newStudent.getFirstName(), newStudent.getLastName(),
                 newStudent.getSummary(), newStudent.getTechnologies(), newStudent.getSoftSkills(),
@@ -62,6 +62,21 @@ public class JdbcStudentDao implements StudentDao {
     public void updateContactPreferences(Student updatedStudent) {
         String sql = "UPDATE students SET contact_preferences = ? WHERE user_id = ?;";
         jdbcTemplate.update(sql, updatedStudent.getContactPreferences(), updatedStudent.getUserId());
+    }
+
+    @Override
+    public void updateStudentDegrees(List<Degree> degrees) {
+        
+    }
+
+    @Override
+    public void updateStudentExperiences(Student updatedStudent) {
+
+    }
+
+    @Override
+    public void updateStudentProjects(Student updatedStudent) {
+
     }
 
     /*
