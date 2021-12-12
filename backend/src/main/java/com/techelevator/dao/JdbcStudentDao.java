@@ -16,12 +16,11 @@ public class JdbcStudentDao implements StudentDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-
     //Student profile is created upon new account creation
     @Override
     public void createProfile(Student newStudent) {
         String sql = "INSERT INTO students (user_id, first_name, last_name, summary, technologies, soft_skills, " +
-                "contact_preferences, is_pubished)" +
+                "contact_preferences, is_published)" +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(sql, newStudent.getUserId(), newStudent.getFirstName(), newStudent.getLastName(),
                 newStudent.getSummary(), newStudent.getTechnologies(), newStudent.getSoftSkills(),
@@ -29,6 +28,16 @@ public class JdbcStudentDao implements StudentDao {
     }
 
     //Student should have the ability to update information in their profiles
+    @Override
+    public void updateStudent(Student updatedStudent) {
+        String sql = "UPDATE students SET first_name = ?, last_name = ?, summary = ?, technologies = ?, " +
+                "soft_skills = ?, contact_preferences = ? WHERE user_id = ?;";
+        jdbcTemplate.update(sql, updatedStudent.getFirstName(), updatedStudent.getLastName(), updatedStudent.getSummary(),
+                updatedStudent.getTechnologies(), updatedStudent.getSoftSkills(), updatedStudent.getContactPreferences(),
+                updatedStudent.getUserId());
+    }
+
+
     @Override
     public void updateFirstName(Student updatedStudent) {
         String sql = "UPDATE students SET first_name = ? WHERE user_id = ?;";
@@ -112,9 +121,9 @@ public class JdbcStudentDao implements StudentDao {
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         if (results.next()) {
             return mapRowToStudent(results);
-        } else {
-            throw new RuntimeException("Profile was not found.");
         }
+
+        throw new RuntimeException("Profile was not found.");
     }
 
     //Staff may be able to see student profiles if not published

@@ -1,19 +1,43 @@
 <template>
-    <div>
-    <student-details />
+  <div id='main'>
+      <h2>Portfolio</h2>
+        <div class='projects' v-for="project in projects" v-bind:key="project.id">
+            <p>Title: {{ project.title }}</p>
+            <p>Description: {{ project.description }}</p>
+            <p>Technologies: {{ project.technologies }}</p>
+            <!--Will need to include Individual vs Group-->
+            <p>Link to Project: {{ project.link }}</p> 
+            <!--Will need to adjust link to project above -->       
+        </div>
   </div>
+
 </template>
 
 <script>
-import StudentDetails from '../components/StudentDetails.vue'
+import profileService from "../services/ProfileService";
 
 export default {
-  components: { StudentDetails }
-
+    name: "project-list",
+    data() {
+        return {
+            projects: []
+        }
+    },
+    methods: {
+        retrieveProjects() {
+            profileService.getProjects(this.$route.params.id).then( (response) => {
+                this.projects = response.data;
+            });
+        }
+    },
+    created() {
+        this.retrieveProjects();
+    }
 }
 </script>
 
 <style>
+
 button {
   background-color: #deacff;
   font-family: Verdana, Geneva, Tahoma, sans-serif;

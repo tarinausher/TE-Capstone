@@ -21,7 +21,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-color: rgba(0, 89, 255, 0.445); /* For browsers that do not support gradients */
-  background-image: linear-gradient(#012a4a, #b5179d);
+  background-image: linear-gradient(#62b0ec, #d694cc); 
 }
 
 #nav {

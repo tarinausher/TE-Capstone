@@ -10,6 +10,7 @@ public interface StudentDao {
     void createProfile(Student newStudent);
 
     //Student should have the ability to update information in their profiles
+    void updateStudent(Student updatedStudent);
     void updateFirstName(Student updatedStudent);
     void updateLastName(Student updatedStudent);
     void updateProfileSummary(Student updatedStudent);
