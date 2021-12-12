@@ -53,7 +53,7 @@ public class JdbcProjectDao implements ProjectDao {
 
     @Override
     public void updateIsSolo(Project updatedProject) {
-        String sql = "UPDATE projects SET isSolo = ? WHERE user_id = ?;";
+        String sql = "UPDATE projects SET is_solo = ? WHERE user_id = ?;";
         jdbcTemplate.update(sql, updatedProject.isSolo(), updatedProject.getUserId());
     }
 

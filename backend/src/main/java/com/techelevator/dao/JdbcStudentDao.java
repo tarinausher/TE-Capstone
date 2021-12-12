@@ -29,6 +29,16 @@ public class JdbcStudentDao implements StudentDao {
 
     //Student should have the ability to update information in their profiles
     @Override
+    public void updateStudent(Student updatedStudent) {
+        String sql = "UPDATE students SET first_name = ?, last_name = ?, summary = ?, technologies = ?, " +
+                "soft_skills = ?, contact_preferences = ? WHERE user_id = ?;";
+        jdbcTemplate.update(sql, updatedStudent.getFirstName(), updatedStudent.getLastName(), updatedStudent.getSummary(),
+                updatedStudent.getTechnologies(), updatedStudent.getSoftSkills(), updatedStudent.getContactPreferences(),
+                updatedStudent.getUserId());
+    }
+
+
+    @Override
     public void updateFirstName(Student updatedStudent) {
         String sql = "UPDATE students SET first_name = ? WHERE user_id = ?;";
         jdbcTemplate.update(sql, updatedStudent.getFirstName(), updatedStudent.getUserId());

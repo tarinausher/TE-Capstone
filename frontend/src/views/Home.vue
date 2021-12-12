@@ -7,12 +7,9 @@
     </div> 
     <div class="search">
       <section id="banner">
-        <input type="search" value="search"/> <input type="submit" value="submit"> <input type="submit" value="Invite +" />
+        <input type="search" name="searchBar" placeholder="search" @click="filterText"/> <input type="submit" value="submit"> <input type="submit" value="Invite +" />
       </section>
     </div>
-    
-  
-
     
   <div class="left-panel">
      <section id="left-panel">
@@ -41,8 +38,11 @@
      </section>
    </div>
 
+  <div class="student-card">
+    <student-card />
+  </div>
 
-  <div class="center-right">
+  <!-- <div class="center-right">
     <section id="center-right">
       <article id="student-profiles">
         <img src="https://via.placeholder.com/120" alt="placeholder">
@@ -116,28 +116,37 @@
       </article>
     </section>
     
-  </div>
-  </div>
+  </div>-->
+  </div> 
   
 
   
 </template>
 
 <script>
-
+import StudentCard from './StudentCard.vue';
 export default {
-  name: "home"
+  components: { StudentCard },
+  data() {
+    return{
+        name: "home",
+        filterText: ""
+    }
+  }
 };
 </script>
 
 <style>
-#section-left {
+.student-card {
+  grid-area: card;
+}
+
+.left-panel {
   grid-area: section-left;
 }
 
 .center-left {
   border-radius: 15px ;
-  border: 5px solid #aaaaaa;
   background-color: #e6e4e4;
   grid-area: center-left;
   list-style-type: disc;
@@ -145,7 +154,6 @@ export default {
 
 .center-right {
   border-radius: 15px ;
-  border: 5px solid #aaaaaa;
   background-color: #e6e4e4;
   grid-area: center-right;
 }
@@ -158,16 +166,24 @@ menu ul,
   list-style-type: none;
 }
 
+#student-profiles img,
+#employer-profiles img{
+  border-radius: 15px;
+}
+
 .header {
+  display: flex;
+  align-items: center;
   border-radius: 15px ;
-  border: 5px solid #aaaaaa;
   grid-area: header;
 }
 
 .search {
+  display: flex;
+  align-items: center;
+  flex-basis: 75%;
   padding: 0px 100 0px 0px;
   border-radius: 15px ;
-  border: 5px solid #aaaaaa;
   grid-area: search;
 }
 
@@ -175,8 +191,8 @@ menu ul,
   display: grid;
   grid-template-areas: 
       "header header search search search"
-      "section-left . center-left center-right . "
-      "section-left . center-left center-right . "
+      "section-left card card card card "
+      "section-left card card card card "
       ". . . . .";
   grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
   grid-template-rows: 1fr 2fr 2fr 1fr;
@@ -184,7 +200,7 @@ menu ul,
 
 input[type="text"],
 input[type="search"] {
-  width: 50%;
+  width: 62.5%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -241,7 +257,7 @@ label {
 
 a {
   float: left;
-  /* background-color: #90ffeb; */
+  background-color: #90ffeb;
 }
 
 </style>
