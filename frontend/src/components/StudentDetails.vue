@@ -88,13 +88,17 @@ label {
   background-image: linear-gradient(#a4e5ff, #ffffffa6);
 }
 
-.student-info p {
+.student-info{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: left;
   font-size: 1em;
   margin-top: 0.5em;
   margin-bottom: 0.15em;
   color: #0099ff;
+
+  background-image: linear-gradient(#a4e5ff, #ffffffa6);
+  padding: 10px;
+  border-radius: 5%;
 }
 
 .students {
