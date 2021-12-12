@@ -35,24 +35,6 @@ export default {
 </script>
 
 <style>
-button {
-  background-color: #deacff;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 15px;
-  color: #000000;
-  display: inline-block;
-  width: auto;
-  height: auto;
-  white-space: normal;
-  text-align: center;
-  padding: 10px;
-  border-radius: 20%;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
 #main {
   justify-content:space-evenly;
 }
@@ -88,7 +70,7 @@ h2, p {
 }
 
 a {
-  float: left;
-  background-color: #90ffeb;
+  float: center;
+  /* background-color: #90ffeb; */
 }
 </style>

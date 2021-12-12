@@ -91,7 +91,7 @@ h2, p {
 }
 
 a {
-  float: left;
-  background-color: #90ffeb;
+  float: center;
+  /* background-color: #90ffeb; */
 }
 </style>

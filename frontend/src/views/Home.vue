@@ -226,7 +226,7 @@ h1 {
   margin-bottom: 0.15em;
   color: #0099ff;
 
-  background-image: linear-gradient(#a4e5ff, #ffffffa6);
+  background-image: linear-gradient(#a4e5ff, #ffffa6);
   display: inline;
   padding: 6px;
   border-radius: 5%;
@@ -247,7 +247,7 @@ label {
 }
 
 a {
-  float: left;
+  float: center;
   background-color: #90ffeb;
 }
 

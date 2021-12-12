@@ -5,7 +5,7 @@
     <br>
       <div class='students' v-for="student in students" v-bind:key="student.id" >    
           
-          <h2>{{student.firstName}}&nbsp;{{student.lastName}}</h2>
+          <h3>{{student.firstName}}&nbsp;{{student.lastName}}</h3>
           <p>Cohort: {{student.cohortId}}</p>
           <p>Technical Skills: {{student.technologies}}</p>
           <p>Soft Skills: {{student.softSkills}}</p>
@@ -14,8 +14,6 @@
           <button>View Profile</button>
           </router-link>
           <br>
-          <br>
-          <br> 
 
       </div>
       
@@ -48,25 +46,8 @@ export default {
 </script>
 
 <style>
-button {
-  background-color: #deacff;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 15px;
-  color: #000000;
-  display: inline-block;
-  width: auto;
-  height: auto;
-  white-space: normal;
-  text-align: center;
-  padding: 10px;
-  border-radius: 20%;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
 #main {
+  text-indent: 1em;
   justify-content:space-evenly;
 }
 
@@ -84,20 +65,12 @@ h1 {
   border-radius: 5%;
 }
 
-.students {
-  border-radius: 5%;
-}
-
-h2 {
+h3 {
   font-size: 1.5em;
 }
 
-h2, p {
+h3, p {
   font-family: Geneva, Tahoma, sans-serif;
-}
-
-a {
-  float: left;
-  background-color: #90ffeb;
+  margin: 5px 0px 5px 0px;
 }
 </style>
