@@ -144,8 +144,9 @@ h1 {
 }
 
 label {
-  color: #08ffd1;
+  color: #0099ff;
   font-size: 17px;
+  background-image: linear-gradient(#a4e5ff, #ffffffa6);
 }
 #username {
   color: black;
