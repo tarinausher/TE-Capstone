@@ -26,11 +26,16 @@ public class StudentController {
     }
 
     @GetMapping(path = "/student")
-    public List<Student> students() {
+    public List<Student> getStudents() {
         List<Student> students = studentDao.getAllStudents();
         addDegreesExperiencesProjects(students);
 
         return students;
+    }
+
+    @PostMapping(path = "/student")
+    public void addStudent() {
+
     }
 
     @GetMapping(path = "/student/{userId}")
