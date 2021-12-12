@@ -75,3 +75,16 @@ INSERT INTO experiences (industry, title, organization, date_started, date_ended
 VALUES ('Service', 'Bartender', 'Condado', '02-01-2020', '12-01-2020', 'Managed the bar area customer orders, enforced mask policies', 4),
 ('Retail', 'Overnight Fulfillment Director', 'Target', '04-01-2020', '08-01-2020', 'Gathered items for customer orders and packed them', 11),
 ('Service', 'Barista', 'Starbucks', '01-01-2021', '12-01-2021', 'Crafted coffee beverages for customers', 4);
+
+UPDATE users SET is_validated = true WHERE user_id = 1;
+UPDATE users SET is_validated = true WHERE user_id = 2;
+UPDATE users SET is_validated = true WHERE user_id = 4;
+UPDATE users SET is_validated = true WHERE user_id = 5;
+UPDATE users SET is_validated = true WHERE user_id = 6;
+UPDATE users SET is_validated = true WHERE user_id = 7;
+UPDATE users SET is_validated = true WHERE user_id = 8;
+UPDATE users SET is_validated = true WHERE user_id = 9;
+UPDATE users SET is_validated = true WHERE user_id = 10;
+UPDATE users SET is_validated = false WHERE user_id = 11;
+UPDATE users SET is_validated = false WHERE user_id = 12;
+

@@ -101,19 +101,6 @@ FOREIGN KEY (user_id) REFERENCES students(user_id)
 select * from users;
 
 ALTER TABLE users ADD COLUMN is_validated BOOLEAN;
-UPDATE users SET is_validated = true WHERE user_id = 1;
-UPDATE users SET is_validated = true WHERE user_id = 2;
-UPDATE users SET is_validated = true WHERE user_id = 4;
-UPDATE users SET is_validated = true WHERE user_id = 5;
-UPDATE users SET is_validated = true WHERE user_id = 6;
-UPDATE users SET is_validated = true WHERE user_id = 7;
-UPDATE users SET is_validated = true WHERE user_id = 8;
-UPDATE users SET is_validated = true WHERE user_id = 9;
-UPDATE users SET is_validated = true WHERE user_id = 10;
-
-UPDATE users SET is_validated = false WHERE user_id = 11;
-UPDATE users SET is_validated = false WHERE user_id = 12;
-UPDATE users SET is_validated = false WHERE user_id = 3;
 
 COMMIT TRANSACTION;
 

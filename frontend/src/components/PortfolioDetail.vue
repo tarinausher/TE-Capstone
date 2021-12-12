@@ -5,7 +5,9 @@
             <p>Title: {{ project.title }}</p>
             <p>Description: {{ project.description }}</p>
             <p>Technologies: {{ project.technologies }}</p>
-            <p>Link to Project: {{ project.link }}</p>        
+            <!--Will need to include Individual vs Group-->
+            <p>Link to Project: {{ project.link }}</p> 
+            <!--Will need to adjust link to project above -->       
         </div>
   </div>
 
