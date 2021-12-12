@@ -7,8 +7,13 @@
             <p>Subject Area: {{ degree.subjectArea }}</p>
             <p>Date Completed: {{ degree.dateCompleted }}</p>
         </div>
+        <div class='add-degree'>
+          <add-degree />
+        </div>
+        <div class='delete-degree'>
 
-        <add-degree />
+
+        </div>
   </div>
 </template>
 
@@ -92,6 +97,6 @@ h2, p {
 
 a {
   float: left;
-  background-color: #90ffeb;
+  /* background-color: #90ffeb; */
 }
 </style>

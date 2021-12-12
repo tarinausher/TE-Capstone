@@ -68,6 +68,6 @@ h2, p {
 
 a {
   float: left;
-  background-color: #90ffeb;
+  /* background-color: #90ffeb; */
 }
 </style>
