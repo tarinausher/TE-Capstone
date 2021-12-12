@@ -20,7 +20,28 @@ export default {
 
   getProjects(id) {
     return axios.get(`/student/${id}/projects`)
-  }
+  },
 
+  // addDegree(id) { POST },
+
+  // addExperience(id) { POST },
+
+  // addProject(id) { POST },
+
+  // updateDegree(id) { PUT },
+
+  // updateExperience(id) { PUT },
+
+  // updateProject(id) { PUT },
+
+  // deleteDegree(id) { DELETE },
+
+  // deleteExperience(id) { DELETE },
+
+  // deleteProject(id) { DELETE },
+  
+  // updateProfile(id) {
+  // WILL BE USED TO CONNECT TO THE PROFILE UPDATE ENDPOINT
+  // }
 
 }

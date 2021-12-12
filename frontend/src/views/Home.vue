@@ -38,8 +38,11 @@
      </section>
    </div>
 
+  <div class="student-card">
+    <student-card />
+  </div>
 
-  <div class="center-right">
+  <!-- <div class="center-right">
     <section id="center-right">
       <article id="student-profiles">
         <img src="https://via.placeholder.com/120" alt="placeholder">
@@ -113,15 +116,17 @@
       </article>
     </section>
     
-  </div>
-  </div>
+  </div>-->
+  </div> 
   
 
   
 </template>
 
 <script>
+import StudentCard from './StudentCard.vue';
 export default {
+  components: { StudentCard },
   data() {
     return{
         name: "home",
@@ -132,7 +137,11 @@ export default {
 </script>
 
 <style>
-#section-left {
+.student-card {
+  grid-area: card;
+}
+
+.left-panel {
   grid-area: section-left;
 }
 
@@ -182,8 +191,8 @@ menu ul,
   display: grid;
   grid-template-areas: 
       "header header search search search"
-      "section-left . center-left center-right . "
-      "section-left . center-left center-right . "
+      "section-left card card card card "
+      "section-left card card card card "
       ". . . . .";
   grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
   grid-template-rows: 1fr 2fr 2fr 1fr;

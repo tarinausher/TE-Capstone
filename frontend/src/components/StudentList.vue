@@ -1,23 +1,27 @@
 <template>
   <div id='main'>
-    <h1>Bootcamp Students</h1>
-    <br>
-    <br>
-      <div class='students' v-for="student in students" v-bind:key="student.id" >    
-          
-          <h3>{{student.firstName}}&nbsp;{{student.lastName}}</h3>
-          <p>Cohort: {{student.cohortId}}</p>
-          <p>Technical Skills: {{student.technologies}}</p>
-          <p>Soft Skills: {{student.softSkills}}</p>
+    <article class="card">
+      <div  v-for="student in students" v-bind:key="student.id" >    
+          <div class="student">
+           <img src="https://via.placeholder.com/120" alt="placeholder">
+            
+          <p>Student Name: {{student.firstName}}&nbsp;{{student.lastName}}<br>
+          Cohort: {{student.cohortId}}<br>
+          Technical Skills: {{student.technologies}}<br>
+          Soft Skills: {{student.softSkills}}</p>
 
           <router-link v-bind:to="{ name: 'student-profile', params: { id: student.userId }}">
           <button>View Profile</button>
           </router-link>
           <br>
-
+          <br>
+          <br> 
+          </div>
       </div>
-      
+    </article>
     </div>
+
+  
 </template>
 
 <script>
@@ -71,6 +75,33 @@ h3 {
 
 h3, p {
   font-family: Geneva, Tahoma, sans-serif;
-  margin: 5px 0px 5px 0px;
+}
+
+.card {
+  grid-area: card;
+}
+
+.student {
+  border-radius: 15px ;
+  background-color: #e6e4e4;
+  justify-content: center;
+}
+
+article {
+  /* display: inline-flex; */
+  /* flex-direction: row; */
+  display: grid;
+  grid-template-areas: 
+    "card card card"
+    "card card card"
+    "card card card";
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-rows: 2fr 2fr 2fr ;
+  
+}
+
+a {
+  float: left;
+  /* background-color: #90ffeb; */
 }
 </style>
