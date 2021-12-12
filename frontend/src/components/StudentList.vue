@@ -1,7 +1,8 @@
 <template>
   <div id='main'>
     <h1>Bootcamp Students</h1>
-      <div class='students' v-for="student in students" v-bind:key="student.id" >    
+    <div class="card">
+      <div class='profile.container' v-for="student in students" v-bind:key="student.id" >    
           
           <p>Student Name: {{student.firstName}}&nbsp;{{student.lastName}}</p>
           <p>Cohort: {{student.cohortId}}</p>
@@ -16,7 +17,7 @@
           <br> 
 
       </div>
-      
+      </div>
     </div>
 </template>
 
@@ -46,5 +47,6 @@ export default {
 </script>
 
 <style>
+
 
 </style>
