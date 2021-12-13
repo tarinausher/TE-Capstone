@@ -41,5 +41,7 @@ body {
   display: flex;
   justify-content: flex-start;
   text-align: left;
+  float: center;
+  background-color: #90ffeb;
 }
 </style>

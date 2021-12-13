@@ -26,13 +26,13 @@
 </template>
 
 <script>
-import profileService from '../services/ProfileService';
 export default {
     name: "add-degree",
     data() {
         return {
             showForm: false,
             degree: {
+                userId: null,
                 level: "",
                 institution: "",
                 subjectArea: "",
@@ -42,21 +42,10 @@ export default {
     },
     methods: {
         saveDegree() {
-            profileService.addDegree(this.$route.params.id)
-            .then((response) => { 
-                if (response.status == 201) {
-                this.$router.push({
-                    path: "/degree"
-                })
-                }
-            });
-            this.resetForm();
-        },
-        resetForm() {
-            this.degree = {};
-            this.showForm = false;
+            
         }
     }
+
 
 
 }

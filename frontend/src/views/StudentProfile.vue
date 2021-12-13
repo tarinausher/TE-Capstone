@@ -39,7 +39,7 @@ button:hover {
 h2 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
-  font-size: 2em;
+  font-size: 1.8em;
   margin-top: 0.15em;
   margin-bottom: 0.15em;
   color: #0099ff;
@@ -54,20 +54,11 @@ h2 {
   border-radius: 5%;
 }
 
-h2 {
-  font-size: 1.8em;
-}
-
-h2, p {
+p {
   font-family: Geneva, Tahoma, sans-serif;
 }
 
 .projects {
   border-radius: 5%;
-}
-
-a {
-  float: left;
-  /* background-color: #90ffeb; */
 }
 </style>

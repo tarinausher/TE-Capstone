@@ -12,13 +12,13 @@
       </div>
     </div>
 </template>
-
+ 
 <script>
 import profileService from "../services/ProfileService";
 import DegreeList from './DegreeList.vue';
 import ExperienceList from './ExperienceList.vue';
 import PortfolioDetail from './PortfolioDetail.vue'
-
+ 
 export default {
   name: "student-profile",
   components: { DegreeList, ExperienceList, PortfolioDetail },
@@ -39,26 +39,8 @@ export default {
   }
 }
 </script>
-
-<style>
-button {
-  background-color: #deacff;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 20px;
-  color: #000000;
-  display: inline-block;
-  width: auto;
-  height: auto;
-  white-space: normal;
-  text-align: center;
-  padding: 10px;
-  border-radius: 20%;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
+ 
+<style>  
 h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
@@ -66,49 +48,11 @@ h1 {
   margin-top: 0.15em;
   margin-bottom: 0.15em;
   color: #0099ff;
-
-  background-image: linear-gradient(#a4e5ff, #ffffffa6);
-  display: inline;
-  padding: 20px;
-  border-radius: 5%;
 }
-
-div.header p {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  text-align: left;
-  font-size: 1em;
-  margin-top: 0.5em;
-  margin-bottom: 0.15em;
-  color: #0099ff;
-}
-
-label {
-  color: #0099ff;
-  font-size: 17px;
-  background-image: linear-gradient(#a4e5ff, #ffffffa6);
-}
-
-.student-info{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  text-align: left;
-  font-size: 1em;
-  margin-top: 0.5em;
-  margin-bottom: 0.15em;
-  color: #0099ff;
-
-  background-image: linear-gradient(#a4e5ff, #ffffffa6);
-  padding: 10px;
-  border-radius: 5%;
-}
-
-.students {
+ 
+.students, .student-info {
   color: #0099ff;
   background-image: linear-gradient(#a4e5ff, #ffffffa6);
   background-size: auto;
-}
-
-a {
-  float: left;
-  /* background-color: #90ffeb; */
 }
 </style>
