@@ -78,7 +78,7 @@ public class JdbcDegreeDao implements DegreeDao {
         degree.setLevel(rs.getString("level"));
         degree.setInstitution(rs.getString("institution"));
         degree.setSubjectArea(rs.getString("subject_area"));
-        degree.setDateCompleted(rs.getString("date_completed"));
+        degree.setDateCompleted(rs.getDate("date_completed").toLocalDate());
         return degree;
     }
 }

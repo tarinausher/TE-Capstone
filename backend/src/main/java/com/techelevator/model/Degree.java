@@ -1,14 +1,18 @@
 package com.techelevator.model;
 
+import org.apache.tomcat.jni.Local;
+
+import java.time.LocalDate;
+
 public class Degree {
     private int degreeId;
     private int userId;
     private String level;
     private String institution;
     private String subjectArea;
-    private String dateCompleted;
+    private LocalDate dateCompleted;
 
-    public Degree(int userId, int degreeId, String level, String institution, String subjectArea, String dateCompleted) {
+    public Degree(int userId, int degreeId, String level, String institution, String subjectArea, LocalDate dateCompleted) {
         this.userId = userId;
         this.degreeId = degreeId;
         this.level = level;
@@ -60,11 +64,11 @@ public class Degree {
         this.subjectArea = subjectArea;
     }
 
-    public String getDateCompleted() {
+    public LocalDate getDateCompleted() {
         return dateCompleted;
     }
 
-    public void setDateCompleted(String dateCompleted) {
+    public void setDateCompleted(LocalDate dateCompleted) {
         this.dateCompleted = dateCompleted;
     }
 
