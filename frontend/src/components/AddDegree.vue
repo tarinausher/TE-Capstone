@@ -19,6 +19,7 @@
             <label for="dateCompleted">Date Completed: </label>
             <input type="date" name="dateCompleted" v-model="degree.dateCompleted" />
         </div>
+
         <button type="submit" class="btn save" v-on:click="saveDegree">Save Degree</button>
         <button type="reset" class="btn reset" v-on:click.prevent="showForm = false">Cancel</button>
     </form>

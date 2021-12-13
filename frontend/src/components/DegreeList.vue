@@ -61,6 +61,13 @@ h2 {
   border-radius: 5%;
 }
 
+.degrees {
+    border-radius: 15px ;
+    border-bottom: black;
+    border-style: solid;
+    border-width: medium;
+}
+
 .students {
   border-radius: 5%;
 }

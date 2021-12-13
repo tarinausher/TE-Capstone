@@ -40,6 +40,13 @@ export default {
 </script>
 
 <style>
+.projects {
+    border-radius: 15px ;
+    border-bottom: black;
+    border-style: solid;
+    border-width: medium;
+}
+
 
 button {
   background-color: #deacff;
