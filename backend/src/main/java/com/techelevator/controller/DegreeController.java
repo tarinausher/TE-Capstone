@@ -34,12 +34,12 @@ public class DegreeController {
     }
 
     @PostMapping(path = "/degree")
-    void addDegree(Degree degree) {
+    void degree(Degree degree) {
         degreeDao.createDegree(degree);
     }
 
-    @DeleteMapping(path = "/degree")
-    void deleteDegree(int degreeId, int userId) {
+    @DeleteMapping(path = "/degree/{userId}/{degreeId}")
+    void deleteDegree(@PathVariable int degreeId, @PathVariable int userId) {
         degreeDao.deleteDegree(degreeId, userId);
     }
 }
