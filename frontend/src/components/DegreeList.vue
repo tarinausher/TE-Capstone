@@ -7,14 +7,17 @@
             <p>Subject Area: {{ degree.subjectArea }}</p>
             <p>Date Completed: {{ degree.dateCompleted }}</p>
         </div>
-  </div>
 
+        <add-degree />
+  </div>
 </template>
 
 <script>
 import profileService from "../services/ProfileService";
+import AddDegree from './AddDegree.vue';
 
 export default {
+  components: { AddDegree },
     name: "degree-list",
     data() {
         return {
