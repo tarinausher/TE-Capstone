@@ -1,5 +1,5 @@
 <template>
-  <div id='main'>
+  <div id="main">
     <article class="card">
       <div  v-for="student in students" v-bind:key="student.id" >    
           <div class="student">
