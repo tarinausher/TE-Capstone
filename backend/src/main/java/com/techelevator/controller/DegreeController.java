@@ -38,7 +38,7 @@ public class DegreeController {
         degreeDao.createDegree(degree);
     }
 
-    @DeleteMapping(path = "/degree/{userId}")
+    @DeleteMapping(path = "/degree/{degreeId}")
     void deleteDegree(@PathVariable int degreeId) {
         degreeDao.deleteDegree(degreeId);
     }
