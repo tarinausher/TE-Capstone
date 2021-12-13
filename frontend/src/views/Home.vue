@@ -6,9 +6,9 @@
   <!-- what i added is under this comment -->
     </div> 
     <div class="search">
-      <section id="banner">
-        <input type="search" name="searchBar" placeholder="search" @click="filterText"/> <input type="submit" value="submit"> <input type="submit" value="Invite +" />
-      </section>
+      <!-- <section id="banner"> -->
+        <input type="search" name="searchBar" placeholder="search" @click="filterText"/> <br> <input type="submit" value="submit"> <input type="submit" value="Invite +" />
+      <!-- </section> -->
     </div>
     
   <div class="left-panel">
@@ -182,15 +182,15 @@ menu ul,
   display: flex;
   align-items: center;
   flex-basis: 75%;
-  padding: 0px 100 0px 0px;
-  border-radius: 15px ;
+  padding: 0px 0px 0px 15px;
+  border-radius: 15px;
   grid-area: search;
 }
 
 .home {
   display: grid;
   grid-template-areas: 
-      "header header search search search"
+      "header header header search search"
       "section-left card card card card "
       "section-left card card card card "
       ". . . . .";
@@ -200,7 +200,7 @@ menu ul,
 
 input[type="text"],
 input[type="search"] {
-  width: 62.5%;
+  width: 70%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -255,7 +255,7 @@ label {
   font-size: 17px;
 }
 
-a {
+.left-panel a {
   float: center;
   background-color: #90ffeb;
 }
