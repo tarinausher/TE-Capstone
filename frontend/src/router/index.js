@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import StudentProfile from '../views/StudentProfile.vue'
 import StudentList from '../components/StudentList'
+import AddDegree from '../components/AddDegree.vue'
 
 Vue.use(Router)
 
@@ -64,6 +65,11 @@ const router = new Router({
       path: "/student/:id",
       name: "student-profile",
       component: StudentProfile
+    },
+    {
+      path: "/degree",
+      name: "add-degree",
+      component: AddDegree
     }
   ]
 })

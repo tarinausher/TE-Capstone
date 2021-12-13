@@ -17,5 +17,5 @@ public interface DegreeDao  {
     void updateDegreeDateCompleted(Degree updatedDegree);
 
     //Students can delete certain degrees as needed
-    void deleteDegree(int degreeId, int userId);
+    void deleteDegree(int degreeId);
 }

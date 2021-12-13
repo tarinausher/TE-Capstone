@@ -83,6 +83,7 @@ export default {
         password: "",
         confirmPassword: "",
         role: "user",
+        isValidated: false
       },
       registrationErrors: false,
       registrationErrorMsg: "There were problems registering this user.",

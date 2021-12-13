@@ -2,22 +2,22 @@
   <div class="main">
     <button v-on:click.prevent="showForm = true" v-show="showForm === false">Add New Degree</button>
 
-    <form v-on:submit.prevent="saveDegree" v-show="showForm" id="formAddNewDegree">
+    <form v-on:submit.prevent="saveDegree" v-show="showForm" id="formAddDegree">
         <div class="field">
             <label for="level">Level: </label>
-            <input type="text" name="level" v-model="newDegree.level" />
+            <input type="text" name="level" v-model="degree.level" />
         </div>
         <div class="field">
             <label for="institution">Institution: </label>
-            <input type="text" name="institution" v-model="newDegree.institution" />
+            <input type="text" name="institution" v-model="degree.institution" />
         </div>
         <div class="field">
             <label for="subjectArea">Subject Area: </label>
-            <input type="text" name="subjectArea" v-model="newDegree.subjectArea" />
+            <input type="text" name="subjectArea" v-model="degree.subjectArea" />
         </div>
         <div class="field">
             <label for="dateCompleted">Date Completed: </label>
-            <input type="date" name="dateCompleted" v-model="newDegree.dateCompleted" />
+            <input type="date" name="dateCompleted" v-model="degree.dateCompleted" />
         </div>
         <button type="submit" class="btn save">Save Degree</button>
         <button type="reset" class="btn reset" v-on:click.prevent="showForm = false">Cancel</button>
@@ -26,13 +26,13 @@
 </template>
 
 <script>
+import profileService from '../services/ProfileService';
 export default {
     name: "add-degree",
     data() {
         return {
             showForm: false,
-            newDegree: {
-                id: null,
+            degree: {
                 level: "",
                 institution: "",
                 subjectArea: "",
@@ -42,11 +42,18 @@ export default {
     },
     methods: {
         saveDegree() {
-            this.degrees.unshift(this.newDegree);
+            profileService.addDegree(this.$route.params.id)
+            .then((response) => { 
+                if (response.status == 201) {
+                this.$router.push({
+                    path: "/degree"
+                })
+                }
+            });
             this.resetForm();
         },
         resetForm() {
-            this.newDegree = {};
+            this.degree = {};
             this.showForm = false;
         }
     }
