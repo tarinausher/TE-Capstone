@@ -7,6 +7,7 @@ import com.techelevator.model.Project;
 import com.techelevator.model.Student;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,8 +35,38 @@ public class StudentController {
     }
 
     @PostMapping(path = "/student")
-    public void addStudent() {
+    public void addStudent(@Valid @RequestBody Student student) {
+        studentDao.createProfile(student);
+    }
 
+    @PutMapping(path = "/student/first_name")
+    public void updateFirstName(Student student) {
+        studentDao.updateFirstName(student);
+    }
+
+    @PutMapping(path = "/student/last_name")
+    public void updateLastName(Student student) {
+        studentDao.updateLastName(student);
+    }
+
+    @PutMapping(path = "/student/summary")
+    public void updateProfileSummary(Student student) {
+        studentDao.updateProfileSummary(student);
+    }
+
+    @PutMapping(path = "/student/technologies")
+    public void updateTechnologies(Student student) {
+        studentDao.updateTechnologies(student);
+    }
+
+    @PutMapping(path = "/student/softskills")
+    public void updateSoftSkills(Student student) {
+        studentDao.updateSoftSkills(student);
+    }
+
+    @PutMapping(path = "/student/contact")
+    public void updateContactPreferences(Student student) {
+        studentDao.updateContactPreferences(student);
     }
 
     @GetMapping(path = "/student/{userId}")
