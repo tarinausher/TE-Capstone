@@ -74,21 +74,6 @@ public class JdbcStudentDao implements StudentDao {
         jdbcTemplate.update(sql, updatedStudent.getContactPreferences(), updatedStudent.getUserId());
     }
 
-    @Override
-    public void updateStudentDegrees(List<Degree> degrees) {
-        
-    }
-
-    @Override
-    public void updateStudentExperiences(Student updatedStudent) {
-
-    }
-
-    @Override
-    public void updateStudentProjects(Student updatedStudent) {
-
-    }
-
     /*
     Student can publish their profile when ready. The idea is the student will have a button to select
     if the profile is ready to be published. If that is selected, this method will be called to update in the is_published
