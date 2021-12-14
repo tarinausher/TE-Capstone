@@ -19,7 +19,7 @@ public class JdbcDegreeDao implements DegreeDao {
 
     @Override
     public void createDegree(Degree newDegree) {
-        String sql = "INSERT INTO degrees (user_id, level, institution, subject_area, date_completed)" +
+        String sql = "INSERT INTO degrees (user_id, level, institution, subject_area, date_completed) " +
             "VALUES (?, ?, ?, ?, ?);";
         jdbcTemplate.update(sql, newDegree.getUserId(), newDegree.getLevel(), newDegree.getInstitution(),
                 newDegree.getSubjectArea(), newDegree.getDateCompleted());

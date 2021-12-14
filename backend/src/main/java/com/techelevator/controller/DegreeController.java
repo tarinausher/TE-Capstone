@@ -38,7 +38,7 @@ public class DegreeController {
 
     @PostMapping(path = "/degree")
     @ResponseStatus(HttpStatus.CREATED)
-    void degree(Degree degree) {
+    void degree(@RequestBody Degree degree) {
         degreeDao.createDegree(degree);
     }
 
