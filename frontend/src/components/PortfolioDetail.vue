@@ -9,14 +9,17 @@
             <p>Link to Project: {{ project.link }}</p> 
             <!--Will need to adjust link to project above -->       
         </div>
+      <add-project />
   </div>
 
 </template>
 
 <script>
 import profileService from "../services/ProfileService";
+import AddProject from './AddProject.vue';
 
 export default {
+    components: { AddProject },
     name: "project-list",
     data() {
         return {
@@ -91,7 +94,7 @@ h2, p {
 }
 
 a {
-  float: left;
-  background-color: #90ffeb;
+  float: center;
+  /* background-color: #90ffeb; */
 }
 </style>

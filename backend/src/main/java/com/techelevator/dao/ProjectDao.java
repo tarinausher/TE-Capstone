@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface ProjectDao {
 
+    
     void createProject(Project newProject);
 
     List<Project> getProjectsByUserId(int userId);
