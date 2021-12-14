@@ -24,8 +24,8 @@
             <input type="date" name="dateEnded" v-model="newExperience.dateEnded" />
         </div>
         <div class="field">
-            <label for="description">Descrition: </label>
-            <input type="text" name="description" v-model="newExperience.description" />
+            <label for="description">Description: </label>
+            <textarea type="text" name="description" v-model="newExperience.description" />
         </div> <!--May need to change description input to textarea-->
         <button type="submit" class="btn save">Save Experience</button>
         <button type="reset" class="btn reset" v-on:click.prevent="showForm = false">Cancel</button>

@@ -251,7 +251,7 @@ div.header p {
 }
 
 label {
-  color: #08ffd1;
+  /* color: #08ffd1; */
   font-size: 17px;
 }
 
