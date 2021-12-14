@@ -45,6 +45,13 @@ export default {
   justify-content:space-evenly;
 }
 
+.experience {
+    border-radius: 15px ;
+    border-bottom: black;
+    border-style: solid;
+    border-width: medium;
+}
+
 h2 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;

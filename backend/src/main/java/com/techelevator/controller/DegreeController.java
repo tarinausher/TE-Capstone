@@ -2,7 +2,10 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.DegreeDao;
 import com.techelevator.model.Degree;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @CrossOrigin
@@ -34,7 +37,8 @@ public class DegreeController {
     }
 
     @PostMapping(path = "/degree")
-    void degree(Degree degree) {
+    @ResponseStatus(HttpStatus.CREATED)
+    void degree(@RequestBody Degree degree) {
         degreeDao.createDegree(degree);
     }
 

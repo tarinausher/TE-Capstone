@@ -22,7 +22,9 @@ export default {
     return axios.get(`/student/${id}/projects`)
   },
 
-  // addDegree(id) { POST },
+  addDegree(degree) {
+    return axios.post('/degree', degree)
+  }
 
   // addExperience(id) { POST },
 

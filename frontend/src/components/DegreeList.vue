@@ -7,8 +7,13 @@
             <p>Subject Area: {{ degree.subjectArea }}</p>
             <p>Date Completed: {{ degree.dateCompleted }}</p>
         </div>
+        <div class='add-degree'>
+          <add-degree />
+        </div>
+        <div class='delete-degree'>
 
-        <add-degree />
+
+        </div>
   </div>
 </template>
 
@@ -54,6 +59,13 @@ h2 {
   display: inline;
   padding: 5px;
   border-radius: 5%;
+}
+
+.degrees {
+    border-radius: 15px ;
+    border-bottom: black;
+    border-style: solid;
+    border-width: medium;
 }
 
 .students {
