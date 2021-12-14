@@ -24,11 +24,33 @@ export default {
 
   addDegree(degree) {
     return axios.post('/degree', degree)
+  },
+
+  addExperience(id) {   
+    return axios
+     .create(id.experience)
+     .then (response => {
+        if (response.status === 201) {
+          this.$router.push("/student/:id");
+        }
+      })
+     .catch(error => {
+        console.error(error);
+      });
+  },
+
+  addProject(id) { 
+      return axios
+       .create(id.project)
+       .then (response => {
+          if (response.status === 201) {
+            this.$router.push("/student/:id");
+          }
+        })
+       .catch(error => {
+          console.error(error);
+      });
   }
-
-  // addExperience(id) { POST },
-
-  // addProject(id) { POST },
 
   // updateDegree(id) { PUT },
 

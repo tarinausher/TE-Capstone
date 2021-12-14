@@ -1,5 +1,5 @@
 <template>
-  
+ <form v-on:submit.prevent></form>
 </template>
 
 <script>

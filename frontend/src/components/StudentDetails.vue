@@ -9,6 +9,7 @@
           <degree-list />
           <experience-list />
           <portfolio-detail />
+          <publish />
       </div>
     </div>
 </template>
@@ -18,10 +19,11 @@ import profileService from "../services/ProfileService";
 import DegreeList from './DegreeList.vue';
 import ExperienceList from './ExperienceList.vue';
 import PortfolioDetail from './PortfolioDetail.vue'
+import Publish from './Publish.vue';
  
 export default {
   name: "student-profile",
-  components: { DegreeList, ExperienceList, PortfolioDetail },
+  components: { DegreeList, ExperienceList, PortfolioDetail, Publish },
   data() {
       return {
           student: {}
