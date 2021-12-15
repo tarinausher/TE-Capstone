@@ -1,13 +1,17 @@
 <template>
   <div id='main'>
       <div class='student-info' v-bind:key="student.userId">   
+        <br>
           <h1>{{student.firstName}}&nbsp;{{student.lastName}}</h1>
           <p>Cohort: {{student.cohortId}}</p>
           <p>About: {{student.summary}}</p>
           <p>Technical Skills: {{student.technologies}}</p>
           <p>Soft Skills: {{student.softSkills}}</p>
+          <br>
           <degree-list />
+          <br>
           <experience-list />
+          <br>
           <portfolio-detail />
       </div>
     </div>

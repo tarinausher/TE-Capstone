@@ -2,6 +2,7 @@
   <div id="app">
     <div id="menu">
     <div id="header">
+      <!-- <img src="src/imgs/image.png" alt="build-a-student-workshop logo" /> -->
       <h1>Build-a-Student-Workshop</h1>
     </div>
     <div id="nav">

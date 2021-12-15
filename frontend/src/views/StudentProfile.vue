@@ -58,7 +58,11 @@ p {
   font-family: Geneva, Tahoma, sans-serif;
 }
 
-.projects {
-  border-radius: 5%;
+.projects, .degrees, .experience {
+  border-radius: 15px ;
+  background-color: linear-gradient(#a4e5ff, #ffffffa6);
+  justify-content: center;
+  border-style: outset;
+  border-color: #deacff;
 }
 </style>

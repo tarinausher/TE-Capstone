@@ -1,6 +1,7 @@
 <template>
   <div id='main'>
       <h2>Education</h2>
+      <br>
         <div class='degrees' v-for="degree in degrees" v-bind:key="degree.id">
             <p>Level: {{ degree.level }}</p>
             <p>Institution: {{ degree.institution}}</p>
@@ -11,8 +12,6 @@
           <add-degree />
         </div>
         <div class='delete-degree'>
-
-
         </div>
   </div>
 </template>

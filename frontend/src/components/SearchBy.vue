@@ -80,6 +80,8 @@ export default {
 <style>
 #title {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 8px;
+    border-radius: 15px ;
+    border-style: outset;
+    border-color: #deacff;
 }
 </style>

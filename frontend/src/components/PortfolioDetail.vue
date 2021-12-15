@@ -1,6 +1,7 @@
 <template>
   <div id='main'>
       <h2>Portfolio</h2>
+      <br>
         <div class='projects' v-for="project in projects" v-bind:key="project.id">
             <p>Title: {{ project.title }}</p>
             <p>Description: {{ project.description }}</p>
@@ -10,6 +11,7 @@
             <!--Will need to adjust link to project above -->       
         </div>
       <add-project />
+
   </div>
 
 </template>

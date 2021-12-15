@@ -4,11 +4,10 @@
       <div  v-for="student in students" v-bind:key="student.id" >    
           <div class="student">
            <img src="https://via.placeholder.com/120" alt="placeholder">
-            
-          <p>Student Name: {{student.firstName}}&nbsp;{{student.lastName}}<br>
-          Cohort: {{student.cohortId}}<br>
-          Technical Skills: {{student.technologies}}<br>
-          Soft Skills: {{student.softSkills}}</p>
+            <h3>{{student.firstName}}&nbsp;{{student.lastName}}</h3>
+          <p>Cohort: {{student.cohortId}}</p>
+          <p>Technical Skills: {{student.technologies}}</p>
+          <p>Soft Skills: {{student.softSkills}}</p>
 
           <router-link v-bind:to="{ name: 'student-profile', params: { id: student.userId }}">
           <button>View Profile</button>
@@ -70,6 +69,11 @@ h1 {
 
 }
 
+img {
+  border-radius: 50%;
+  justify-content: center;
+}
+
 h3 {
   font-size: 1.5em;
 }
@@ -102,6 +106,7 @@ article {
   grid-template-rows: 2fr 2fr 2fr ;
   
 }
+
 
 a {
   float: left;
