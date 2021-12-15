@@ -57,7 +57,7 @@ export default {
 
 h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  text-align: center;
+  text-align: right;
   font-size: 2em;
   margin-top: 0.15em;
   margin-bottom: 0.15em;
@@ -67,6 +67,7 @@ h1 {
   display: inline;
   padding: 10px;
   border-radius: 5%;
+
 }
 
 h3 {
@@ -83,8 +84,10 @@ h3, p {
 
 .student {
   border-radius: 15px ;
-  background-color: #e6e4e4;
+  background-color: linear-gradient(#a4e5ff, #ffffffa6);
   justify-content: center;
+  border-style: outset;
+  border-color: #deacff;
 }
 
 article {
