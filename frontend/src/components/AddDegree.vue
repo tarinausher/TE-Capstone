@@ -24,7 +24,7 @@
         <button type="reset" class="btn reset" v-on:click.prevent="showForm = false">Cancel</button>
     </form>
 
-    <button>Delete Degree</button>
+    <button>Delete Degree</button> <!-- nonfunctional at this time --> 
 
   </div>
 </template>
@@ -50,7 +50,7 @@ export default {
     methods: {
         saveDegree() {
             profileService.addDegree(this.degree).then(response => {
-                if (response.status === 200) { // 201 = "Created"
+                if (response.status === 201) { // 201 = "Created"
                 this.degree = { 
                     userId: null,
                     level: '',

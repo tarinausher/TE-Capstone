@@ -21,7 +21,7 @@ public class JdbcExperienceDao implements ExperienceDao {
     public void createExperience(Experience newExperience) {
         String sql = "INSERT INTO experiences (industry, title, organization, date_started, " +
                 "date_ended, description, user_id)" +
-                "VALUES (?, ?, ?, ?, ?);";
+                "VALUES (?, ?, ?, ?, ?, ?, ?);";
         jdbcTemplate.update(sql, newExperience.getIndustry(), newExperience.getTitle(),
                 newExperience.getOrganization(), newExperience.getDateStarted(), newExperience.getDateEnded(),
                 newExperience.getDescription(), newExperience.getUserId());

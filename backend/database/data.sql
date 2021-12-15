@@ -34,6 +34,8 @@ VALUES (4, 7, 'Test', 'User', 'I am a test user, here is my data.', 'Java, SQL, 
 (11, 10, 'Sally', 'Test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Java, SprintBoot, JUnit, SQL', 'decisiveness, negotiation', 'linkedin', true, '12/7/2021'),
 (12, 10, 'Jimmy', 'Test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Java, SprintBoot, JUnit, SQL', 'flexibility, problem solving', 'email', true, '12/6/2021');
 
+
+
 SELECT * FROM students;
 
 INSERT INTO degrees (user_id, level, institution, subject_area, date_completed)
@@ -88,3 +90,5 @@ UPDATE users SET is_validated = true WHERE user_id = 10;
 UPDATE users SET is_validated = false WHERE user_id = 11;
 UPDATE users SET is_validated = false WHERE user_id = 12;
 
+
+UPDATE students SET is_published = true WHERE last_name = 'Decartes';

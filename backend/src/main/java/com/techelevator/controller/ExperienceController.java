@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.ExperienceDao;
 import com.techelevator.model.Experience;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,7 +17,8 @@ public class ExperienceController {
     }
 
     @PostMapping(path = "/experience")
-    public void createExperience(Experience experience) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createExperience(@RequestBody Experience experience) {
         experienceDao.createExperience(experience);
     }
 

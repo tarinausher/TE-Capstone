@@ -24,11 +24,15 @@ export default {
 
   addDegree(degree) {
     return axios.post('/degree', degree)
-  }
+  },
 
-  // addExperience(id) { POST },
+  addExperience(experience) { 
+    return axios.post('/experience', experience)
+   },
 
-  // addProject(id) { POST },
+  addProject(project) { 
+    return axios.post('/project', project)
+   }
 
   // updateDegree(id) { PUT },
 
