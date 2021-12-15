@@ -22,6 +22,9 @@
         <button type="submit" class="btn save">Save Project</button>
         <button type="reset" class="btn reset" v-on:click.prevent="showForm = false">Cancel</button>
     </form>
+
+    <button >Delete Project</button>
+
   </div>
 </template>
 

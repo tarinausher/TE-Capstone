@@ -3,6 +3,9 @@
       <div class='student-info' v-bind:key="student.userId">   
         <br>
           <h1>{{student.firstName}}&nbsp;{{student.lastName}}</h1>
+          <div class="update-button"> 
+            <update-profile/>
+          </div>
           <p>Cohort: {{student.cohortId}}</p>
           <p>About: {{student.summary}}</p>
           <p>Technical Skills: {{student.technologies}}</p>
@@ -22,10 +25,11 @@ import profileService from "../services/ProfileService";
 import DegreeList from './DegreeList.vue';
 import ExperienceList from './ExperienceList.vue';
 import PortfolioDetail from './PortfolioDetail.vue'
+import UpdateProfile from './UpdateProfile.vue';
  
 export default {
   name: "student-profile",
-  components: { DegreeList, ExperienceList, PortfolioDetail },
+  components: { DegreeList, ExperienceList, PortfolioDetail, UpdateProfile },
   data() {
       return {
           student: {}
@@ -54,6 +58,10 @@ h1 {
   color: #0099ff;
 }
  
+.update-button {
+  float: right;
+}
+
 .students, .student-info {
   color: #0099ff;
   background-image: linear-gradient(#a4e5ff, #ffffffa6);
