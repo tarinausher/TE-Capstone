@@ -1,21 +1,19 @@
 <template>
   <div class="home">
     <div class="header">
-        <h1>Build-a-Student-Workshop</h1>
+        <!-- <h1>Build-a-Student-Workshop</h1> -->
       
   <!-- what i added is under this comment -->
     </div> 
     <div class="search">
-      <!-- <section id="banner"> -->
-        <input type="search" name="searchBar" placeholder="search" @click="filterText"/> <br> <input type="submit" value="submit"> <input type="submit" value="Invite +" />
-      <!-- </section> -->
+      <search-by />
     </div>
     
-  <div class="left-panel">
+  <!-- <div class="left-panel">
      <section id="left-panel">
        <nav>
          <menu>
-           <!-- <img src="https://via.placeholder.com/120" alt="placeholder"> -->
+           <img src="https://via.placeholder.com/120" alt="placeholder">
             <ul>
             <li class="left-menu">
               <a href='#'> Profile Views </a>
@@ -36,7 +34,7 @@
          </menu>
        </nav>
      </section>
-   </div>
+   </div> -->
 
   <div class="student-card">
     <student-card />
@@ -124,9 +122,10 @@
 </template>
 
 <script>
+import SearchBy from '../components/SearchBy.vue';
 import StudentCard from './StudentCard.vue';
 export default {
-  components: { StudentCard },
+  components: { StudentCard, SearchBy },
   data() {
     return{
         name: "home",
@@ -179,7 +178,7 @@ menu ul,
 }
 
 .search {
-  display: flex;
+  display: grid;
   align-items: center;
   flex-basis: 75%;
   padding: 0px 0px 0px 15px;
@@ -190,12 +189,12 @@ menu ul,
 .home {
   display: grid;
   grid-template-areas: 
-      "header header header search search"
-      "section-left card card card card "
-      "section-left card card card card "
+      ". . . . ."
+      "search card card card card "
+      ". card card card card "
       ". . . . .";
   grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
-  grid-template-rows: 1fr 2fr 2fr 1fr;
+  grid-template-rows: .25fr 2fr 2fr 1fr;
 }
 
 input[type="text"],

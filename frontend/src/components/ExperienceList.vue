@@ -1,6 +1,7 @@
 <template>
   <div id='main'>
       <h2>Professional Experience</h2>
+      <br>
         <div class='experience' v-for="experience in experiences" v-bind:key="experience.id">
             <p>Industry: {{ experience.industry }}</p>
             <p>Title: {{ experience.title}}</p>
@@ -9,8 +10,9 @@
             <p>Date Ended: {{ experience.dateEnded }}</p>
             <p>Description: {{ experience.description }}</p>            
         </div>
-
+        <div class="buttons">
         <add-experience />
+        </div>
   </div>
 
 </template>
@@ -50,6 +52,10 @@ export default {
     border-bottom: black;
     border-style: solid;
     border-width: medium;
+}
+
+.buttons {
+  display: inline-block;
 }
 
 h2 {

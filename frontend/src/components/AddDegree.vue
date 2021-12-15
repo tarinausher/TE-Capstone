@@ -23,6 +23,9 @@
         <button type="submit" class="btn save" v-on:click="saveDegree">Save Degree</button>
         <button type="reset" class="btn reset" v-on:click.prevent="showForm = false">Cancel</button>
     </form>
+
+    <button>Delete Degree</button>
+
   </div>
 </template>
 

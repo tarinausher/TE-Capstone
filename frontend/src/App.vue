@@ -1,11 +1,17 @@
 <template>
   <div id="app">
+    <div id="menu">
+    <div id="header">
+      <!-- <img src="src/imgs/image.png" alt="build-a-student-workshop logo" /> -->
+      <h1>Build-a-Student-Workshop</h1>
+    </div>
     <div id="nav">
       <ul>
         <li><router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;</li>
         <li><router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>&nbsp;|&nbsp;</li>
         <li><router-link v-bind:to="{ name: 'student-list'}" v-if="$store.state.token != ''">All Students</router-link></li>
       </ul>
+    </div>
     </div>
     <div id="body"></div>
     <router-view />
@@ -22,6 +28,10 @@ body {
   background-attachment: fixed;
   background-color: rgba(0, 89, 255, 0.445); /* For browsers that do not support gradients */
   background-image: linear-gradient(#62b0ec, #d694cc); 
+}
+
+#menu {
+  display: inline-flex;
 }
 
 #nav {
@@ -42,6 +52,7 @@ body {
   justify-content: flex-start;
   text-align: left;
   float: center;
-  background-color: #90ffeb;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
 }
 </style>
