@@ -92,6 +92,24 @@ public class JdbcUserDao implements UserDao {
         jdbcTemplate.update(sql, true, userId);
     }
 
+    @Override
+    public boolean isValidated(Long userId) {
+        String sql = "SELECT is_validated FROM users WHERE user_id = ?;";
+        return jdbcTemplate.queryForObject(sql, boolean.class, userId);
+    }
+
+    @Override
+    public String getValidation(Long userId) {
+        String sql = "SELECT verification FROM users WHERE user_id = ?;";
+        return jdbcTemplate.queryForObject(sql, String.class, userId);
+    }
+
+    @Override
+    public void setValidation(Long userId, String validation) {
+        String sql = "UPDATE users SET validation = ? WHERE user_id = ?;";
+        jdbcTemplate.update(sql, validation, userId);
+    }
+
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
         user.setId(rs.getLong("user_id"));
@@ -100,7 +118,6 @@ public class JdbcUserDao implements UserDao {
         user.setPassword(rs.getString("password_hash"));
         user.setAuthorities(rs.getString("role"));
         user.setActivated(true);
-        user.setValidated(rs.getBoolean("is_validated"));
         return user;
     }
 }

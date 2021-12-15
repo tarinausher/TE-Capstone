@@ -16,17 +16,15 @@ public class User {
    @JsonIgnore
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
-   private boolean isValidated;
 
    public User() { }
 
-   public User(Long id, String username, String email, String password, String authorities, boolean isValidated) {
+   public User(Long id, String username, String email, String password, String authorities) {
       this.id = id;
       this.username = username;
       this.email = email;
       this.password = password;
       this.activated = true;
-      this.isValidated = isValidated;
    }
 
    public Long getId() {
@@ -67,14 +65,6 @@ public class User {
 
    public void setActivated(boolean activated) {
       this.activated = activated;
-   }
-
-   public boolean isValidated() {
-      return isValidated;
-   }
-
-   public void setValidated(boolean validated) {
-      this.isValidated = validated;
    }
 
    public Set<Authority> getAuthorities() {

@@ -17,4 +17,10 @@ public interface UserDao {
     boolean create(String username, String email, String password, String role);
 
     void makeValidated(Long userId);
+
+    boolean isValidated(Long userId);
+
+    String getValidation(Long userId);
+
+    void setValidation(Long userId, String validation);
 }

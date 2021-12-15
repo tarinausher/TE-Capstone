@@ -19,6 +19,8 @@ import com.techelevator.dao.UserDao;
 import com.techelevator.security.jwt.JWTFilter;
 import com.techelevator.security.jwt.TokenProvider;
 
+import java.util.Random;
+
 
 @RestController
 @CrossOrigin
@@ -35,7 +37,7 @@ public class AuthenticationController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginDTO loginDto) {
+    public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginDTO loginDto, @RequestParam String validation) {
 
         UsernamePasswordAuthenticationToken authenticationToken =
                 new UsernamePasswordAuthenticationToken(loginDto.getUsername(), loginDto.getPassword());
@@ -43,10 +45,14 @@ public class AuthenticationController {
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = tokenProvider.createToken(authentication, false);
-        
+
         User user = userDao.findByUsername(loginDto.getUsername());
 
-        if(!user.isValidated()) {
+        if(validation != null && validation.equals(userDao.getValidation(user.getId()))) {
+            userDao.makeValidated(user.getId());
+        }
+
+        if(!userDao.isValidated(user.getId())) {
             throw new UserNotValidatedException();
         }
 
@@ -60,12 +66,26 @@ public class AuthenticationController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void register(@Valid @RequestBody RegisterUserDTO newUser) {
+        User user = null;
         try {
-            User user = userDao.findByUsername(newUser.getUsername());
+            user = userDao.findByUsername(newUser.getUsername());
             throw new UserAlreadyExistsException();
         } catch (UsernameNotFoundException e) {
             userDao.create(newUser.getUsername(), newUser.getEmail(), newUser.getPassword(), newUser.getRole());
         }
+
+        // stolen from https://www.baeldung.com/java-random-string
+        int leftLimit = 97; // letter 'a'
+        int rightLimit = 122; // letter 'z'
+        int targetStringLength = 10;
+        Random random = new Random();
+
+        String validation = random.ints(leftLimit, rightLimit + 1)
+                .limit(targetStringLength)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
+
+        userDao.setValidation(user.getId(), validation);
     }
 
     /**
@@ -100,4 +120,3 @@ public class AuthenticationController {
 		}
     }
 }
-
