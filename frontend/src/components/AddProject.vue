@@ -2,7 +2,7 @@
   <div class="main">
     <button v-on:click.prevent="showForm = true" v-show="showForm === false">Add New Project</button>
 
-    <form v-show="showForm" id="formAddProject">
+    <form v-bind:userId="userId" v-show="showForm" id="formAddProject">
         <div class="field">
             <label for="title">Title: </label>
             <input type="text" name="title" v-model="project.title" />
@@ -29,14 +29,19 @@
 
 <script>
 import profileService from '../services/ProfileService'
+// import userId from '../components/StudentDetails'
+
 
 export default {
     name: "add-project",
+    props: {
+        userId: Number
+    },
     data() {
         return {
             showForm: false,
             project: {
-                id: null,
+                userId: this.userId,
                 title: '',
                 description: '',
                 technologies: '',
