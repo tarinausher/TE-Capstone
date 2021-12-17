@@ -25,9 +25,11 @@
           <degree-list />
           <add-degree :userId='student.userId' />
           <br>
-          <experience-list :userId='this.student.userId' />
+          <experience-list />
+          <add-experience :userId='student.userId' />
           <br>
-          <portfolio-detail :userId='this.student.userId' />
+          <portfolio-detail />
+          <add-project :userId='this.student.userId' />
       </div>
 
     </div>
@@ -40,10 +42,12 @@ import ExperienceList from './ExperienceList.vue';
 import PortfolioDetail from './PortfolioDetail.vue'
 import UpdateProfile from './UpdateProfile.vue';
 import AddDegree from './AddDegree.vue'
+import AddExperience from './AddExperience.vue';
+import AddProject from './AddProject.vue';
  
 export default {
   name: "student-profile",
-  components: { DegreeList, ExperienceList, PortfolioDetail, UpdateProfile, AddDegree },
+  components: { DegreeList, ExperienceList, PortfolioDetail, UpdateProfile, AddDegree, AddExperience, AddProject },
   data() {
       return {
           student: {}

@@ -8,6 +8,10 @@
             <input type="text" name="industry" v-model="experience.industry" />
         </div>
         <div class="field">
+            <label for="title">Title: </label>
+            <input type="text" name="title" v-model="experience.title" />
+        </div>
+        <div class="field">
             <label for="organization">Organization: </label>
             <input type="text" name="organization" v-model="experience.organization" />
         </div>
@@ -33,6 +37,7 @@
 
 <script>
 import profileService from '../services/ProfileService'
+import userId from '../components/StudentDetails'
 
 export default {
     name: "add-experience",
@@ -43,7 +48,7 @@ export default {
         return {
             showForm: false,
             experience: {
-                id: this.userId,
+                userId: this.userId,
                 industry: '',
                 title: '',
                 organization: '',
@@ -58,7 +63,7 @@ export default {
             profileService.addExperience(this.experience).then(response => {
                 if (response.status === 201) {
                     this.experience = {
-                        id: null,
+                        userId: null,
                         industry: '',
                         title: '',
                         organization: '',
@@ -68,6 +73,9 @@ export default {
                     };                   
                 }
             })
+        },
+        getId() {
+            this.experience.userId = userId;
         }
     }
 

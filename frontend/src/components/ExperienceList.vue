@@ -13,19 +13,16 @@
             <p><strong>Date Ended:</strong> {{ experience.dateEnded }}</p>
             <p><strong>Description:</strong> {{ experience.description }}</p>            
         </div>
-        <div class="buttons">
-        <add-experience />
-        </div>
+
   </div>
 
 </template>
 
 <script>
 import profileService from "../services/ProfileService";
-import AddExperience from './AddExperience.vue';
+
 
 export default {
-  components: { AddExperience },
     name: "experience-list",
     data() {
         return {
