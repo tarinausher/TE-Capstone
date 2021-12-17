@@ -5,7 +5,7 @@
            <img v-bind:src="require('../assets/img/' + student.userId + '.jpg')" alt="placeholder" />
           <br>
           <h1>{{student.firstName}}&nbsp;{{student.lastName}}</h1>
-          <h3><a href="https://github.com/"> Github </a> <a href="https://linkedin.com/">LinkedIn</a></h3>
+          <h3><a href="https://github.com/"> GitHub </a> <a href="https://linkedin.com/">LinkedIn</a></h3>
 
           <div class="update-button"> 
             <update-profile/>

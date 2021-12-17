@@ -23,7 +23,6 @@
         <button type="reset" class="btn reset" v-on:click.prevent="showForm = false">Cancel</button>
     </form>
 
-    <button >Delete Project</button> <!-- nonfunctional at this time --> 
 
   </div>
 </template>

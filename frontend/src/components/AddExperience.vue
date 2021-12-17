@@ -25,13 +25,11 @@
         </div>
         <div class="field">
             <label for="description">Description: </label>
-            <textarea type="text" name="description" v-model="experience.description" />
+            <input type="text" name="description" v-model="experience.description" />
         </div> 
         <button type="submit" class="btn save" v-on:click="saveExperience">Save Experience</button>
         <button type="reset" class="btn reset" v-on:click.prevent="showForm = false">Cancel</button>
     </form>
-
-        <button >Delete Experience</button><!-- nonfunctional at this time --> 
 
   </div>
 </template>

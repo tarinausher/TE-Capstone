@@ -3,6 +3,9 @@
       <h2>Portfolio</h2>
       <br>
         <div class='projects' v-for="project in projects" v-bind:key="project.id">
+          <div class='delete-project'>
+            <button>x</button> <!-- nonfunctional at this time --> 
+          </div>
             <p><strong>Title:</strong> {{ project.title }}</p>
             <p><strong>Description:</strong> {{ project.description }}</p>
             <p><strong>Technologies: </strong>{{ project.technologies }}</p>
@@ -51,6 +54,9 @@ export default {
     border-width: medium;
 }
 
+.delete-project {
+    float: right;
+}
 
 button {
   background-color: #deacff;

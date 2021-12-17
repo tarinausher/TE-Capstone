@@ -24,6 +24,11 @@ export default {};
 </script>
 
 <style>
+#app {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
 img {
   width:200px;
 }

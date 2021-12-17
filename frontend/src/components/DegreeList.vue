@@ -3,14 +3,19 @@
       <h2>Education</h2>
       <br>
         <div class='degrees' v-for="degree in degrees" v-bind:key="degree.id">
+          <div class='delete-degree'>
+            <button>x</button> <!-- nonfunctional at this time --> 
+          </div>
+            <div class="degree-info">
             <p><strong>Level: </strong>{{ degree.level }}</p>
             <p><strong>Institution: </strong>{{ degree.institution}}</p>
             <p><strong>Subject Area: </strong>{{ degree.subjectArea }}</p>
             <p><strong>Date Completed: </strong>{{ degree.dateCompleted }}</p>
+         </div>
+
+          
         </div>
 
-        <div class='delete-degree'>
-     </div>
   </div>
 </template>
 
@@ -62,6 +67,10 @@ h2 {
     border-bottom: black;
     border-style: solid;
     border-width: medium;
+}
+
+.delete-degree{
+    float: right;
 }
 
 .students {

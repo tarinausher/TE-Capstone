@@ -3,6 +3,9 @@
       <h2>Professional Experience</h2>
       <br>
         <div class='experience' v-for="experience in experiences" v-bind:key="experience.id">
+          <div class='delete-experience'>
+            <button>x</button> <!-- nonfunctional at this time --> 
+          </div>
             <p><strong>Industry:</strong> {{ experience.industry }}</p>
             <p><strong>Title:</strong> {{ experience.title}}</p>
             <p><strong>Organization:</strong> {{ experience.organization }}</p>
@@ -52,6 +55,10 @@ export default {
     border-bottom: black;
     border-style: solid;
     border-width: medium;
+}
+
+.delete-experience {
+    float: right;
 }
 
 .buttons {

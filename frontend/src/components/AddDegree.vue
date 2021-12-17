@@ -2,7 +2,7 @@
   <div class="main">
     <button v-on:click.prevent="showForm = true" v-show="showForm === false">Add New Degree</button>
 
-    <form v-on:submit.prevent="saveDegree" v-bind:userId="userId" v-show="showForm" id="formAddDegree" >
+    <form v-bind:userId="userId" v-show="showForm" id="formAddDegree" >
         <div class="field">
             <label for="level">Level: </label>
             <input type="text" name="level" v-model="degree.level" />
@@ -24,7 +24,6 @@
         <button type="reset" class="btn reset" v-on:click.prevent="showForm = false">Cancel</button>
     </form>
 
-    <button>Delete Degree</button> <!-- nonfunctional at this time --> 
 
   </div>
 </template>
