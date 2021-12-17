@@ -85,8 +85,8 @@ public class JdbcExperienceDao implements ExperienceDao {
         experience.setIndustry(rs.getString("industry"));
         experience.setTitle(rs.getString("title"));
         experience.setOrganization(rs.getString("organization"));
-        experience.setDateStarted(rs.getString("date_started"));
-        experience.setDateEnded(rs.getString("date_ended"));
+        experience.setDateStarted(rs.getDate("date_started").toLocalDate());
+        experience.setDateEnded(rs.getDate("date_ended").toLocalDate());
         experience.setDescription(rs.getString("description"));
         return experience;
     }

@@ -42,7 +42,7 @@ export default {
         return {
             showForm: false,
             degree: {
-                userId: null,
+                userId: this.userId,
                 level: '',
                 institution: '',
                 subjectArea: '',
@@ -55,7 +55,7 @@ export default {
             profileService.addDegree(this.degree).then(response => {
                 if (response.status === 201) { // 201 = "Created"
                 this.degree = { 
-                    userId: null,
+                    userId: this.userId,
                     level: '',
                     institution: '',
                     subjectArea: '',

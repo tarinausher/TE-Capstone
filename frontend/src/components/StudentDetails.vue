@@ -10,6 +10,9 @@
           <div class="update-button"> 
             <update-profile/>
           </div>
+          <div class="publish">
+            <button>Publish</button>
+          </div>
 
           <br>
           <br>
@@ -20,14 +23,13 @@
           <br>
 
           <degree-list />
-         <div class='add-degree'>
-          <add-degree :student='student' />
-        </div>
+          <add-degree :userId='student.userId' />
           <br>
-          <experience-list />
+          <experience-list :userId='this.student.userId' />
           <br>
-          <portfolio-detail />
+          <portfolio-detail :userId='this.student.userId' />
       </div>
+
     </div>
 </template>
  
@@ -70,7 +72,7 @@ h1 {
   color: #0099ff;
 }
  
-.update-button {
+.update-button, .publish {
   float: right;
 }
 

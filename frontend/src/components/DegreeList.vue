@@ -4,7 +4,7 @@
       <br>
         <div class='degrees' v-for="degree in degrees" v-bind:key="degree.id">
           <div class='delete-degree'>
-            <button>x</button> <!-- nonfunctional at this time --> 
+            <button v-on:click="deleteDegree">x</button> <!-- nonfunctional at this time --> 
           </div>
             <div class="degree-info">
             <p><strong>Level: </strong>{{ degree.level }}</p>
@@ -35,6 +35,9 @@ export default {
             profileService.getDegrees(this.$route.params.id).then( (response) => {
                 this.degrees = response.data;
             });
+        },
+        deleteDegree() {
+          
         }
     },
     created() {

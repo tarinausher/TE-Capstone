@@ -42,21 +42,23 @@ UPDATE students SET first_name = 'Steven' where last_name = 'Universe';
 SELECT * FROM students;
 
 INSERT INTO degrees (user_id, level, institution, subject_area, date_completed)
-VALUES (5, 'bachelors', 'University of Mysteries', 'Statistics', '04/30/2014'),
-(5, 'associates', 'University of Mysteries', 'Biology', '04/30/2010'),
-(4, 'high-school', 'Taylor Allderdice High School', 'High School Diploma', '04/30/2018'),
-(6, 'bachelors', 'University of Poitiers', 'Philosophy, Math', '04/30/2010'),
-(9, 'bachelors', 'University of Pittsburgh', 'Sociology', '04/30/2012'),
-(9, 'masters', 'University of Pittsburgh', 'Social Work', '04/30/2014'),
-(10, 'bachelors', 'University of Toledo', 'Chemistry', '04/30/2018'),
-(11, 'bachelors', 'University of Toronto', 'History', '04/30/2008'),
-(11, 'masters', 'University of Pittsburgh', 'History', '04/30/2012'),
-(12, 'associates', 'Community College of Allegheny County', 'Criminology', '04/30/2000'),
-(12, 'bachelors', 'University of Pittsburgh', 'Administration of Justice', '04/30/2002'),
-(12, 'masters', 'University of Pittsburgh', 'Social Psychology', '04/30/2006'),
-(12, 'doctorate', 'University of Pittsburgh', 'Forensic Psychology', '04/30/2010');
+VALUES (5, 'Bachelors', 'University of Mysteries', 'Statistics', '04/30/2014'),
+(5, 'Associates', 'University of Mysteries', 'Biology', '04/30/2010'),
+(4, 'High School', 'Taylor Allderdice High School', 'High School Diploma', '04/30/2018'),
+(6, 'Bachelors', 'University of Poitiers', 'Philosophy, Math', '04/30/2010'),
+(9, 'Bachelors', 'University of Pittsburgh', 'Sociology', '04/30/2012'),
+(9, 'Masters', 'University of Pittsburgh', 'Social Work', '04/30/2014'),
+(10, 'Bachelors', 'University of Toledo', 'Chemistry', '04/30/2018'),
+(11, 'Bachelors', 'University of Toronto', 'History', '04/30/2008'),
+(11, 'Masters', 'University of Pittsburgh', 'History', '04/30/2012'),
+(12, 'Associates', 'Community College of Allegheny County', 'Criminology', '04/30/2000'),
+(12, 'Bachelors', 'University of Pittsburgh', 'Administration of Justice', '04/30/2002'),
+(12, 'Masters', 'University of Pittsburgh', 'Social Psychology', '04/30/2006'),
+(12, 'Doctorate', 'University of Pittsburgh', 'Forensic Psychology', '04/30/2010');
 
 SELECT * FROM degrees;
+
+DELETE FROM degrees where degree_id > 94;
 
 SELECT * FROM degrees WHERE user_id = 12;
 
@@ -72,7 +74,9 @@ INSERT INTO projects (user_id, title, description, is_solo, technologies, link)
 VALUES (4, 'Dropping the SQL', 'Developed a backend program that audits a SQL Database to determine which tables are no longer needed', true, 'Java, SQL', 'https://github.com/'),
 (6, 'If I think, therefore I am', 'Created a program to determine what thinking means', true, 'Javascript, Java, Restful APIs, SQL', 'https://github.com/'),
 (4, 'JUnit Extraordinaire', 'Developed a library of JUnit tests that can be easily readjusted to suit the users needs', false, 'Java, JUnit', 'https://github.com/'),
-(4, 'Digital Craftsmen', 'Used Object-Oriented Programming to construct blueprints for various types of tables', true, 'Java', 'https://github.com/');
+(4, 'Digital Craftsmen', 'Used Object-Oriented Programming to construct blueprints for various types of tables', true, 'Java', 'https://github.com/'),
+(5, 'Dropping the SQL', 'Developed a backend program that audits a SQL Database to determine which tables are no longer needed', true, 'Java, SQL', 'https://github.com/');
+
 
 SELECT * FROM projects;
 
