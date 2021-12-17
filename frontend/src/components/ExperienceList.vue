@@ -4,7 +4,7 @@
       <br>
         <div class='experience' v-for="experience in experiences" v-bind:key="experience.id">
           <div class='delete-experience'>
-            <button>x</button> <!-- nonfunctional at this time --> 
+            <button v-on:click="deleteExperience">x</button> <!-- nonfunctional at this time --> 
           </div>
             <p><strong>Industry:</strong> {{ experience.industry }}</p>
             <p><strong>Title:</strong> {{ experience.title}}</p>
@@ -34,6 +34,15 @@ export default {
             profileService.getExperiences(this.$route.params.id).then( (response) => {
                 this.experiences = response.data;
             });
+        },
+        deleteExperience() {
+          if (confirm("Are you sure you want to delete this? This action cannot be undone.")) {
+            profileService.deleteDegree(this.experience.experienceId).then(response => {
+            if (response.status === 200) {
+              alert("Experience successfully deleted");
+            }
+          })
+          }
         }
     },
     created() {

@@ -37,7 +37,13 @@ export default {
             });
         },
         deleteDegree() {
-          
+          if (confirm("Are you sure you want to delete this? This action cannot be undone.")) {
+            profileService.deleteDegree(this.degree.degreeId).then(response => {
+            if (response.status === 200) {
+              alert("Degree successfully deleted");
+            }
+          })
+          }
         }
     },
     created() {

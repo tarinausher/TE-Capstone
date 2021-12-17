@@ -4,16 +4,14 @@
       <br>
         <div class='projects' v-for="project in projects" v-bind:key="project.id">
           <div class='delete-project'>
-            <button>x</button> <!-- nonfunctional at this time --> 
+            <button v-on:click="deleteProject">x</button> <!-- nonfunctional at this time --> 
           </div>
             <p><strong>Title:</strong> {{ project.title }}</p>
             <p><strong>Description:</strong> {{ project.description }}</p>
             <p><strong>Technologies: </strong>{{ project.technologies }}</p>
-            <!--Will need to include Individual vs Group-->
             <p><a :href="project.link"><strong>Link to Project</strong></a></p>
             <br>
-            <br> 
-            <!--Will need to adjust link to project above -->       
+            <br>    
         </div>
 
 
@@ -36,6 +34,15 @@ export default {
             profileService.getProjects(this.$route.params.id).then( (response) => {
                 this.projects = response.data;
             });
+        },
+        deleteProject() {
+          if (confirm("Are you sure you want to delete this? This action cannot be undone.")) {
+            profileService.deleteDegree(this.project.projectId).then(response => {
+            if (response.status === 200) {
+              alert("Project successfully deleted");
+            }
+          })
+          }
         }
     },
     created() {

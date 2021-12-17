@@ -45,4 +45,10 @@ public class ProjectController {
     void updateLink(Project updatedProject) {
         projectDao.updateLink(updatedProject);
     }
+
+    @DeleteMapping(path = "/project/{projectId}")
+    void deleteDegree(@PathVariable int projectId) {
+        projectDao.deleteProject(projectId);
+    }
+
 }

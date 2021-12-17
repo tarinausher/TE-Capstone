@@ -71,9 +71,9 @@ public class JdbcProjectDao implements ProjectDao {
 
     //Students can delete projects as needed
     @Override
-    public void deleteProject(int projectId, int userId) {
-        String sql = "DELETE FROM projects WHERE project_id = ? AND user_id = ?;";
-        jdbcTemplate.update(sql, projectId, userId);
+    public void deleteProject(int projectId) {
+        String sql = "DELETE FROM projects WHERE project_id = ?;";
+        jdbcTemplate.update(sql, projectId);
     }
 
     private Project mapRowToProject(SqlRowSet rs) {

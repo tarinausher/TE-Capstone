@@ -32,7 +32,11 @@ export default {
 
   addProject(project) { 
     return axios.post('/project', project)
-   }
+   },
+
+   addStudent(student) {
+     return axios.post('/student', student)
+   },
 
   // updateDegree(id) { PUT },
 
@@ -40,11 +44,17 @@ export default {
 
   // updateProject(id) { PUT },
 
-  // deleteDegree(id) { DELETE },
+  deleteDegree(degreeId) {
+    return axios.delete(`/degree/${degreeId}`)    
+   },
 
-  // deleteExperience(id) { DELETE },
+  deleteExperience(experienceId) {
+    return axios.delete(`/experience/${experienceId}`)    
+   },
 
-  // deleteProject(id) { DELETE },
+  deleteProject(projectId) {
+    return axios.delete(`/experience/${projectId}`)    
+  },
   
   // updateProfile(id) {
   // WILL BE USED TO CONNECT TO THE PROFILE UPDATE ENDPOINT
