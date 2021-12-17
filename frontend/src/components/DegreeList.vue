@@ -3,25 +3,22 @@
       <h2>Education</h2>
       <br>
         <div class='degrees' v-for="degree in degrees" v-bind:key="degree.id">
-            <p>Level: {{ degree.level }}</p>
-            <p>Institution: {{ degree.institution}}</p>
-            <p>Subject Area: {{ degree.subjectArea }}</p>
-            <p>Date Completed: {{ degree.dateCompleted }}</p>
+            <p><strong>Level: </strong>{{ degree.level }}</p>
+            <p><strong>Institution: </strong>{{ degree.institution}}</p>
+            <p><strong>Subject Area: </strong>{{ degree.subjectArea }}</p>
+            <p><strong>Date Completed: </strong>{{ degree.dateCompleted }}</p>
         </div>
-        <div class='add-degree'>
-          <add-degree />
-        </div>
+
         <div class='delete-degree'>
-        </div>
+     </div>
   </div>
 </template>
 
 <script>
 import profileService from "../services/ProfileService";
-import AddDegree from './AddDegree.vue';
+
 
 export default {
-  components: { AddDegree },
     name: "degree-list",
     data() {
         return {

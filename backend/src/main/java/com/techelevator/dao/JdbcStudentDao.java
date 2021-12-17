@@ -20,11 +20,11 @@ public class JdbcStudentDao implements StudentDao {
     @Override
     public void createProfile(Student newStudent) {
         String sql = "INSERT INTO students (user_id, first_name, last_name, summary, technologies, soft_skills, " +
-                "contact_preferences, is_published)" +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                "contact_preferences, is_published, picture)" +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(sql, newStudent.getUserId(), newStudent.getFirstName(), newStudent.getLastName(),
                 newStudent.getSummary(), newStudent.getTechnologies(), newStudent.getSoftSkills(),
-                newStudent.getContactPreferences(), newStudent.isPublished());
+                newStudent.getContactPreferences(), newStudent.isPublished(), newStudent.getPicture());
     }
 
     //Student should have the ability to update information in their profiles

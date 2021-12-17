@@ -115,6 +115,10 @@
     </section>
     
   </div>-->
+
+  <footer class="footer">
+    <about />
+  </footer>
   </div> 
   
 
@@ -175,6 +179,10 @@ menu ul,
   align-items: center;
   border-radius: 15px ;
   grid-area: header;
+}
+
+.footer {
+  grid-area: footer;
 }
 
 .search {

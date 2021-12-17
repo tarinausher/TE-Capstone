@@ -3,11 +3,13 @@
       <h2>Portfolio</h2>
       <br>
         <div class='projects' v-for="project in projects" v-bind:key="project.id">
-            <p>Title: {{ project.title }}</p>
-            <p>Description: {{ project.description }}</p>
-            <p>Technologies: {{ project.technologies }}</p>
+            <p><strong>Title:</strong> {{ project.title }}</p>
+            <p><strong>Description:</strong> {{ project.description }}</p>
+            <p><strong>Technologies: </strong>{{ project.technologies }}</p>
             <!--Will need to include Individual vs Group-->
-            <p>Link to Project: {{ project.link }}</p> 
+            <p><a :href="project.link"><strong>Link to Project</strong></a></p>
+            <br>
+            <br> 
             <!--Will need to adjust link to project above -->       
         </div>
       <add-project />

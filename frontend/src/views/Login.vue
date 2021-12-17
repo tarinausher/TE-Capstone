@@ -51,10 +51,10 @@
       <br />
       <br />
       <br />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
+      <!-- <router-link :to="{ name: 'register' }">Need an account?</router-link> -->
+      <!-- <br />
       <br />
-      <br />
-      <br />
+      <br /> -->
       <button type="submit">Sign in</button>
     </form>
   </div>
@@ -145,7 +145,8 @@ h1 {
 
 label {
   color: #0099ff;
-  font-size: 17px;
+  font-size: 17px;  
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-image: linear-gradient(#a4e5ff, #ffffffa6);
 }
 #username {

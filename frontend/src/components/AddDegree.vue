@@ -2,7 +2,7 @@
   <div class="main">
     <button v-on:click.prevent="showForm = true" v-show="showForm === false">Add New Degree</button>
 
-    <form v-on:submit.prevent="saveDegree" v-show="showForm" id="formAddDegree" >
+    <form v-on:submit.prevent="saveDegree" v-bind:userId="userId" v-show="showForm" id="formAddDegree" >
         <div class="field">
             <label for="level">Level: </label>
             <input type="text" name="level" v-model="degree.level" />
@@ -31,10 +31,14 @@
 
 <script>
 import profileService from '../services/ProfileService'
+import userId from '../components/StudentDetails'
 
 export default {
     
     name: "add-degree",
+    props: {
+        userId: Number
+    },
     data() {
         return {
             showForm: false,
@@ -61,6 +65,9 @@ export default {
             }
          })
         
+        },
+        getId() {
+            this.degree.userId = userId;
         }
     }
 

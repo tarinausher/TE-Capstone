@@ -23,17 +23,20 @@ VALUES ('Java', '12/15/2015'),
 ('Java', '12/15/2020'),
 ('Java', '12/15/2021');
 
---SELECT * FROM cohorts;
+DELETE FROM degrees;
+DELETE from experiences;
+DELETE from projects;
+DELETE from students;
 
-INSERT INTO students (user_id, cohort_id, first_name, last_name, summary, technologies, soft_skills, contact_preferences, is_published, last_updated)
-VALUES (4, 7, 'Test', 'User', 'I am a test user, here is my data.', 'Java, SQL, SpringBoot', 'teamwork, leadership', 'email', true, '06/15/2019'),
-(5, 8, 'Billy', 'Tables', 'Look out for SQL injections, kiddos.', 'SQL, Java, Python', 'conflict resolution, communication', 'email', true, '12/15/2019'),
-(6, 8, 'Rene', 'Decartes', 'I think, therefore I am', 'Java, HTML, CSS, JavaScript', 'perspective, communication', 'email', false, '12/15/2019'),
-(9, 10, 'Johny', 'Test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Java, SprintBoot, JUnit, SQL', 'problem solving, smiling', 'email', true, '12/8/2021'),
-(10, 8, 'Suzy', 'Test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Java, SprintBoot, JUnit, SQL', 'empathy, responsibility', 'email', true, '12/16/2019'),
-(11, 10, 'Sally', 'Test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Java, SprintBoot, JUnit, SQL', 'decisiveness, negotiation', 'linkedin', true, '12/7/2021'),
-(12, 10, 'Jimmy', 'Test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Java, SprintBoot, JUnit, SQL', 'flexibility, problem solving', 'email', true, '12/6/2021');
-
+INSERT INTO students (user_id, cohort_id, first_name, last_name, summary, technologies, soft_skills, contact_preferences, is_published, last_updated, picture)
+VALUES (4, 7, 'Test', 'User', 'I am a test user, here is my data.', 'Java, SQL, SpringBoot', 'teamwork, leadership', 'email', true, '06/15/2019', 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'),
+(5, 8, 'Bobby', 'Tables', 'Look out for SQL injections, kiddos.', 'SQL, Java, Python', 'conflict resolution, communication', 'email', true, '12/15/2019', 'https://www.explainxkcd.com/wiki/images/8/8c/Adult_Bobby_Tables.PNG'),
+(6, 8, 'Rene', 'Descartes', 'I think, therefore I am', 'Java, HTML, CSS, JavaScript', 'perspective, communication', 'email', false, '12/15/2019', 'https://i2.wp.com/www.military-history.org/wp-content/uploads/2014/03/Descartes.jpg'),
+(9, 10, 'Spongebob', 'Squarepants', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Java, SprintBoot, JUnit, SQL', 'problem solving, smiling', 'email', true, '12/8/2021', 'https://cdn.newsday.com/polopoly_fs/1.50200555.1617225167!/httpImage/image.jpg_gen/derivatives/landscape_1280/image.jpg'),
+(10, 8, 'Tom', 'Nook', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Java, SprintBoot, JUnit, SQL', 'marketing, sales', 'email', true, '12/16/2019', 'https://static3.srcdn.com/wordpress/wp-content/uploads/2021/07/Great-Animal-Crossing-Ideas-For-Undermining-Tom-Nook.jpg'),
+(11, 10, 'Stephen', 'Universe', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Java, SprintBoot, JUnit, SQL', 'decisiveness, negotiation', 'linkedin', true, '12/7/2021', 'https://assets.teenvogue.com/photos/5da4a5ffa554aa00097346a6/master/pass/Ent_Steven-Universe_PROMO.jpg'),
+(12, 10, 'Lisa', 'Simpson', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Java, SprintBoot, JUnit, SQL', 'flexibility, problem solving', 'email', true, '12/6/2021', 'https://media.entertainmentearth.com/assets/images/6d18e00403d94e6fab70ad36f9422214xl.jpg');
+UPDATE students SET first_name = 'Steven' where last_name = 'Universe';
 
 
 SELECT * FROM students;
@@ -65,11 +68,11 @@ VALUES (4, 'Government', 'Statistician', 'Bureau of Labor Statistics', '06/06/20
 SELECT * FROM users
 WHERE role = 'ROLE_STUDENT';
 
-INSERT INTO projects (user_id, title, description, is_solo, technologies)
-VALUES (4, 'Dropping the SQL', 'Developed a backend program that audits a SQL Database to determine which tables are no longer needed', true, 'Java, SQL'),
-(5, 'If I think, therefore I am', 'Created a program to determine what thinking means', true, 'Javascript, Java, Restful APIs, SQL'),
-(4, 'JUnit Extraordinaire', 'Developed a library of JUnit tests that can be easily readjusted to suit the users needs', false, 'Java, JUnit'),
-(4, 'Digital Craftsmen', 'Used Object-Oriented Programming to construct blueprints for various types of tables', true, 'Java');
+INSERT INTO projects (user_id, title, description, is_solo, technologies, link)
+VALUES (4, 'Dropping the SQL', 'Developed a backend program that audits a SQL Database to determine which tables are no longer needed', true, 'Java, SQL', 'https://github.com/'),
+(6, 'If I think, therefore I am', 'Created a program to determine what thinking means', true, 'Javascript, Java, Restful APIs, SQL', 'https://github.com/'),
+(4, 'JUnit Extraordinaire', 'Developed a library of JUnit tests that can be easily readjusted to suit the users needs', false, 'Java, JUnit', 'https://github.com/'),
+(4, 'Digital Craftsmen', 'Used Object-Oriented Programming to construct blueprints for various types of tables', true, 'Java', 'https://github.com/');
 
 SELECT * FROM projects;
 
@@ -91,4 +94,7 @@ UPDATE users SET is_validated = false WHERE user_id = 11;
 UPDATE users SET is_validated = false WHERE user_id = 12;
 
 
-UPDATE students SET is_published = true WHERE last_name = 'Decartes';
+UPDATE students SET is_published = true WHERE last_name = 'Descartes';
+
+
+

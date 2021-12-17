@@ -99,6 +99,7 @@ FOREIGN KEY (user_id) REFERENCES students(user_id)
 );
 
 ALTER TABLE users ADD COLUMN is_validated BOOLEAN;
+ALTER TABLE students ADD COLUMN picture VARCHAR(1000);
 
 COMMIT TRANSACTION;
 

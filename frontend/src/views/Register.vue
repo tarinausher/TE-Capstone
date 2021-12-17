@@ -123,6 +123,11 @@ export default {
 </script>
 
 <style scoped>
+
+#register {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 input[type="text"],
 input[type="password"] {
   width: 100%;
@@ -167,6 +172,7 @@ h1 {
 
 label {
   /* color: #08ffd1; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 17px;
 }
 #username {

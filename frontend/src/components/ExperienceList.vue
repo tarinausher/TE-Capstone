@@ -3,12 +3,12 @@
       <h2>Professional Experience</h2>
       <br>
         <div class='experience' v-for="experience in experiences" v-bind:key="experience.id">
-            <p>Industry: {{ experience.industry }}</p>
-            <p>Title: {{ experience.title}}</p>
-            <p>Organization: {{ experience.organization }}</p>
-            <p>Date Started: {{ experience.dateStarted }}</p>
-            <p>Date Ended: {{ experience.dateEnded }}</p>
-            <p>Description: {{ experience.description }}</p>            
+            <p><strong>Industry:</strong> {{ experience.industry }}</p>
+            <p><strong>Title:</strong> {{ experience.title}}</p>
+            <p><strong>Organization:</strong> {{ experience.organization }}</p>
+            <p><strong>Date Started: </strong>{{ experience.dateStarted }}</p>
+            <p><strong>Date Ended:</strong> {{ experience.dateEnded }}</p>
+            <p><strong>Description:</strong> {{ experience.description }}</p>            
         </div>
         <div class="buttons">
         <add-experience />
