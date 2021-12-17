@@ -3,25 +3,27 @@
       <h2>Education</h2>
       <br>
         <div class='degrees' v-for="degree in degrees" v-bind:key="degree.id">
-            <p>Level: {{ degree.level }}</p>
-            <p>Institution: {{ degree.institution}}</p>
-            <p>Subject Area: {{ degree.subjectArea }}</p>
-            <p>Date Completed: {{ degree.dateCompleted }}</p>
+          <div class='delete-degree'>
+            <button v-on:click="deleteDegree">x</button> <!-- nonfunctional at this time --> 
+          </div>
+            <div class="degree-info">
+            <p><strong>Level: </strong>{{ degree.level }}</p>
+            <p><strong>Institution: </strong>{{ degree.institution}}</p>
+            <p><strong>Subject Area: </strong>{{ degree.subjectArea }}</p>
+            <p><strong>Date Completed: </strong>{{ degree.dateCompleted }}</p>
+         </div>
+
+          
         </div>
-        <div class='add-degree'>
-          <add-degree />
-        </div>
-        <div class='delete-degree'>
-        </div>
+
   </div>
 </template>
 
 <script>
 import profileService from "../services/ProfileService";
-import AddDegree from './AddDegree.vue';
+
 
 export default {
-  components: { AddDegree },
     name: "degree-list",
     data() {
         return {
@@ -33,6 +35,15 @@ export default {
             profileService.getDegrees(this.$route.params.id).then( (response) => {
                 this.degrees = response.data;
             });
+        },
+        deleteDegree() {
+          if (confirm("Are you sure you want to delete this? This action cannot be undone.")) {
+            profileService.deleteDegree(this.degree.degreeId).then(response => {
+            if (response.status === 200) {
+              alert("Degree successfully deleted");
+            }
+          })
+          }
         }
     },
     created() {
@@ -65,6 +76,10 @@ h2 {
     border-bottom: black;
     border-style: solid;
     border-width: medium;
+}
+
+.delete-degree{
+    float: right;
 }
 
 .students {

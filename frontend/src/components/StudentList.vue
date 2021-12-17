@@ -3,11 +3,11 @@
     <article class="card">
       <div  v-for="student in students" v-bind:key="student.id" >    
           <div class="student">
-           <img src="https://via.placeholder.com/120" alt="placeholder">
-            <h3>{{student.firstName}}&nbsp;{{student.lastName}}</h3>
-          <p>Cohort: {{student.cohortId}}</p>
-          <p>Technical Skills: {{student.technologies}}</p>
-          <p>Soft Skills: {{student.softSkills}}</p>
+           <img v-bind:src="require('../assets/img/' + student.userId + '.jpg')" alt="placeholder" />
+          <h3>{{student.firstName}}&nbsp;{{student.lastName}}</h3>
+          <p><strong>Cohort:</strong> {{student.cohortId}}</p>
+          <p><strong>Technical Skills:</strong> {{student.technologies}}</p>
+          <p><strong>Soft Skills:</strong> {{student.softSkills}}</p>
 
           <router-link v-bind:to="{ name: 'student-profile', params: { id: student.userId }}">
           <button>View Profile</button>
@@ -70,6 +70,9 @@ h1 {
 }
 
 img {
+  height: 150px;
+  width: 150px;
+  border: 5px#deacff solid;
   border-radius: 50%;
   justify-content: center;
 }

@@ -56,6 +56,25 @@
       />
       <!-- added end -->
       <br />
+      <label for="role" class="sr-only">User type: </label>
+      <input 
+        type="radio"
+        id="user-type"
+        class="form-control"
+        value="Student"
+        checked
+        v-model="user.role"
+        required
+      /> <label for="student">Student</label>
+      <input 
+        type="radio"
+        id="user-type"
+        class="form-control"
+        checked
+        v-model="user.role"
+        required
+        value="Employer"
+      /> <label for="employer">Employer</label>
       <br />
       <br />
       <br />
@@ -123,6 +142,11 @@ export default {
 </script>
 
 <style scoped>
+
+#register {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 input[type="text"],
 input[type="password"] {
   width: 100%;
@@ -167,6 +191,7 @@ h1 {
 
 label {
   /* color: #08ffd1; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 17px;
 }
 #username {

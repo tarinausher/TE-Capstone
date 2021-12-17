@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <button v-on:click.prevent="showForm = true" v-show="showForm === false">Add New Experience</button>
+    <button v-on:click.prevent="showForm = true" v-show="showForm === false">Create New Student Profile</button>
 
     <form v-bind:userId="userId" v-show="showForm" id="formAddExperience">
         <div class="field">
@@ -81,8 +81,3 @@ export default {
 
 
 }
-</script>
-
-<style>
-
-</style>

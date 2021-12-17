@@ -6,13 +6,13 @@ import java.time.LocalDate;
 
 public class Degree {
     private int degreeId;
-    private int userId;
+    private Integer userId;
     private String level;
     private String institution;
     private String subjectArea;
     private LocalDate dateCompleted;
 
-    public Degree(int userId, int degreeId, String level, String institution, String subjectArea, LocalDate dateCompleted) {
+    public Degree(Integer userId, int degreeId, String level, String institution, String subjectArea, LocalDate dateCompleted) {
         this.userId = userId;
         this.degreeId = degreeId;
         this.level = level;
@@ -24,11 +24,11 @@ public class Degree {
     public Degree() {
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 

@@ -8,6 +8,8 @@ import store from '../store/index'
 import StudentProfile from '../views/StudentProfile.vue'
 import StudentList from '../components/StudentList'
 import AddDegree from '../components/AddDegree.vue'
+import About from '../views/About.vue'
+import CreateProfile from '../components/CreateProfile.vue'
 
 Vue.use(Router)
 
@@ -70,6 +72,16 @@ const router = new Router({
       path: "/degree",
       name: "add-degree",
       component: AddDegree
+    },
+    {
+      path: "/about",
+      name: "about",
+      component: About
+    },
+    {
+      path: "/student/create",
+      name: "create-profile",
+      component: CreateProfile
     }
   ]
 })

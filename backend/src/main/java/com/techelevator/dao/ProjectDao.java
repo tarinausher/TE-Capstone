@@ -17,6 +17,6 @@ public interface ProjectDao {
     void updateTechnologies(Project updatedProject);
     void updateLink(Project updatedProject);
 
-    void deleteProject(int projectId, int userId);
+    void deleteProject(int projectId);
 
 }

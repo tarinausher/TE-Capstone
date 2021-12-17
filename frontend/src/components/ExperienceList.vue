@@ -3,26 +3,26 @@
       <h2>Professional Experience</h2>
       <br>
         <div class='experience' v-for="experience in experiences" v-bind:key="experience.id">
-            <p>Industry: {{ experience.industry }}</p>
-            <p>Title: {{ experience.title}}</p>
-            <p>Organization: {{ experience.organization }}</p>
-            <p>Date Started: {{ experience.dateStarted }}</p>
-            <p>Date Ended: {{ experience.dateEnded }}</p>
-            <p>Description: {{ experience.description }}</p>            
+          <div class='delete-experience'>
+            <button v-on:click="deleteExperience">x</button> <!-- nonfunctional at this time --> 
+          </div>
+            <p><strong>Industry:</strong> {{ experience.industry }}</p>
+            <p><strong>Title:</strong> {{ experience.title}}</p>
+            <p><strong>Organization:</strong> {{ experience.organization }}</p>
+            <p><strong>Date Started: </strong>{{ experience.dateStarted }}</p>
+            <p><strong>Date Ended:</strong> {{ experience.dateEnded }}</p>
+            <p><strong>Description:</strong> {{ experience.description }}</p>            
         </div>
-        <div class="buttons">
-        <add-experience />
-        </div>
+
   </div>
 
 </template>
 
 <script>
 import profileService from "../services/ProfileService";
-import AddExperience from './AddExperience.vue';
+
 
 export default {
-  components: { AddExperience },
     name: "experience-list",
     data() {
         return {
@@ -34,6 +34,15 @@ export default {
             profileService.getExperiences(this.$route.params.id).then( (response) => {
                 this.experiences = response.data;
             });
+        },
+        deleteExperience() {
+          if (confirm("Are you sure you want to delete this? This action cannot be undone.")) {
+            profileService.deleteDegree(this.experience.experienceId).then(response => {
+            if (response.status === 200) {
+              alert("Experience successfully deleted");
+            }
+          })
+          }
         }
     },
     created() {
@@ -52,6 +61,10 @@ export default {
     border-bottom: black;
     border-style: solid;
     border-width: medium;
+}
+
+.delete-experience {
+    float: right;
 }
 
 .buttons {

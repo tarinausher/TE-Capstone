@@ -2,7 +2,7 @@
   <div class="main">
     <button v-on:click.prevent="showForm = true" v-show="showForm === false">Add New Degree</button>
 
-    <form v-on:submit.prevent="saveDegree" v-show="showForm" id="formAddDegree" >
+    <form v-bind:userId="userId" v-show="showForm" id="formAddDegree" >
         <div class="field">
             <label for="level">Level: </label>
             <input type="text" name="level" v-model="degree.level" />
@@ -24,22 +24,25 @@
         <button type="reset" class="btn reset" v-on:click.prevent="showForm = false">Cancel</button>
     </form>
 
-    <button>Delete Degree</button>
 
   </div>
 </template>
 
 <script>
 import profileService from '../services/ProfileService'
+import userId from '../components/StudentDetails'
 
 export default {
     
     name: "add-degree",
+    props: {
+        userId: Number
+    },
     data() {
         return {
             showForm: false,
             degree: {
-                userId: null,
+                userId: this.userId,
                 level: '',
                 institution: '',
                 subjectArea: '',
@@ -50,9 +53,9 @@ export default {
     methods: {
         saveDegree() {
             profileService.addDegree(this.degree).then(response => {
-                if (response.status === 200) { // 201 = "Created"
+                if (response.status === 201) { // 201 = "Created"
                 this.degree = { 
-                    userId: null,
+                    userId: this.userId,
                     level: '',
                     institution: '',
                     subjectArea: '',
@@ -61,6 +64,9 @@ export default {
             }
          })
         
+        },
+        getId() {
+            this.degree.userId = userId;
         }
     }
 

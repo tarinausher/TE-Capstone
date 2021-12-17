@@ -17,12 +17,13 @@ public class Student {
     private String contactPreferences;
     private String lastUpdated;
     private boolean isPublished;
+    private String picture;
 
     public Student() {
 
     }
 
-    public Student(int userId, Cohort cohort, String firstName, String lastName, String summary, List<Project> projects, List<Degree> degrees, List<Experience> experiences, String technologies, String softSkills, String contactPreferences, String lastUpdated, boolean isPublished) {
+    public Student(int userId, Cohort cohort, String firstName, String lastName, String summary, List<Project> projects, List<Degree> degrees, List<Experience> experiences, String technologies, String softSkills, String contactPreferences, String lastUpdated, boolean isPublished, String picture) {
         this.userId = userId;
         this.cohort = cohort;
         this.firstName = firstName;
@@ -36,6 +37,7 @@ public class Student {
         this.contactPreferences = contactPreferences;
         this.lastUpdated = lastUpdated;
         this.isPublished = isPublished;
+        this.picture = picture;
     }
 
     public String highestDegreeLevel() {
@@ -188,6 +190,14 @@ public class Student {
 
     public void setPublished(boolean published) {
         isPublished = published;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public String toString() {

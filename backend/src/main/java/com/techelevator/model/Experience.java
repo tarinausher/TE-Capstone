@@ -1,16 +1,18 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
+
 public class Experience {
     private int experienceId;
     private int userId;
     private String industry;
     private String title;
     private String organization;
-    private String dateStarted;
-    private String dateEnded;
+    private LocalDate dateStarted;
+    private LocalDate dateEnded;
     private String description;
 
-    public Experience(int experienceId, int userId, String industry, String title, String organization, String dateStarted, String dateEnded, String description) {
+    public Experience(int experienceId, int userId, String industry, String title, String organization, LocalDate dateStarted, LocalDate dateEnded, String description) {
         this.experienceId = experienceId;
         this.userId = userId;
         this.industry = industry;
@@ -64,19 +66,19 @@ public class Experience {
         this.organization = organization;
     }
 
-    public String getDateStarted() {
+    public LocalDate getDateStarted() {
         return dateStarted;
     }
 
-    public void setDateStarted(String dateStarted) {
+    public void setDateStarted(LocalDate dateStarted) {
         this.dateStarted = dateStarted;
     }
 
-    public String getDateEnded() {
+    public LocalDate getDateEnded() {
         return dateEnded;
     }
 
-    public void setDateEnded(String dateEnded) {
+    public void setDateEnded(LocalDate dateEnded) {
         this.dateEnded = dateEnded;
     }
 

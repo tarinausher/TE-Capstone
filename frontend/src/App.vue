@@ -2,14 +2,15 @@
   <div id="app">
     <div id="menu">
     <div id="header">
-      <!-- <img src="src/imgs/image.png" alt="build-a-student-workshop logo" /> -->
       <h1>Build-a-Student-Workshop</h1>
     </div>
     <div id="nav">
       <ul>
-        <li><router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;</li>
-        <li><router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>&nbsp;|&nbsp;</li>
-        <li><router-link v-bind:to="{ name: 'student-list'}" v-if="$store.state.token != ''">All Students</router-link></li>
+        <li v-if="$store.state.token != ''"><router-link v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''">Home</router-link>&nbsp;|&nbsp;</li>
+        <li v-if="$store.state.token != ''"><router-link v-bind:to="{ name: 'about' }" v-if="$store.state.token != ''">About</router-link>&nbsp;|&nbsp;</li>
+        <li v-if="$store.state.token != ''"><router-link :to="{ name: 'register' }" v-if="$store.state.token != ''">Register User</router-link>&nbsp;|&nbsp;</li>
+        <!-- <li v-if="$store.state.token != ''"><router-link v-bind:to="{ name: 'update-profile' }" v-if="$store.state.token != ''">Update Profile</router-link>&nbsp;|&nbsp;</li> -->
+        <li v-if="$store.state.token != ''"><router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link></li>
       </ul>
     </div>
     </div>
@@ -23,6 +24,15 @@ export default {};
 </script>
 
 <style>
+#app {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+img {
+  width:200px;
+}
+
 body {
   background-size: cover;
   background-attachment: fixed;

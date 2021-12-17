@@ -34,7 +34,7 @@ public class StudentController {
         return students;
     }
 
-    @PostMapping(path = "/student")
+    @PostMapping(path = "/student/create")
     public void addStudent(@Valid @RequestBody Student student) {
         studentDao.createProfile(student);
     }

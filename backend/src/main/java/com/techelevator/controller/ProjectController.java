@@ -2,10 +2,8 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.ProjectDao;
 import com.techelevator.model.Project;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
@@ -18,8 +16,9 @@ public class ProjectController {
     }
 
     @PostMapping(path = "/project")
-    void createProject(Project updatedProject) {
-        projectDao.createProject(updatedProject);
+    @ResponseStatus(HttpStatus.CREATED)
+    void createProject(@RequestBody Project project) {
+        projectDao.createProject(project);
     }
 
     @PutMapping(path = "/project/title")
@@ -46,4 +45,10 @@ public class ProjectController {
     void updateLink(Project updatedProject) {
         projectDao.updateLink(updatedProject);
     }
+
+    @DeleteMapping(path = "/project/{projectId}")
+    void deleteDegree(@PathVariable int projectId) {
+        projectDao.deleteProject(projectId);
+    }
+
 }
